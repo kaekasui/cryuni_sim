@@ -35,6 +35,7 @@ end
 group :test do
   gem 'rspec-rails'
   gem 'rspec_junit_formatter'
+  gem 'simplecov'
 end
 
 group :development do
