@@ -60,7 +60,7 @@ jobs:
       - run: bundle exec rake db:schema:load
 
       # Run stylelint
-      # - run: npm run stylelint app/assets/stylesheets/*
+      - run: npm run stylelint app/assets/stylesheets/*
 
       # Run ESLint
       # - run: npm run eslint app/assets/javascripts/**/*.js

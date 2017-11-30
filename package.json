@@ -8,7 +8,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "test"
+    "stylelint": "stylelint"
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/kaekasui/cryuni_sim/issues"
   },
-  "homepage": "https://github.com/kaekasui/cryuni_sim#readme"
+  "homepage": "https://github.com/kaekasui/cryuni_sim#readme",
+  "devDependencies": {
+    "stylelint": "^8.3.1"
+  }
 }
