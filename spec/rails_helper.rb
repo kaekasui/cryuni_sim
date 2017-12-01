@@ -9,8 +9,8 @@ require 'rspec/rails'
 # require 'rspec/json_matcher'
 # require 'faker'
 # require 'capybara/email/rspec'
-# require 'capybara/poltergeist'
-# require 'capybara-screenshot/rspec'
+require 'capybara/poltergeist'
+require 'capybara-screenshot/rspec'
 # require 'rack_session_access/capybara'
 require 'simplecov'
 # require 'selenium-webdriver'
@@ -27,13 +27,13 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 #  end
 # end
 
-# Capybara.default_max_wait_time = 20
-#
-# Capybara.register_driver :selenium do |app|
-#  Capybara::Selenium::Driver.new(app, browser: :chrome)
-# end
-#
-# ActiveRecord::Migration.maintain_test_schema!
+Capybara.default_max_wait_time = 20
+
+Capybara.register_driver :selenium do |app|
+ Capybara::Selenium::Driver.new(app, browser: :chrome)
+end
+
+ActiveRecord::Migration.maintain_test_schema!
 SimpleCov.start do
   add_group 'Models', 'app/models'
   add_group 'Controllers', 'app/controllers'
@@ -50,7 +50,7 @@ RSpec.configure do |config|
   # config.mock_with :rspec do |mocks|
   #  mocks.verify_partial_doubles = true
   # end
-  # config.include Capybara::DSL
+  config.include Capybara::DSL
 
   # config.use_transactional_fixtures = false
   # config.infer_spec_type_from_file_location!
