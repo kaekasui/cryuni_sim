@@ -15,4 +15,7 @@
 
 .byebug_history
 
-frontend/node_modules/*
+/frontend/node_modules/*
+
+/app/assets/javascripts/
+!/app/assets/javascripts/.keep
