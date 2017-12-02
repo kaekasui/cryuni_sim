@@ -43,7 +43,7 @@ jobs:
       - restore_cache:
           name: Restore npm cache
           keys:
-            - npm-5.4.2-{{ checksum "package.json" }}
+            - npm-5.4.2-{{ checksum "frontend/package.json" }}
 
       - run:
           name: Run npm install
@@ -51,16 +51,16 @@ jobs:
 
       - save_cache:
           name: Store npm cache
-          key: npm-5.4.2-{{ checksum "package.json" }}
+          key: npm-5.4.2-{{ checksum "frontend/package.json" }}
           paths:
-            - ./node_modules
+            - ./frontend/node_modules
 
       # Database setup
       - run: bundle exec rake db:create
       - run: bundle exec rake db:schema:load
 
       # Run stylelint
-      - run: npm run stylelint app/assets/stylesheets/*
+      - run: bundle exec rake stylelint
 
       # Run ESLint
       # - run: npm run eslint app/assets/javascripts/**/*.js
