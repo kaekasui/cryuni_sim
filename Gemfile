@@ -37,9 +37,11 @@ end
 group :test do
   gem 'capybara'
   gem 'capybara-screenshot'
+  gem 'database_rewinder'
   gem 'rspec-rails'
   gem 'rspec_junit_formatter'
   gem 'simplecov'
+  gem 'selenium-webdriver'
 end
 
 group :development do

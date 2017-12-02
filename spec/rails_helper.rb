@@ -5,20 +5,15 @@ require File.expand_path('../../config/environment', __FILE__)
 
 require 'spec_helper'
 require 'rspec/rails'
-# require 'shoulda-matchers'
-# require 'rspec/json_matcher'
-# require 'faker'
-# require 'capybara/email/rspec'
 require 'capybara/poltergeist'
 require 'capybara-screenshot/rspec'
-# require 'rack_session_access/capybara'
 require 'simplecov'
-# require 'selenium-webdriver'
+require 'selenium-webdriver'
 # require 'paper_trail/frameworks/rspec'
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
-# include ActionDispatch::TestProcess
+include ActionDispatch::TestProcess
 
 # Shoulda::Matchers.configure do |config|
 #  config.integrate do |with|
@@ -52,8 +47,8 @@ RSpec.configure do |config|
   # end
   config.include Capybara::DSL
 
-  # config.use_transactional_fixtures = false
-  # config.infer_spec_type_from_file_location!
+  config.use_transactional_fixtures = false
+  config.infer_spec_type_from_file_location!
 
   config.include FactoryBot::Syntax::Methods
   # config.include RSpec::JsonMatcher
@@ -62,19 +57,18 @@ RSpec.configure do |config|
   # config.include FeatureSpecHelper, type: :feature
   # config.include ModelSpecHelper, type: :model
 
-  #  Faker::Config.locale = :en
   config.before :suite do
     I18n.locale = :ja
-  #  begin
-    FactoryBot.lint
-  #  ensure
-  #    DatabaseRewinder.clean_all
-  #  end
+    begin
+      FactoryBot.lint
+    ensure
+      DatabaseRewinder.clean_all
+    end
   end
 
-  # config.after :each do
-  #  DatabaseRewinder.clean_all
-  # end
+  config.after :each do
+    DatabaseRewinder.clean_all
+  end
 
   # config.after :each, type: :feature do
   #  messages = page.driver.browser.manage.logs
