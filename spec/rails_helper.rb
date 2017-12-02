@@ -30,7 +30,7 @@ Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 Capybara.default_max_wait_time = 20
 
 Capybara.register_driver :selenium do |app|
- Capybara::Selenium::Driver.new(app, browser: :chrome)
+  Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
 
 ActiveRecord::Migration.maintain_test_schema!
@@ -55,22 +55,22 @@ RSpec.configure do |config|
   # config.use_transactional_fixtures = false
   # config.infer_spec_type_from_file_location!
 
-  # config.include FactoryGirl::Syntax::Methods
+  config.include FactoryBot::Syntax::Methods
   # config.include RSpec::JsonMatcher
   # config.include ActiveJob::TestHelper
   # config.include RequestSpecHelper, type: :request
   # config.include FeatureSpecHelper, type: :feature
   # config.include ModelSpecHelper, type: :model
 
-  # config.before :suite do
-  #  I18n.locale = :ja
   #  Faker::Config.locale = :en
+  config.before :suite do
+    I18n.locale = :ja
   #  begin
-  #    FactoryGirl.lint
+    FactoryBot.lint
   #  ensure
   #    DatabaseRewinder.clean_all
   #  end
-  # end
+  end
 
   # config.after :each do
   #  DatabaseRewinder.clean_all
