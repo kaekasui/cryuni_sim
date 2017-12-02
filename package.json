@@ -1,0 +1,29 @@
+{
+  "name": "cryuni_sim",
+  "version": "1.0.0",
+  "description": "Simulator for Crystal of Reunion",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "stylelint": "stylelint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaekasui/cryuni_sim.git"
+  },
+  "keywords": [
+    "cryuni"
+  ],
+  "author": "kaekasui",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaekasui/cryuni_sim/issues"
+  },
+  "homepage": "https://github.com/kaekasui/cryuni_sim#readme",
+  "devDependencies": {
+    "stylelint": "^8.3.1"
+  }
+}
