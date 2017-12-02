@@ -15,4 +15,4 @@
 
 .byebug_history
 
-node_modules/*
+frontend/node_modules/*
