@@ -11,6 +11,7 @@ gem 'rails', '~> 5.1.4'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 
+gem 'active_model_serializers'
 gem 'rails-i18n'
 gem 'slim-rails'
 
@@ -25,6 +26,7 @@ group :test do
   gem 'capybara-screenshot'
   gem 'database_rewinder'
   gem 'rspec-rails'
+  gem 'rspec-json_matcher', require: false
   gem 'rspec_junit_formatter'
   gem 'shoulda-matchers'
   gem 'simplecov'

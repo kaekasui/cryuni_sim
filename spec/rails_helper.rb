@@ -6,6 +6,7 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'spec_helper'
 require 'rspec/rails'
 require 'shoulda-matchers'
+require 'rspec/json_matcher'
 # require 'capybara/poltergeist'
 require 'capybara-screenshot/rspec'
 require 'simplecov'
@@ -52,7 +53,7 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 
   config.include FactoryBot::Syntax::Methods
-  # config.include RSpec::JsonMatcher
+  config.include RSpec::JsonMatcher
   # config.include ActiveJob::TestHelper
   # config.include RequestSpecHelper, type: :request
   # config.include FeatureSpecHelper, type: :feature
