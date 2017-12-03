@@ -16,7 +16,6 @@ export default class Heros extends React.Component {
       .then((res) => res.json())
       .then((res) => {
         this.setState({heros: res})
-        console.log(res)
       })
       .catch((error) => {
         console.error(error)

@@ -12,8 +12,10 @@ gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
 
 gem 'active_model_serializers'
+gem 'bootstrap-sass'
 gem 'rails-i18n'
 gem 'slim-rails'
+gem 'sass-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
