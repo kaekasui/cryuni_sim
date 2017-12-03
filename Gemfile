@@ -26,6 +26,7 @@ group :test do
   gem 'database_rewinder'
   gem 'rspec-rails'
   gem 'rspec_junit_formatter'
+  gem 'shoulda-matchers'
   gem 'simplecov'
   gem 'selenium-webdriver'
 end
