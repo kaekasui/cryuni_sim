@@ -19,3 +19,7 @@
 
 /app/assets/javascripts/
 !/app/assets/javascripts/.keep
+
+/coverage/*
+
+.env

@@ -10,9 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20171203074156) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "hero_abilities", force: :cascade do |t|
+    t.bigint "hero_id", null: false
+    t.integer "intimacy_level_from", null: false
+    t.integer "intimacy_level_to", null: false
+    t.integer "stage"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["hero_id"], name: "index_hero_abilities_on_hero_id"
+  end
+
+  create_table "heros", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "image_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "hero_abilities", "heros"
 end
