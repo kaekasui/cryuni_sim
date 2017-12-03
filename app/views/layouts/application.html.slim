@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    = csrf_meta_tags
+
+  body
+    p hello
+    .container
+      .row
+        #content
+          = yield
+
+= javascript_include_tag 'application'
