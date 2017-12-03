@@ -1,5 +1,5 @@
 import React from 'react'
-import { render } from 'react-dom'
+import PropTypes from 'prop-types'
 
 export default class Hero extends React.Component {
   constructor(props) {
@@ -13,4 +13,8 @@ export default class Hero extends React.Component {
       </div>
     )
   }
+}
+
+Hero.propTypes = {
+  hero: PropTypes.object.isRequired
 }

@@ -1,5 +1,4 @@
 import React from 'react'
-import { render } from 'react-dom'
 
 import Hero from './hero.js'
 
@@ -11,6 +10,10 @@ export default class Heros extends React.Component {
     }
   }
 
+  componentWillMount() {
+    this.getHeros()
+  }
+
   getHeros() {
     fetch('api/heros')
       .then((res) => res.json())
@@ -20,10 +23,6 @@ export default class Heros extends React.Component {
       .catch((error) => {
         console.error(error)
       })
-  }
-
-  componentWillMount() {
-    this.getHeros()
   }
 
   render() {
