@@ -78,7 +78,7 @@ jobs:
             $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
 
       # Export Report of test coverage
-      - run: ruby ./bin/coverage_report.rb
+      # - run: ruby ./bin/coverage_report.rb
 
       # Save artifacts
       #- store_artifacts:
