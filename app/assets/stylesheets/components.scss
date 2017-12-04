@@ -5,9 +5,12 @@
   }
 }
 
-.herosComponent {
+.heroAbilitySettingComponent {
   li {
     list-style-type: none;
     float: left;
+    .hero_image {
+      cursor: pointer;
+    }
   }
 }

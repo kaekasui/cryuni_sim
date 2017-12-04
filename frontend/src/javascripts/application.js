@@ -1,13 +1,13 @@
 import React from 'react'
 import { render } from 'react-dom'
 
-import Heros from './heros.js'
+import HeroAbilitySetting from './hero_ability/hero_ability_setting.js'
 
 class Simulator extends React.Component {
   render() {
     return (
       <div className="SimulatorComponent">
-        <Heros />
+        <HeroAbilitySetting />
       </div>
     )
   }
