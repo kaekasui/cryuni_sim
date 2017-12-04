@@ -22,3 +22,9 @@ CSV.foreach('db/seeds/hero_abilities.csv') do |row|
     intimacy_level_to: row[2]
   )
 end
+
+# アビリティ
+CSV.foreach('db/seeds/abilities.csv') do |row|
+  ability = Ability.find_or_initialize_by(name: row[0])
+  ability.save
+end
