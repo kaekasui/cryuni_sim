@@ -16,9 +16,9 @@ CSV.foreach('db/seeds/hero_abilities.csv') do |row|
   hero = Hero.find_by(name: row[0])
   puts "ERROR: not found hero '#{row[0]}'" if hero.blank?
 
-  hero.hero_abilities.create(
+  abilities = hero.hero_abilities.find_or_initialize_by(stage: row[3])
+  abilities.update_attributes(
     intimacy_level_from: row[1],
-    intimacy_level_to: row[2],
-    stage: row[3]
+    intimacy_level_to: row[2]
   )
 end

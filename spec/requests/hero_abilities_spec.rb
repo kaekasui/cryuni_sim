@@ -45,7 +45,7 @@ describe 'GET /api/heros/:id/hero_abilities', autodoc: true do
       {
         id: hero_ability3.id,
         stage: 2,
-        intimacy_level: 'レベル11〜15',
+        intimacy_level: 'レベル11',
         hero: {
           id: hero.id,
           name: '英雄1',
