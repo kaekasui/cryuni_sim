@@ -27,10 +27,12 @@ export default class Heros extends React.Component {
 
   render() {
     return (
-      <div className="HerosComponent">
-        {this.state.heros.map((hero) =>
-          <Hero hero={hero} key={hero.id} />
-        )}
+      <div className="herosComponent">
+        <ul>
+          {this.state.heros.map((hero) =>
+            <li key={hero.id}><Hero hero={hero} /></li>
+          )}
+        </ul>
       </div>
     )
   }

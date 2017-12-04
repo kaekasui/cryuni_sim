@@ -8,8 +8,8 @@ export default class Hero extends React.Component {
 
   render() {
     return (
-      <div className="HeroComponent">
-        { this.props.hero.name }
+      <div className='heroComponent'>
+        <img src={ 'assets/' + this.props.hero.image_name } />
       </div>
     )
   }

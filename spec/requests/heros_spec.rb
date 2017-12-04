@@ -13,11 +13,13 @@ describe 'GET /api/heros', autodoc: true do
     json = [
       {
         id: hero1.id,
-        name: '英雄1'
+        name: '英雄1',
+        image_name: 'claudia.jpg'
       },
       {
         id: hero2.id,
-        name: '英雄2'
+        name: '英雄2',
+        image_name: 'claudia.jpg'
       }
     ]
     expect(response.body).to be_json_as(json)
