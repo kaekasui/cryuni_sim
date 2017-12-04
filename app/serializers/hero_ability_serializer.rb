@@ -2,4 +2,6 @@
 
 class HeroAbilitySerializer < ActiveModel::Serializer
   attributes :id, :stage, :intimacy_level_from, :intimacy_level_to
+
+  belongs_to :hero
 end
