@@ -9,7 +9,9 @@ export default class Hero extends React.Component {
   render() {
     return (
       <div className='heroComponent'>
-        <img src={ 'assets/' + this.props.hero.image_name } />
+        <span className='hero_image'>
+          <img src={ 'assets/' + this.props.hero.image_name } />
+        </span>
       </div>
     )
   }
