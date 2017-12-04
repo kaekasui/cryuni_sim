@@ -15,8 +15,7 @@ export default class Hero extends React.Component {
     fetch('api/heros/' + this.props.hero.id + '/hero_abilities')
       .then((res) => res.json())
       .then((res) => {
-        this.setState({heros: res})
-        console.log(res)
+        this.props.handleLoad(res)
       })
       .catch((error) => {
         console.error(error)
@@ -35,5 +34,6 @@ export default class Hero extends React.Component {
 }
 
 Hero.propTypes = {
-  hero: PropTypes.object.isRequired
+  hero: PropTypes.object.isRequired,
+  handleLoad: PropTypes.func.isRequired
 }
