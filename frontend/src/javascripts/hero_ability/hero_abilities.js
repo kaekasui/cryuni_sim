@@ -11,12 +11,12 @@ export default class HeroAbilities extends React.Component {
       <div className='heroAbilitiesComponent'>
         <table className='table table-bordered'>
           <tbody>
-            {this.props.heroAbilities.map((ability) =>
-              (<tr key={ability.id}>
-                <th>{ability.intimacy_level_from + '〜' + ability.intimacy_level_to}</th>
+            {this.props.heroAbilities.map((ability) => (
+              <tr key={ability.id}>
+                <th>{ability.intimacy_level}</th>
                 <td />
-              </tr>)
-            )}
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

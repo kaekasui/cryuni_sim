@@ -14,7 +14,7 @@ describe 'GET /api/heros/:id/hero_abilities', autodoc: true do
   end
   let!(:hero_ability3) do
     create(:hero_ability,
-           hero: hero, intimacy_level_from: 11, intimacy_level_to: 15, stage: 2)
+           hero: hero, intimacy_level_from: 11, intimacy_level_to: 11, stage: 2)
   end
 
   it '200とデータが返ってくること' do
@@ -25,8 +25,7 @@ describe 'GET /api/heros/:id/hero_abilities', autodoc: true do
       {
         id: hero_ability1.id,
         stage: 0,
-        intimacy_level_from: 1,
-        intimacy_level_to: 5,
+        intimacy_level: 'レベル1〜5',
         hero: {
           id: hero.id,
           name: '英雄1',
@@ -36,8 +35,7 @@ describe 'GET /api/heros/:id/hero_abilities', autodoc: true do
       {
         id: hero_ability2.id,
         stage: 1,
-        intimacy_level_from: 6,
-        intimacy_level_to: 10,
+        intimacy_level: 'レベル6〜10',
         hero: {
           id: hero.id,
           name: '英雄1',
@@ -47,8 +45,7 @@ describe 'GET /api/heros/:id/hero_abilities', autodoc: true do
       {
         id: hero_ability3.id,
         stage: 2,
-        intimacy_level_from: 11,
-        intimacy_level_to: 15,
+        intimacy_level: 'レベル11〜15',
         hero: {
           id: hero.id,
           name: '英雄1',
