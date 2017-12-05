@@ -76,7 +76,7 @@ describe 'GET /api/heros/:id/hero_abilities', autodoc: true do
           {
             ability_name: '英雄移動速度',
             score: '20.0',
-            unit: '%',
+            unit: '%'
           },
           {
             ability_name: '対亜人攻撃力',
