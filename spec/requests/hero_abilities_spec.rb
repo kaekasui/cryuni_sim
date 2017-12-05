@@ -52,11 +52,13 @@ describe 'GET /api/heros/:id/hero_abilities', autodoc: true do
         },
         attached_abilities: [
           {
+            id: attached_ability1.id,
             ability_name: '英雄移動速度',
             score: '10.0',
             unit: '%'
           },
           {
+            id: attached_ability2.id,
             ability_name: '対亜人攻撃力',
             score: '20.0',
             unit: '%'
@@ -74,11 +76,13 @@ describe 'GET /api/heros/:id/hero_abilities', autodoc: true do
         },
         attached_abilities: [
           {
+            id: attached_ability3.id,
             ability_name: '英雄移動速度',
             score: '20.0',
             unit: '%'
           },
           {
+            id: attached_ability4.id,
             ability_name: '対亜人攻撃力',
             score: '30.0',
             unit: '%'
