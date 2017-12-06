@@ -48,7 +48,8 @@ describe 'GET /api/heros/:id/hero_abilities', autodoc: true do
         hero: {
           id: hero.id,
           name: '英雄1',
-          image_name: 'claudia.jpg'
+          image_name: 'claudia.jpg',
+          whole_image_name: 'sd_claudia.png'
         },
         attached_abilities: [
           {
@@ -72,7 +73,8 @@ describe 'GET /api/heros/:id/hero_abilities', autodoc: true do
         hero: {
           id: hero.id,
           name: '英雄1',
-          image_name: 'claudia.jpg'
+          image_name: 'claudia.jpg',
+          whole_image_name: 'sd_claudia.png'
         },
         attached_abilities: [
           {
@@ -96,7 +98,8 @@ describe 'GET /api/heros/:id/hero_abilities', autodoc: true do
         hero: {
           id: hero.id,
           name: '英雄1',
-          image_name: 'claudia.jpg'
+          image_name: 'claudia.jpg',
+          whole_image_name: 'sd_claudia.png'
         },
         attached_abilities: []
       }

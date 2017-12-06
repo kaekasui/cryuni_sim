@@ -14,12 +14,14 @@ describe 'GET /api/heros', autodoc: true do
       {
         id: hero1.id,
         name: '英雄1',
-        image_name: 'claudia.jpg'
+        image_name: 'claudia.jpg',
+        whole_image_name: 'sd_claudia.png'
       },
       {
         id: hero2.id,
         name: '英雄2',
-        image_name: 'claudia.jpg'
+        image_name: 'claudia.jpg',
+        whole_image_name: 'sd_claudia.png'
       }
     ]
     expect(response.body).to be_json_as(json)
