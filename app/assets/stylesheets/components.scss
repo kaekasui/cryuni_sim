@@ -6,11 +6,16 @@
 }
 
 .heroAbilitySettingComponent {
-  li {
+  li.icon {
     list-style-type: none;
     float: left;
     .hero_image {
       cursor: pointer;
+    }
+  }
+  .heroAbilitiesComponent {
+    li {
+      list-style-type: none;
     }
   }
 }

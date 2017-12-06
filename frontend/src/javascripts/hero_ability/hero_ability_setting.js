@@ -37,7 +37,7 @@ export default class HeroAbilitySetting extends React.Component {
       <div className='heroAbilitySettingComponent'>
         <ul>
           {this.state.heros.map((hero) =>
-            (<li key={hero.id}>
+            (<li className='icon' key={hero.id}>
               <Hero handleLoad={this.loadHeroAbilities} hero={hero} />
             </li>)
           )}

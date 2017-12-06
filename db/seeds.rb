@@ -30,7 +30,9 @@ CSV.foreach('db/seeds/abilities.csv') do |row|
 end
 
 # ヒーローアビリティにあるアビリティ
+AttachedAbility.destroy_all
 CSV.foreach('db/seeds/attached_abilities.csv') do |row|
+
   hero = Hero.find_by(name: row[0])
   raise "ERROR: not found hero '#{row[0]}'" if hero.blank?
 
@@ -39,16 +41,12 @@ CSV.foreach('db/seeds/attached_abilities.csv') do |row|
     raise "ERROR: not found hero '#{row[0]}''s hero ability stage: #{row[1]}"
   end
 
-  if hero_ability.attached_abilities.count.positive?
-    hero_ability.attached_abilities.destroy_all
-  else
-    ability = Ability.find_by(name: row[2])
-    raise "ERROR: not found ability '#{row[2]}'" if ability.blank?
+  ability = Ability.find_by(name: row[2])
+  raise "ERROR: not found ability '#{row[2]}'" if ability.blank?
 
-    hero_ability.attached_abilities.create(
-      ability: ability,
-      score: row[3],
-      unit: row[4]
-    )
-  end
+  hero_ability.attached_abilities.create(
+    ability: ability,
+    score: row[3],
+    unit: row[4]
+  )
 end
