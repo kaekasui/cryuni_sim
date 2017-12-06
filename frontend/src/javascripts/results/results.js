@@ -9,8 +9,8 @@ export default class Results extends React.Component {
   render() {
     return (
       <div className='resultsComponent'>
-        <h2>{this.props.hero.name}</h2>
         <span className='cryuni-image'>
+          <h2>{this.props.hero.name}</h2>
           <span className='cryuni-background-image'>
             <img src={'assets/cryuni_background.png'} />
           </span>

@@ -22,8 +22,12 @@ class Simulator extends React.Component {
   render() {
     return (
       <div className="SimulatorComponent">
-        <Results hero={this.state.hero} />
-        <HeroAbilitySetting handleLoadHero={this.loadHero} />
+        <div className='col-md-6'>
+          <HeroAbilitySetting handleLoadHero={this.loadHero} />
+        </div>
+        <div className='col-md-6'>
+          <Results hero={this.state.hero} />
+        </div>
       </div>
     )
   }

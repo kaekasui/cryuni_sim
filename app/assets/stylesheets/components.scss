@@ -1,13 +1,22 @@
 .heroComponent {
   img {
-    height: 100px;
+    height: 60px;
     margin: 10px;
   }
 }
 
 .resultsComponent {
+  padding-top: 10px;
   .cryuni-image {
     position: relative;
+    h2 {
+      padding: 10px;
+      font-size: 15px;
+      position: absolute;
+      color: #eeeeee;
+      left: 10px;
+      background-color: #000000;
+    }
     .cryuni-background-image img {
       width: 500px;
     }
