@@ -9,8 +9,18 @@ export default class Results extends React.Component {
   render() {
     return (
       <div className='resultsComponent'>
-        <span className='cryuni-background-image'>
-          <img src={'assets/cryuni_background.png'} />
+        <h2>{this.props.hero.name}</h2>
+        <span className='cryuni-image'>
+          <span className='cryuni-background-image'>
+            <img src={'assets/cryuni_background.png'} />
+          </span>
+          {this.props.hero.whole_image_name ? (
+            <span className='whole-image'>
+              <img src={'assets/' + this.props.hero.whole_image_name} />
+            </span>
+          ) : (
+            null
+          )}
         </span>
       </div>
     )
@@ -18,5 +28,5 @@ export default class Results extends React.Component {
 }
 
 Results.propTypes = {
-  hero: PropTypes.object
+  hero: PropTypes.object.isRequired
 }
