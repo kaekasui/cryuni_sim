@@ -36,5 +36,6 @@ export default class Hero extends React.Component {
 
 Hero.propTypes = {
   hero: PropTypes.object.isRequired,
+  handleLoadHero: PropTypes.func.isRequired,
   handleLoadHeroAbilities: PropTypes.func.isRequired
 }
