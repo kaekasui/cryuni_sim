@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import Hero from './hero'
 import HeroAbilities from './hero_abilities'
@@ -11,10 +12,15 @@ export default class HeroAbilitySetting extends React.Component {
       heroAbilities: []
     }
     this.loadHeroAbilities = this.loadHeroAbilities.bind(this)
+    this.loadHero = this.loadHero.bind(this)
   }
 
   componentWillMount() {
     this.getHeros()
+  }
+
+  loadHero(hero) {
+    this.props.handleLoadHero(hero)
   }
 
   loadHeroAbilities(heroAbilities) {
@@ -38,7 +44,7 @@ export default class HeroAbilitySetting extends React.Component {
         <ul>
           {this.state.heros.map((hero) =>
             (<li className='icon' key={hero.id}>
-              <Hero handleLoad={this.loadHeroAbilities} hero={hero} />
+              <Hero handleLoadHero={this.loadHero} handleLoadHeroAbilities={this.loadHeroAbilities} hero={hero} />
             </li>)
           )}
         </ul>
@@ -46,4 +52,8 @@ export default class HeroAbilitySetting extends React.Component {
       </div>
     )
   }
+}
+
+HeroAbilitySetting.propTypes = {
+  handleLoadHero: PropTypes.func.isRequired
 }
