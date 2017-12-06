@@ -27,7 +27,7 @@ export default class Hero extends React.Component {
     return (
       <div className='heroComponent'>
         <span className='hero_image' onClick={this.handleClickHeroImage} >
-          <img src={'assets/' + this.props.hero.image_name} />
+          <img alt={this.props.hero.name} src={'assets/' + this.props.hero.image_name} />
         </span>
       </div>
     )

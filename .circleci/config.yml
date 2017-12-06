@@ -68,6 +68,9 @@ jobs:
       # Run rubocop
       - run: bundle exec rubocop app/ lib/ spec/
 
+      # Run precompile
+      - run: bundle exec rake assets:precompile
+
       # Run rspec in parallel
       - type: shell
         command: |

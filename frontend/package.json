@@ -9,7 +9,10 @@
   },
   "scripts": {
     "stylelint": "stylelint",
-    "eslint": "eslint"
+    "eslint": "eslint",
+    "release": "webpack --config config/production/webpack.config.js",
+    "build": "webpack --config config/development/webpack.config.js",
+    "watch": "webpack --watch --config config/development/webpack.config.js"
   },
   "repository": {
     "type": "git",
