@@ -48,7 +48,12 @@ export default class HeroAbilitySetting extends React.Component {
             </li>)
           )}
         </ul>
-        <HeroAbilities heroAbilities={this.state.heroAbilities} />
+        <div className='col-md-5'>
+          aaa
+        </div>
+        <div className='col-md-7'>
+          <HeroAbilities heroAbilities={this.state.heroAbilities} />
+        </div>
       </div>
     )
   }

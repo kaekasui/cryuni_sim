@@ -38,8 +38,16 @@
     }
   }
   .heroAbilitiesComponent {
-    li {
+    ul {
+      padding: 0px;
       list-style-type: none;
+    }
+    table {
+      th.intimacy_level {
+      }
+      th.attached_abilities {
+        width: 220px;
+      }
     }
   }
 }
