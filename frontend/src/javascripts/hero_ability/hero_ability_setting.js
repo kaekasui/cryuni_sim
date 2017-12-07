@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import Hero from './hero'
 import HeroAbilities from './hero_abilities'
 import IntimacyForm from './intimacy_form'
+import Title from './../common/title'
 
 export default class HeroAbilitySetting extends React.Component {
   constructor(props) {
@@ -48,6 +49,7 @@ export default class HeroAbilitySetting extends React.Component {
   render() {
     return (
       <div className='heroAbilitySettingComponent'>
+        <Title title='◆ヒーローアビリティ' />
         <ul>
           {this.state.heros.map((hero) =>
             (<li className='icon' key={hero.id}>
