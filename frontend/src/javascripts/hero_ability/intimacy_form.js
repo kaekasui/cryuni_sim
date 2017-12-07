@@ -15,7 +15,7 @@ export default class IntimacyForm extends React.Component {
     return (
       <div className='intimacyFormComponent'>
         {'英雄親密度 レベル'}
-        <input className='form-control' onChange={this.handleChangeIntimacy} type='number' />
+        <input className='form-control' name='intimacy-level' onChange={this.handleChangeIntimacy} type='number' />
       </div>
     )
   }
