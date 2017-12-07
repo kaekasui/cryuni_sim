@@ -22,7 +22,7 @@ export default class HeroAbilities extends React.Component {
               null
             )}
             {this.props.heroAbilities.map((ability) => (
-              <tr key={ability.id} className={(ability.intimacy_level_from <= this.props.intimacy && this.props.intimacy <= ability.intimacy_level_to) ? 'active-ability' : ''}>
+              <tr className={(ability.intimacy_level_from <= this.props.intimacy && this.props.intimacy <= ability.intimacy_level_to) ? 'active-ability' : ''} key={ability.id}>
                 <td>{ability.intimacy_level}</td>
                 <td>
                   <AttachedAbilities abilities={ability.attached_abilities} />
