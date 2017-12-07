@@ -1,6 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import ResultImage from './result_image'
+import ResultHeroAbility from './result_hero_ability'
+
 export default class Results extends React.Component {
   constructor(props) {
     super(props)
@@ -9,19 +12,8 @@ export default class Results extends React.Component {
   render() {
     return (
       <div className='resultsComponent'>
-        <span className='cryuni-image'>
-          <h2>{this.props.hero.name}</h2>
-          <span className='cryuni-background-image'>
-            <img src={'assets/cryuni_background.png'} />
-          </span>
-          {this.props.hero.whole_image_name ? (
-            <span className='whole-image'>
-              <img src={'assets/' + this.props.hero.whole_image_name} />
-            </span>
-          ) : (
-            null
-          )}
-        </span>
+        <ResultImage hero={this.props.hero} />
+        <ResultHeroAbility />
       </div>
     )
   }
