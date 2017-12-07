@@ -37,12 +37,18 @@
       cursor: pointer;
     }
   }
+  .hero-intimacy-ability {
+    padding-top: 15px;
+  }
   .heroAbilitiesComponent {
     ul {
       padding: 0px;
       list-style-type: none;
     }
     table {
+      tr.active-ability {
+        background-color: #FFFFAA;
+      }
       th.intimacy_level {
       }
       th.attached_abilities {
