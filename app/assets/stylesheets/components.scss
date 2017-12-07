@@ -42,14 +42,12 @@
   }
   .heroAbilitiesComponent {
     ul {
-      padding: 0px;
+      padding: 0;
       list-style-type: none;
     }
     table {
       tr.active-ability {
-        background-color: #FFFFAA;
-      }
-      th.intimacy_level {
+        background-color: #FFA;
       }
       th.attached_abilities {
         width: 220px;
