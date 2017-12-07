@@ -12,10 +12,10 @@ class Simulator extends React.Component {
         name: ''
       }
     }
-    this.loadHero = this.loadHero.bind(this)
+    this.setHero = this.setHero.bind(this)
   }
 
-  loadHero(hero) {
+  setHero(hero) {
     this.setState({hero: hero})
   }
 
@@ -23,7 +23,7 @@ class Simulator extends React.Component {
     return (
       <div className="SimulatorComponent">
         <div className='col-md-6'>
-          <HeroAbilitySetting handleLoadHero={this.loadHero} />
+          <HeroAbilitySetting selectHero={this.setHero} />
         </div>
         <div className='col-md-6'>
           <Results hero={this.state.hero} />

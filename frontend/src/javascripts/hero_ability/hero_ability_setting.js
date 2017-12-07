@@ -15,7 +15,7 @@ export default class HeroAbilitySetting extends React.Component {
       intimacy: null
     }
     this.loadHeroAbilities = this.loadHeroAbilities.bind(this)
-    this.loadHero = this.loadHero.bind(this)
+    this.selectHero = this.selectHero.bind(this)
     this.setIntimacy = this.setIntimacy.bind(this)
   }
 
@@ -23,8 +23,8 @@ export default class HeroAbilitySetting extends React.Component {
     this.getHeros()
   }
 
-  loadHero(hero) {
-    this.props.handleLoadHero(hero)
+  selectHero(hero) {
+    this.props.selectHero(hero)
   }
 
   loadHeroAbilities(heroAbilities) {
@@ -53,7 +53,7 @@ export default class HeroAbilitySetting extends React.Component {
         <ul>
           {this.state.heros.map((hero) =>
             (<li className='icon' key={hero.id}>
-              <Hero handleLoadHero={this.loadHero} handleLoadHeroAbilities={this.loadHeroAbilities} hero={hero} />
+              <Hero handleLoadHeroAbilities={this.loadHeroAbilities} hero={hero} selectHero={this.selectHero} />
             </li>)
           )}
         </ul>
@@ -72,5 +72,5 @@ export default class HeroAbilitySetting extends React.Component {
 }
 
 HeroAbilitySetting.propTypes = {
-  handleLoadHero: PropTypes.func.isRequired
+  selectHero: PropTypes.func.isRequired
 }

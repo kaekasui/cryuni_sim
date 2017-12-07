@@ -9,7 +9,7 @@ export default class Hero extends React.Component {
 
   handleClickHeroImage() {
     this.getHeroAbilities()
-    this.props.handleLoadHero(this.props.hero)
+    this.props.selectHero(this.props.hero)
   }
 
   getHeroAbilities() {
@@ -36,6 +36,6 @@ export default class Hero extends React.Component {
 
 Hero.propTypes = {
   hero: PropTypes.object.isRequired,
-  handleLoadHero: PropTypes.func.isRequired,
+  selectHero: PropTypes.func.isRequired,
   handleLoadHeroAbilities: PropTypes.func.isRequired
 }
