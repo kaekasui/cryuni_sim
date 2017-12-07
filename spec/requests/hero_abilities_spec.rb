@@ -44,7 +44,9 @@ describe 'GET /api/heros/:id/hero_abilities', autodoc: true do
       {
         id: hero_ability1.id,
         stage: 0,
-        intimacy_level: 'レベル1〜5',
+        intimacy_level: '1〜5',
+        intimacy_level_from: 1,
+        intimacy_level_to: 5,
         hero: {
           id: hero.id,
           name: '英雄1',
@@ -69,7 +71,9 @@ describe 'GET /api/heros/:id/hero_abilities', autodoc: true do
       {
         id: hero_ability2.id,
         stage: 1,
-        intimacy_level: 'レベル6〜10',
+        intimacy_level: '6〜10',
+        intimacy_level_from: 6,
+        intimacy_level_to: 10,
         hero: {
           id: hero.id,
           name: '英雄1',
@@ -94,7 +98,9 @@ describe 'GET /api/heros/:id/hero_abilities', autodoc: true do
       {
         id: hero_ability3.id,
         stage: 2,
-        intimacy_level: 'レベル11',
+        intimacy_level: '11',
+        intimacy_level_from: 11,
+        intimacy_level_to: 11,
         hero: {
           id: hero.id,
           name: '英雄1',

@@ -13,9 +13,17 @@ export default class HeroAbilities extends React.Component {
       <div className='heroAbilitiesComponent'>
         <table className='table table-bordered'>
           <tbody>
+            {this.props.heroAbilities.length? (
+              <tr>
+                <th className='intimacy_lavel'>{'レベル'}</th>
+                <th className='attached_abilities'>{'アビリティ'}</th>
+              </tr>
+            ) : (
+              null
+            )}
             {this.props.heroAbilities.map((ability) => (
-              <tr key={ability.id}>
-                <th>{ability.intimacy_level}</th>
+              <tr className={(ability.intimacy_level_from <= this.props.intimacy && this.props.intimacy <= ability.intimacy_level_to) ? 'active-ability' : ''} key={ability.id}>
+                <td>{ability.intimacy_level}</td>
                 <td>
                   <AttachedAbilities abilities={ability.attached_abilities} />
                 </td>
@@ -30,4 +38,5 @@ export default class HeroAbilities extends React.Component {
 
 HeroAbilities.propTypes = {
   heroAbilities: PropTypes.array.isRequired,
+  intimacy: PropTypes.string
 }

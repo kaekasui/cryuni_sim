@@ -11,8 +11,14 @@ feature 'ヒーローアビリティ', js: true do
     create(:hero, name: 'ジャンヌ・ダルク',
                   image_name: 'jeanne.jpg', whole_image_name: 'sd_jeanne.png')
   end
-  let!(:hero_ability1) { create(:hero_ability, hero: hero1, stage: 0) }
-  let!(:hero_ability2) { create(:hero_ability, hero: hero2, stage: 1) }
+  let!(:hero_ability1) do
+    create(:hero_ability,
+           hero: hero1, intimacy_level_from: 1, intimacy_level_to: 10, stage: 0)
+  end
+  let!(:hero_ability2) do
+    create(:hero_ability,
+           hero: hero2, intimacy_level_from: 8, intimacy_level_to: 15, stage: 1)
+  end
   let!(:ability) { create(:ability, name: '亜人攻撃力') }
   let!(:attached_ability1) do
     create(:attached_ability,
@@ -63,6 +69,40 @@ feature 'ヒーローアビリティ', js: true do
 
     within '.resultsComponent' do
       expect(page).to have_css "img[src*='sd_jeanne.png'"
+    end
+  end
+
+  context '英雄親密度レベルに当てはまるヒーローアビリティがある場合' do
+    scenario 'あてはまるレベル帯がハイライトされること' do
+      within '.heroAbilitySettingComponent' do
+        find("img[alt='ジャンヌ・ダルク']").click
+        within '.intimacyFormComponent' do
+          fill_in 'intimacy-level', with: '10'
+        end
+        within '.heroAbilitiesComponent' do
+          expect(page).to have_css 'tr.active-ability'
+        end
+      end
+    end
+  end
+
+  context '英雄親密度レベルに当てはまるヒーローアビリティがない場合' do
+    scenario 'ハイライトされている行がないこと' do
+      within '.heroAbilitySettingComponent' do
+        find("img[alt='エンキドゥ']").click
+        within '.intimacyFormComponent' do
+          fill_in 'intimacy-level', with: '4'
+        end
+        within '.heroAbilitiesComponent' do
+          # ハイライトされていることを確認
+          expect(page).to have_css 'tr.active-ability'
+        end
+        find("img[alt='ジャンヌ・ダルク']").click
+        within '.heroAbilitiesComponent' do
+          # ハイライトされなくなったことを確認
+          expect(page).to have_no_css 'tr.active-ability'
+        end
+      end
     end
   end
 end

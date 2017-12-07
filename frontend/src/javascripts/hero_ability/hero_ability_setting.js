@@ -3,16 +3,20 @@ import PropTypes from 'prop-types'
 
 import Hero from './hero'
 import HeroAbilities from './hero_abilities'
+import IntimacyForm from './intimacy_form'
+import Title from './../common/title'
 
 export default class HeroAbilitySetting extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       heros: [],
-      heroAbilities: []
+      heroAbilities: [],
+      intimacy: null
     }
     this.loadHeroAbilities = this.loadHeroAbilities.bind(this)
     this.loadHero = this.loadHero.bind(this)
+    this.setIntimacy = this.setIntimacy.bind(this)
   }
 
   componentWillMount() {
@@ -38,9 +42,14 @@ export default class HeroAbilitySetting extends React.Component {
       })
   }
 
+  setIntimacy(level) {
+    this.setState({intimacy: level})
+  }
+
   render() {
     return (
       <div className='heroAbilitySettingComponent'>
+        <Title title='◆ヒーローアビリティ' />
         <ul>
           {this.state.heros.map((hero) =>
             (<li className='icon' key={hero.id}>
@@ -48,7 +57,15 @@ export default class HeroAbilitySetting extends React.Component {
             </li>)
           )}
         </ul>
-        <HeroAbilities heroAbilities={this.state.heroAbilities} />
+        <div className='clear' />
+        <div className='hero-intimacy-ability'>
+          <div className='col-md-5'>
+            <IntimacyForm handleSetIntimacy={this.setIntimacy} />
+          </div>
+          <div className='col-md-7'>
+            <HeroAbilities heroAbilities={this.state.heroAbilities} intimacy={this.state.intimacy} />
+          </div>
+        </div>
       </div>
     )
   }

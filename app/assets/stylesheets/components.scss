@@ -1,3 +1,18 @@
+.titleComponent {
+  table {
+    width: 100%;
+    font-size: 18px;
+    td.title {
+      width: 100px;
+      white-space: nowrap;
+      padding-right: 5px;
+    }
+    td.hr {
+      width: 100%;
+    }
+  }
+}
+
 .heroComponent {
   img {
     height: 60px;
@@ -37,9 +52,22 @@
       cursor: pointer;
     }
   }
+  .hero-intimacy-ability {
+    padding-top: 15px;
+  }
   .heroAbilitiesComponent {
-    li {
+    ul {
+      padding: 0;
       list-style-type: none;
+      margin: 0;
+    }
+    table {
+      tr.active-ability {
+        background-color: #FFA;
+      }
+      th.attached_abilities {
+        width: 220px;
+      }
     }
   }
 }
