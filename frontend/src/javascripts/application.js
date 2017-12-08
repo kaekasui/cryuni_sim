@@ -10,23 +10,31 @@ class Simulator extends React.Component {
     this.state = {
       hero: {
         name: ''
-      }
+      },
+      heroAbility: []
     }
     this.setHero = this.setHero.bind(this)
+    this.setHeroAbility = this.setHeroAbility.bind(this)
   }
 
   setHero(hero) {
     this.setState({hero: hero})
+    console.log('set hero')
+  }
+
+  setHeroAbility(abilities) {
+    this.setState({heroAbility: abilities})
+    console.log('set hero abi')
   }
 
   render() {
     return (
       <div className="SimulatorComponent">
         <div className='col-md-6'>
-          <HeroAbilitySetting selectHero={this.setHero} />
+          <HeroAbilitySetting handleSelectHeroAbility={this.setHeroAbility} selectHero={this.setHero} />
         </div>
         <div className='col-md-6'>
-          <Results hero={this.state.hero} />
+          <Results hero={this.state.hero} heroAbility={this.state.heroAbility} />
         </div>
       </div>
     )

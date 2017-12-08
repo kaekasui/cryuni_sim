@@ -12,11 +12,12 @@ export default class HeroAbilitySetting extends React.Component {
     this.state = {
       heros: [],
       heroAbilities: [],
-      intimacy: null
+      intimacy: ''
     }
     this.loadHeroAbilities = this.loadHeroAbilities.bind(this)
     this.selectHero = this.selectHero.bind(this)
     this.setIntimacy = this.setIntimacy.bind(this)
+    this.selectHeroAbility = this.selectHeroAbility.bind(this)
   }
 
   componentWillMount() {
@@ -46,6 +47,10 @@ export default class HeroAbilitySetting extends React.Component {
     this.setState({intimacy: level})
   }
 
+  selectHeroAbility(ability) {
+    this.props.handleSelectHeroAbility(ability.attached_abilities)
+  }
+
   render() {
     return (
       <div className='heroAbilitySettingComponent'>
@@ -63,7 +68,7 @@ export default class HeroAbilitySetting extends React.Component {
             <IntimacyForm handleSetIntimacy={this.setIntimacy} />
           </div>
           <div className='col-md-7'>
-            <HeroAbilities heroAbilities={this.state.heroAbilities} intimacy={this.state.intimacy} />
+            <HeroAbilities handleSelectHeroAbility={this.selectHeroAbility} heroAbilities={this.state.heroAbilities} intimacy={this.state.intimacy} />
           </div>
         </div>
       </div>
@@ -72,5 +77,6 @@ export default class HeroAbilitySetting extends React.Component {
 }
 
 HeroAbilitySetting.propTypes = {
-  selectHero: PropTypes.func.isRequired
+  selectHero: PropTypes.func.isRequired,
+  handleSelectHeroAbility: PropTypes.func.isRequired
 }

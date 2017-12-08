@@ -10,11 +10,14 @@ export default class ResultHeroAbility extends React.Component {
     return (
       <div className='resultHeroAbilityComponent'>
         {'ヒーローアビリティ'}
+        {this.props.heroAbility.map((ability) => (
+          <span key={ability.id}>{ability.score}</span>
+        ))}
       </div>
     )
   }
 }
 
 ResultHeroAbility.propTypes = {
-  hero: PropTypes.object
+  heroAbility: PropTypes.array.isRequired
 }

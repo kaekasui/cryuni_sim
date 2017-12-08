@@ -13,12 +13,13 @@ export default class Results extends React.Component {
     return (
       <div className='resultsComponent'>
         <ResultImage hero={this.props.hero} />
-        <ResultHeroAbility />
+        <ResultHeroAbility heroAbility={this.props.heroAbility} />
       </div>
     )
   }
 }
 
 Results.propTypes = {
-  hero: PropTypes.object.isRequired
+  hero: PropTypes.object.isRequired,
+  heroAbility: PropTypes.array.isRequired
 }
