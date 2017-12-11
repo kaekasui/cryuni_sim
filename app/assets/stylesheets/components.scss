@@ -42,6 +42,18 @@
       top: -200px;
     }
   }
+
+  .resultHeroAbilityComponent {
+    padding-top: 15px;
+    .panel {
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+      width: 200px;
+    }
+  }
 }
 
 .heroAbilitySettingComponent {

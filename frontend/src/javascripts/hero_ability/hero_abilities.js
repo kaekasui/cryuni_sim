@@ -17,10 +17,15 @@ export default class HeroAbilities extends React.Component {
   }
 
   componentDidUpdate() {
+    let updated = false
     for (let index in this.props.heroAbilities) {
       if (this.props.heroAbilities[index].intimacy_level_from <= this.props.intimacy && this.props.intimacy <= this.props.heroAbilities[index].intimacy_level_to) {
         this.props.handleSelectHeroAbility(this.props.heroAbilities[index])
-      } // TODO: 何も入ってない場合
+        updated = true
+      }
+    }
+    if (updated == false) {
+      this.props.handleSelectHeroAbility({attached_abilities: []})
     }
   }
 
