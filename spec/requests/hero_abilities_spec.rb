@@ -12,11 +12,11 @@ describe 'GET /api/heros/:id/hero_abilities', autodoc: true do
            hero: hero, intimacy_level_from: 1, intimacy_level_to: 5, stage: 0)
   end
   let!(:attached_ability1) do
-    create(:attached_ability,
+    create(:attached_hero_ability,
            ability: ability1, hero_ability: hero_ability1, score: 10)
   end
   let!(:attached_ability2) do
-    create(:attached_ability,
+    create(:attached_hero_ability,
            ability: ability2, hero_ability: hero_ability1, score: 20)
   end
   let!(:hero_ability2) do
@@ -24,11 +24,11 @@ describe 'GET /api/heros/:id/hero_abilities', autodoc: true do
            hero: hero, intimacy_level_from: 6, intimacy_level_to: 10, stage: 1)
   end
   let!(:attached_ability3) do
-    create(:attached_ability,
+    create(:attached_hero_ability,
            ability: ability1, hero_ability: hero_ability2, score: 20)
   end
   let!(:attached_ability4) do
-    create(:attached_ability,
+    create(:attached_hero_ability,
            ability: ability2, hero_ability: hero_ability2, score: 30)
   end
   let!(:hero_ability3) do
@@ -53,7 +53,7 @@ describe 'GET /api/heros/:id/hero_abilities', autodoc: true do
           image_name: 'claudia.jpg',
           whole_image_name: 'sd_claudia.png'
         },
-        attached_abilities: [
+        attached_hero_abilities: [
           {
             id: attached_ability1.id,
             ability_name: '英雄移動速度',
@@ -80,7 +80,7 @@ describe 'GET /api/heros/:id/hero_abilities', autodoc: true do
           image_name: 'claudia.jpg',
           whole_image_name: 'sd_claudia.png'
         },
-        attached_abilities: [
+        attached_hero_abilities: [
           {
             id: attached_ability3.id,
             ability_name: '英雄移動速度',
@@ -107,7 +107,7 @@ describe 'GET /api/heros/:id/hero_abilities', autodoc: true do
           image_name: 'claudia.jpg',
           whole_image_name: 'sd_claudia.png'
         },
-        attached_abilities: []
+        attached_hero_abilities: []
       }
     ]
     expect(response.body).to be_json_as(json)

@@ -5,7 +5,7 @@ class HeroAbilitySerializer < ActiveModel::Serializer
              :intimacy_level, :intimacy_level_from, :intimacy_level_to
 
   belongs_to :hero
-  has_many :attached_abilities
+  has_many :attached_hero_abilities
 
   def intimacy_level
     object.decorate.intimacy_level

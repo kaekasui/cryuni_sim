@@ -5,6 +5,6 @@ require 'rails_helper'
 RSpec.describe HeroAbility, type: :model do
   describe 'relationship' do
     it { is_expected.to belong_to(:hero) }
-    it { is_expected.to have_many(:attached_abilities) }
+    it { is_expected.to have_many(:attached_hero_abilities) }
   end
 end

@@ -2,5 +2,5 @@
 
 class HeroAbility < ApplicationRecord
   belongs_to :hero
-  has_many :attached_abilities
+  has_many :attached_hero_abilities
 end
