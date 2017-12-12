@@ -51,3 +51,11 @@ CSV.foreach('db/seeds/attached_abilities.csv') do |row|
     unit: row[4]
   )
 end
+
+# VIPアビリティ
+CSV.foreach('db/seeds/vip_abilities.csv') do |row|
+  ability = VipAbility.find_or_initialize_by(vip_level: row[0])
+  ability.update_attributes(
+    image_name: row[1]
+  )
+end

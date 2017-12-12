@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171206012851) do
+ActiveRecord::Schema.define(version: 20171212140357) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,13 @@ ActiveRecord::Schema.define(version: 20171206012851) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "whole_image_name"
+  end
+
+  create_table "vip_abilities", force: :cascade do |t|
+    t.integer "vip_level", null: false
+    t.string "image_name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "attached_abilities", "abilities"
