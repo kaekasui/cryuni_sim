@@ -25,7 +25,7 @@ export default class HeroAbilities extends React.Component {
       }
     }
     if (updated == false) {
-      this.props.handleSelectHeroAbility({attached_abilities: []})
+      this.props.handleSelectHeroAbility({attached_hero_abilities: []})
     }
   }
 
@@ -46,7 +46,7 @@ export default class HeroAbilities extends React.Component {
               <tr className={(ability.intimacy_level_from <= this.props.intimacy && this.props.intimacy <= ability.intimacy_level_to) ? 'active-ability' : ''} key={ability.id}>
                 <td>{ability.intimacy_level}</td>
                 <td>
-                  <AttachedAbilities abilities={ability.attached_abilities} />
+                  <AttachedAbilities abilities={ability.attached_hero_abilities} />
                 </td>
               </tr>
             ))}
