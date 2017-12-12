@@ -11,5 +11,10 @@ FactoryBot.define do
       type 'AttachedHeroAbility'
       hero_ability
     end
+
+    factory :attached_vip_ability, class: AttachedVipAbility do
+      type 'AttachedVipAbility'
+      vip_ability
+    end
   end
 end

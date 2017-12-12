@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171212190316) do
+ActiveRecord::Schema.define(version: 20171212190734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,8 +29,10 @@ ActiveRecord::Schema.define(version: 20171212190316) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "type", null: false
+    t.bigint "vip_ability_id"
     t.index ["ability_id"], name: "index_attached_abilities_on_ability_id"
     t.index ["hero_ability_id"], name: "index_attached_abilities_on_hero_ability_id"
+    t.index ["vip_ability_id"], name: "index_attached_abilities_on_vip_ability_id"
   end
 
   create_table "hero_abilities", force: :cascade do |t|
@@ -60,5 +62,6 @@ ActiveRecord::Schema.define(version: 20171212190316) do
 
   add_foreign_key "attached_abilities", "abilities"
   add_foreign_key "attached_abilities", "hero_abilities"
+  add_foreign_key "attached_abilities", "vip_abilities"
   add_foreign_key "hero_abilities", "heros"
 end
