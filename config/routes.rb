@@ -7,5 +7,7 @@ Rails.application.routes.draw do
     resources :heros, only: %i[index] do
       resources :hero_abilities, only: %i[index]
     end
+
+    resources :vip_abilities, only: %i[show]
   end
 end
