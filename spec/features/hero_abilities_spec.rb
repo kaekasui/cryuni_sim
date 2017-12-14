@@ -21,11 +21,11 @@ feature 'ヒーローアビリティ', js: true do
   end
   let!(:ability) { create(:ability, name: '亜人攻撃力') }
   let!(:attached_ability1) do
-    create(:attached_ability,
+    create(:attached_hero_ability,
            hero_ability: hero_ability1, ability: ability, score: 10)
   end
   let!(:attached_ability2) do
-    create(:attached_ability,
+    create(:attached_hero_ability,
            hero_ability: hero_ability2, ability: ability, score: 30)
   end
 

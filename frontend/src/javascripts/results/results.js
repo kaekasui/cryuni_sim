@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import ResultImage from './result_image'
 import ResultHeroAbility from './result_hero_ability'
+import ResultVipAbility from './result_vip_ability'
 
 export default class Results extends React.Component {
   constructor(props) {
@@ -14,6 +15,7 @@ export default class Results extends React.Component {
       <div className='resultsComponent'>
         <ResultImage hero={this.props.hero} />
         <ResultHeroAbility heroAbility={this.props.heroAbility} />
+        <ResultVipAbility vipAbility={this.props.vipAbility} />
       </div>
     )
   }
@@ -21,5 +23,6 @@ export default class Results extends React.Component {
 
 Results.propTypes = {
   hero: PropTypes.object.isRequired,
-  heroAbility: PropTypes.array.isRequired
+  heroAbility: PropTypes.array.isRequired,
+  vipAbility: PropTypes.object.isRequired
 }

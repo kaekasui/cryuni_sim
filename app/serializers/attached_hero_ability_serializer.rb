@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class AttachedAbilitySerializer < ActiveModel::Serializer
+class AttachedHeroAbilitySerializer < ActiveModel::Serializer
   attributes :id, :score, :unit, :ability_name
 
   belongs_to :hero_ability
