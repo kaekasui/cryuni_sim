@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'GET /api/vip_abilities/:id', autodoc: true do
+describe 'GET /api/vip_abilities', autodoc: true do
   let!(:ability1) { create(:ability, name: '英雄移動速度') }
   let!(:ability2) { create(:ability, name: '対魔獣攻撃力') }
   let!(:vip_ability1) { create(:vip_ability, vip_level: 1) }
@@ -25,14 +25,12 @@ describe 'GET /api/vip_abilities/:id', autodoc: true do
            ability: ability2, vip_ability: vip_ability2, score: 30.0)
   end
 
-  context 'VIPレベルが1の場合' do
-    let(:vip_level) { 1 }
+  it '200とデータが返ってくること' do
+    get '/api/vip_abilities'
+    expect(response.status).to eq 200
 
-    it '200とデータが返ってくること' do
-      get "/api/vip_abilities/#{vip_level}"
-      expect(response.status).to eq 200
-
-      json = {
+    json = [
+      {
         id: vip_ability1.id,
         vip_level: 1,
         image_name: vip_ability1.image_name,
@@ -50,19 +48,8 @@ describe 'GET /api/vip_abilities/:id', autodoc: true do
             unit: '%'
           }
         ]
-      }
-      expect(response.body).to be_json_as(json)
-    end
-  end
-
-  context 'VIPレベルが2の場合' do
-    let(:vip_level) { 2 }
-
-    it '200とデータが返ってくること' do
-      get "/api/vip_abilities/#{vip_level}"
-      expect(response.status).to eq 200
-
-      json = {
+      },
+      {
         id: vip_ability2.id,
         vip_level: 2,
         image_name: vip_ability2.image_name,
@@ -81,19 +68,7 @@ describe 'GET /api/vip_abilities/:id', autodoc: true do
           }
         ]
       }
-      expect(response.body).to be_json_as(json)
-    end
-  end
-
-  context 'VIPレベルがなしの場合' do
-    let(:vip_level) { 0 }
-
-    it '200とデータが返ってくること' do
-      get "/api/vip_abilities/#{vip_level}"
-      expect(response.status).to eq 200
-
-      json = nil
-      expect(response.body).to be_json_as(json)
-    end
+    ]
+    expect(response.body).to be_json_as(json)
   end
 end
