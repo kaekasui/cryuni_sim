@@ -15,6 +15,10 @@
 }
 
 .checkMessageComponent {
+  span.check-image img {
+    width: 20px;
+    margin-right: 5px;
+  }
   p.check-message {
     padding: 5px;
   }

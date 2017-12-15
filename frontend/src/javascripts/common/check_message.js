@@ -5,8 +5,7 @@ export default class CheckMessage extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      message: '',
-      checked: false
+      message: ''
     }
   }
 
@@ -14,6 +13,9 @@ export default class CheckMessage extends React.Component {
     return (
       <div className='checkMessageComponent'>
         <p className='check-message'>
+          <span className='check-image'>
+            <img src={'assets/' + (this.props.checked ? 'complete' : 'incomplete') + '.gif'} />
+          </span>
           {this.props.message}
         </p>
       </div>

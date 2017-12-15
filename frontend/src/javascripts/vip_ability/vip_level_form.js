@@ -41,7 +41,7 @@ export default class VipLevelForm extends React.Component {
   render() {
     return (
       <div className='vipLevelFormComponent'>
-        <CheckMessage checked={false} message='VIPレベルを選択してください' />
+        <CheckMessage checked={this.state.selectedVipLevel == undefined ? false : true} message='VIPレベルを選択してください' />
         <div className='btn-group' data-toggle='buttons'>
           {this.state.vipAbilities.map((ability) => (
             <label className={'btn btn-default ' + (this.state.selectedVipLevel == ability.vip_level ? 'active' : '')} id={'level-' + ability.vip_level} key={ability.vip_level}>
