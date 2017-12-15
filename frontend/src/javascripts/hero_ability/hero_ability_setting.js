@@ -66,7 +66,7 @@ export default class HeroAbilitySetting extends React.Component {
         </ul>
         <div className='clear' />
         <div className='hero-intimacy-ability'>
-          <CheckMessage checked={false} message='英雄親密度のレベルを入力してください' />
+          <CheckMessage checked={this.state.intimacy != ''} message='英雄親密度のレベルを入力してください' />
           <div className='col-md-5'>
             <IntimacyForm handleSetIntimacy={this.setIntimacy} />
           </div>
