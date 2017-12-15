@@ -12,6 +12,7 @@ export default class HeroAbilitySetting extends React.Component {
     super(props)
     this.state = {
       heros: [],
+      hero: {},
       heroAbilities: [],
       intimacy: ''
     }
@@ -26,6 +27,7 @@ export default class HeroAbilitySetting extends React.Component {
   }
 
   selectHero(hero) {
+    this.setState({hero: hero})
     this.props.selectHero(hero)
   }
 
@@ -56,7 +58,7 @@ export default class HeroAbilitySetting extends React.Component {
     return (
       <div className='heroAbilitySettingComponent'>
         <Title title='◆ヒーローアビリティ' />
-        <CheckMessage checked={false} message='英雄を選択してください' />
+        <CheckMessage checked={Object.keys(this.state.hero).length == 0 ? false : true} message='英雄を選択してください' />
         <ul>
           {this.state.heros.map((hero) =>
             (<li className='icon' key={hero.id}>
