@@ -49,7 +49,7 @@ export default class HeroAbilitySetting extends React.Component {
   }
 
   selectHeroAbility(ability) {
-    this.props.handleSelectHeroAbility(ability.attached_hero_abilities)
+    this.props.handleSelectHeroAbility({attached_hero_abilities: ability.attached_hero_abilities})
   }
 
   render() {

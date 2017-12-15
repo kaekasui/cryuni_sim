@@ -23,6 +23,6 @@ export default class Results extends React.Component {
 
 Results.propTypes = {
   hero: PropTypes.object.isRequired,
-  heroAbility: PropTypes.array.isRequired,
+  heroAbility: PropTypes.object.isRequired,
   vipAbility: PropTypes.object.isRequired
 }
