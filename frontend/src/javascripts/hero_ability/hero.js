@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import ReactTooltip from 'react-tooltip'
 
 export default class Hero extends React.Component {
   constructor(props) {
@@ -26,7 +27,8 @@ export default class Hero extends React.Component {
   render() {
     return (
       <div className='heroComponent'>
-        <span className='hero_image' onClick={this.handleClickHeroImage} >
+        <span className='hero_image' data-tip={this.props.hero.name} onClick={this.handleClickHeroImage} >
+          <ReactTooltip />
           <img alt={this.props.hero.name} src={'assets/' + this.props.hero.image_name} />
           {this.props.selectedHero.name == this.props.hero.name ? (
             <img className='selected-fether' src='assets/fether.png' />
