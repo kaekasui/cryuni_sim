@@ -144,6 +144,29 @@ feature 'ヒーローアビリティ', js: true do
     end
   end
 
+  scenario '英雄の選択で、選択中の英雄に羽アイコンが表示されること' do
+    within '.heroAbilitySettingComponent' do
+      # エンキドゥで、画像が1つしか見つからない=羽がない
+      expect(page.all('.heroComponent')[0].find('img')['src'])
+        .to have_content 'assets/enkidu.jpg'
+      find("img[alt='エンキドゥ']").click
+
+      # 羽が表示されていることを確認
+      expect(page.all('.heroComponent')[0].all('img')[1]['src'])
+        .to have_content 'assets/fether.png'
+
+      find("img[alt='ジャンヌ・ダルク']").click
+
+      # エンキドゥで、画像が1つしか見つからない=羽がない
+      expect(page.all('.heroComponent')[0].find('img')['src'])
+        .to have_content 'assets/enkidu.jpg'
+
+      # 羽が移動していることを確認
+      expect(page.all('.heroComponent')[1].all('img')[1]['src'])
+        .to have_content 'assets/fether.png'
+    end
+  end
+
   scenario '英雄の選択で、メッセージにチェックが入ること' do
     within '.heroAbilitySettingComponent' do
       expect(page.all('.checkMessageComponent')[0].find('img')['src'])
