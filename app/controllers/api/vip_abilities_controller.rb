@@ -2,7 +2,7 @@
 
 class Api::VipAbilitiesController < ApplicationController
   def index
-    @vip_abilities = VipAbility.includes(attached_vip_abilities: :ability).order(:vip_level)
-    render json: @vip_abilities
+    render json: VipAbility
+      .includes(attached_vip_abilities: :ability).order(:vip_level)
   end
 end
