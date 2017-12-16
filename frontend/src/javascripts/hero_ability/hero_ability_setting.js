@@ -5,12 +5,14 @@ import Hero from './hero'
 import HeroAbilities from './hero_abilities'
 import IntimacyForm from './intimacy_form'
 import Title from './../common/title'
+import CheckMessage from './../common/check_message'
 
 export default class HeroAbilitySetting extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       heros: [],
+      hero: {},
       heroAbilities: [],
       intimacy: ''
     }
@@ -25,6 +27,7 @@ export default class HeroAbilitySetting extends React.Component {
   }
 
   selectHero(hero) {
+    this.setState({hero: hero})
     this.props.selectHero(hero)
   }
 
@@ -48,13 +51,14 @@ export default class HeroAbilitySetting extends React.Component {
   }
 
   selectHeroAbility(ability) {
-    this.props.handleSelectHeroAbility(ability.attached_hero_abilities)
+    this.props.handleSelectHeroAbility({attached_hero_abilities: ability.attached_hero_abilities})
   }
 
   render() {
     return (
       <div className='heroAbilitySettingComponent'>
         <Title title='◆ヒーローアビリティ' />
+        <CheckMessage checked={Object.keys(this.state.hero).length == 0 ? false : true} message='英雄を選択してください' />
         <ul>
           {this.state.heros.map((hero) =>
             (<li className='icon' key={hero.id}>
@@ -64,6 +68,7 @@ export default class HeroAbilitySetting extends React.Component {
         </ul>
         <div className='clear' />
         <div className='hero-intimacy-ability'>
+          <CheckMessage checked={this.state.intimacy != ''} message='英雄親密度のレベルを入力してください' />
           <div className='col-md-5'>
             <IntimacyForm handleSetIntimacy={this.setIntimacy} />
           </div>

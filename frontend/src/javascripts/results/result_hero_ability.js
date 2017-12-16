@@ -9,14 +9,14 @@ export default class ResultHeroAbility extends React.Component {
   render() {
     return (
       <div className='resultHeroAbilityComponent'>
-        {this.props.heroAbility.length > 0 ? (
+        {this.props.heroAbility.attached_hero_abilities.length > 0 ? (
           <div className='panel panel-default'>
             <div className='panel-heading'>
               {'ヒーローアビリティ'}
             </div>
             <div className='panel-body'>
               <ul>
-                {this.props.heroAbility.map((ability) => (
+                {this.props.heroAbility.attached_hero_abilities.map((ability) => (
                   <li key={ability.id}>{ability.ability_name} {ability.score} {ability.unit}</li>
                 ))}
               </ul>
@@ -31,5 +31,5 @@ export default class ResultHeroAbility extends React.Component {
 }
 
 ResultHeroAbility.propTypes = {
-  heroAbility: PropTypes.array.isRequired
+  heroAbility: PropTypes.object.isRequired
 }

@@ -143,4 +143,30 @@ feature 'ヒーローアビリティ', js: true do
       end
     end
   end
+
+  scenario '英雄の選択で、メッセージにチェックが入ること' do
+    within '.heroAbilitySettingComponent' do
+      expect(page.all('.checkMessageComponent')[0].find('img')['src'])
+        .to have_content 'assets/incomplete.gif'
+
+      find("img[alt='エンキドゥ']").click
+
+      expect(page.all('.checkMessageComponent')[0].find('img')['src'])
+        .to have_content 'assets/complete.gif'
+    end
+  end
+
+  scenario '英雄親密度の入力で、メッセージにチェックが入ること' do
+    within '.heroAbilitySettingComponent' do
+      expect(page.all('.checkMessageComponent')[1].find('img')['src'])
+        .to have_content 'assets/incomplete.gif'
+
+      within '.intimacyFormComponent' do
+        fill_in 'intimacy-level', with: '8'
+      end
+
+      expect(page.all('.checkMessageComponent')[1].find('img')['src'])
+        .to have_content 'assets/complete.gif'
+    end
+  end
 end

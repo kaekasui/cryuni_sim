@@ -12,7 +12,7 @@ class Simulator extends React.Component {
       hero: {
         name: ''
       },
-      heroAbility: [],
+      heroAbility: {attached_hero_abilities: []},
       vipAbility: {attached_vip_abilities: []}
     }
     this.setHero = this.setHero.bind(this)
