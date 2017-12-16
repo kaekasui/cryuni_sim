@@ -19,6 +19,8 @@ gem 'slim-rails'
 gem 'sass-rails'
 
 group :development, :test do
+  gem 'growl'
+  gem 'bullet'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'factory_bot_rails'
   gem 'rubocop'

@@ -4,7 +4,8 @@ class Api::HeroAbilitiesController < ApplicationController
   before_action :set_hero
 
   def index
-    render json: @hero.hero_abilities.order(:stage)
+    render json: @hero.hero_abilities
+      .includes(attached_hero_abilities: :ability).order(:stage)
   end
 
   private
