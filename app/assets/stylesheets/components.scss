@@ -110,5 +110,11 @@
   li.icon {
     list-style-type: none;
     float: left;
+    .hero-image {
+      img.locked {
+        -webkit-filter: brightness(60%);
+        filter:brightness(60%);
+      }
+    }
   }
 }
