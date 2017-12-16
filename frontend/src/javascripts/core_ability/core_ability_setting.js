@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import CoreHero from './core_hero'
 import Title from './../common/title'
