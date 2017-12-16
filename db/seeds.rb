@@ -64,14 +64,28 @@ end
 AttachedVipAbility.destroy_all
 CSV.foreach('db/seeds/attached_vip_abilities.csv') do |row|
   vip_ability = VipAbility.find_by(vip_level: row[0])
-  if vip_ability.blank?
-    raise "ERROR: not found vip level '#{row[0]}'"
-  end
+  raise "ERROR: not found vip level '#{row[0]}'" if vip_ability.blank?
 
   ability = Ability.find_by(name: row[1])
   raise "ERROR: not found ability '#{row[1]}'" if ability.blank?
 
   vip_ability.attached_vip_abilities.create(
+    ability: ability,
+    score: row[2],
+    unit: row[3]
+  )
+end
+
+# コアアビリティにあるアビリティ
+AttachedCoreAbility.destroy_all
+CSV.foreach('db/seeds/attached_core_abilities.csv') do |row|
+  hero = Hero.find_by(name: row[0])
+  raise "ERROR: not found hero '#{row[0]}'" if hero.blank?
+
+  ability = Ability.find_by(name: row[1])
+  raise "ERROR: not found ability '#{row[1]}'" if ability.blank?
+
+  hero.attached_core_abilities.create(
     ability: ability,
     score: row[2],
     unit: row[3]
