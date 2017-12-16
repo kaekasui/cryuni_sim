@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171212190734) do
+ActiveRecord::Schema.define(version: 20171216201050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,8 +30,10 @@ ActiveRecord::Schema.define(version: 20171212190734) do
     t.datetime "updated_at", null: false
     t.string "type", null: false
     t.bigint "vip_ability_id"
+    t.bigint "hero_id"
     t.index ["ability_id"], name: "index_attached_abilities_on_ability_id"
     t.index ["hero_ability_id"], name: "index_attached_abilities_on_hero_ability_id"
+    t.index ["hero_id"], name: "index_attached_abilities_on_hero_id"
     t.index ["vip_ability_id"], name: "index_attached_abilities_on_vip_ability_id"
   end
 
@@ -51,6 +53,7 @@ ActiveRecord::Schema.define(version: 20171212190734) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "whole_image_name"
+    t.boolean "locked", default: true, null: false
   end
 
   create_table "vip_abilities", force: :cascade do |t|
@@ -62,6 +65,7 @@ ActiveRecord::Schema.define(version: 20171212190734) do
 
   add_foreign_key "attached_abilities", "abilities"
   add_foreign_key "attached_abilities", "hero_abilities"
+  add_foreign_key "attached_abilities", "heros"
   add_foreign_key "attached_abilities", "vip_abilities"
   add_foreign_key "hero_abilities", "heros"
 end
