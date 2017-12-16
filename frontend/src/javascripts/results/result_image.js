@@ -21,6 +21,13 @@ export default class ResultImage extends React.Component {
           ) : (
             null
           )}
+          {this.props.vipAbility.image_name ? (
+            <span className='vip-level-image'>
+              <img src={'assets/vip_levels/' + this.props.vipAbility.image_name} />
+            </span>
+          ) : (
+            null
+          )}
         </span>
       </div>
     )
@@ -28,5 +35,6 @@ export default class ResultImage extends React.Component {
 }
 
 ResultImage.propTypes = {
-  hero: PropTypes.object.isRequired
+  hero: PropTypes.object.isRequired,
+  vipAbility: PropTypes.object.isRequired
 }

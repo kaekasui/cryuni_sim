@@ -2,7 +2,7 @@
 
 class Api::VipAbilitiesController < ApplicationController
   def index
-    @vip_abilities = VipAbility.all
+    @vip_abilities = VipAbility.order(:vip_level)
     render json: @vip_abilities
   end
 end
