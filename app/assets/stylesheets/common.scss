@@ -1,3 +1,12 @@
 .clear {
   clear: both;
 }
+
+.hero-image {
+  cursor: pointer;
+  position: relative;
+  img {
+    height: 60px;
+    margin: 10px;
+  }
+}

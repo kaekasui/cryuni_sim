@@ -24,13 +24,6 @@
   }
 }
 
-.heroComponent {
-  img {
-    height: 60px;
-    margin: 10px;
-  }
-}
-
 .resultsComponent {
   padding-top: 10px;
   .cryuni-image {
@@ -82,9 +75,7 @@
   li.icon {
     list-style-type: none;
     float: left;
-    .hero_image {
-      cursor: pointer;
-      position: relative;
+    .hero-image {
       .selected-fether {
         position: absolute;
         z-index: 10;
@@ -112,5 +103,12 @@
         width: 220px;
       }
     }
+  }
+}
+
+.coreAbilitySettingComponent {
+  li.icon {
+    list-style-type: none;
+    float: left;
   }
 }
