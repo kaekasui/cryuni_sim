@@ -28,6 +28,11 @@ export default class Hero extends React.Component {
       <div className='heroComponent'>
         <span className='hero_image' onClick={this.handleClickHeroImage} >
           <img alt={this.props.hero.name} src={'assets/' + this.props.hero.image_name} />
+          {this.props.selectedHero.name == this.props.hero.name ? (
+            <img className='selected-fether' src='assets/fether.png' />
+          ) : (
+            null
+          )}
         </span>
       </div>
     )
@@ -37,5 +42,6 @@ export default class Hero extends React.Component {
 Hero.propTypes = {
   hero: PropTypes.object.isRequired,
   selectHero: PropTypes.func.isRequired,
+  selectedHero: PropTypes.object,
   handleLoadHeroAbilities: PropTypes.func.isRequired
 }
