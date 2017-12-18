@@ -5,10 +5,11 @@ import ReactTooltip from 'react-tooltip'
 export default class CoreHero extends React.Component {
   constructor(props) {
     super(props)
-    this.handleClickHeroImage = this.handleClickHeroImage.bind(this)
+    this.handleClickCoreHeroImage = this.handleClickCoreHeroImage.bind(this)
   }
 
-  handleClickHeroImage() {
+  handleClickCoreHeroImage() {
+    this.props.handleClickCoreHeroImage(this.props.hero.id)
   }
 
   render() {
@@ -16,8 +17,8 @@ export default class CoreHero extends React.Component {
       <div className='coreHeroComponent'>
         <span className='hero-image' data-tip={this.props.hero.name} onClick={this.handleClickHeroImage} >
           <ReactTooltip />
-          <img alt={this.props.hero.name} className={this.props.hero.locked ? 'locked' : ''} src={'assets/' + this.props.hero.image_name} />
-          { this.props.hero.locked ? (
+          <img alt={this.props.hero.name} className={this.props.hero.padlocked ? 'locked' : ''} onClick={this.handleClickCoreHeroImage} src={'assets/' + this.props.hero.image_name} />
+          { this.props.hero.padlocked ? (
             <img className='padlock' src='assets/padlock.png' />
           ) : (
             null
@@ -29,5 +30,6 @@ export default class CoreHero extends React.Component {
 }
 
 CoreHero.propTypes = {
-  hero: PropTypes.object.isRequired
+  hero: PropTypes.object.isRequired,
+  handleClickCoreHeroImage: PropTypes.func.isRequired
 }
