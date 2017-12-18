@@ -117,8 +117,12 @@
         filter: brightness(60%);
       }
       img.padlock {
+        width: 40px;
+        height: auto;
         position: absolute;
         z-index: 10;
+        top: -18px;
+        left: 10px;
       }
     }
   }

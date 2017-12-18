@@ -15,11 +15,11 @@ export default class CoreHero extends React.Component {
   render() {
     return (
       <div className='coreHeroComponent'>
-        <span className='hero-image' data-tip={this.props.hero.name} onClick={this.handleClickHeroImage} >
+        <span className='hero-image' data-tip={this.props.hero.name} >
           <ReactTooltip />
           <img alt={this.props.hero.name} className={this.props.hero.padlocked ? 'locked' : ''} onClick={this.handleClickCoreHeroImage} src={'assets/' + this.props.hero.image_name} />
           { this.props.hero.padlocked ? (
-            <img className='padlock' src='assets/padlock.png' />
+            <img className='padlock' src='assets/padlock.png' onClick={this.handleClickCoreHeroImage} />
           ) : (
             null
           )}
