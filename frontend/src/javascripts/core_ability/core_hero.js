@@ -17,6 +17,11 @@ export default class CoreHero extends React.Component {
         <span className='hero-image' data-tip={this.props.hero.name} onClick={this.handleClickHeroImage} >
           <ReactTooltip />
           <img alt={this.props.hero.name} className={this.props.hero.locked ? 'locked' : ''} src={'assets/' + this.props.hero.image_name} />
+          { this.props.hero.locked ? (
+            <img className='padlock' src='assets/padlock.png' />
+          ) : (
+            null
+          )}
         </span>
       </div>
     )

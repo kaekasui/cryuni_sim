@@ -110,10 +110,15 @@
   li.icon {
     list-style-type: none;
     float: left;
+    position: relative;
     .hero-image {
       img.locked {
         -webkit-filter: brightness(60%);
         filter: brightness(60%);
+      }
+      img.padlock {
+        position: absolute;
+        z-index: 10;
       }
     }
   }
