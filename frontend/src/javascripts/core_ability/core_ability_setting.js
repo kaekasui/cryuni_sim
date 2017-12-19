@@ -52,11 +52,11 @@ export default class CoreAbilitySetting extends React.Component {
     return (
       <div className='coreAbilitySettingComponent'>
         <Title title='◆コアアビリティ' />
-        <CheckMessage checked={false} message='コアアビリティ開放済みの英雄を選択してください' />
+        <CheckMessage checked message='コアアビリティ開放済みの英雄を選択してください' />
         <ul>
           {this.state.heros.map((hero) =>
             (<li className='icon' key={hero.id}>
-              <CoreHero hero={hero} handleClickCoreHeroImage={this.togglePadlock} />
+              <CoreHero handleClickCoreHeroImage={this.togglePadlock} hero={hero} />
             </li>)
           )}
         </ul>

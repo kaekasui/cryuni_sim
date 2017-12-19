@@ -19,7 +19,7 @@ export default class CoreHero extends React.Component {
           <ReactTooltip />
           <img alt={this.props.hero.name} className={this.props.hero.padlocked ? 'locked' : ''} onClick={this.handleClickCoreHeroImage} src={'assets/' + this.props.hero.image_name} />
           { this.props.hero.padlocked ? (
-            <img className='padlock' src='assets/padlock.png' onClick={this.handleClickCoreHeroImage} />
+            <img className='padlock' onClick={this.handleClickCoreHeroImage} src='assets/padlock.png' />
           ) : (
             null
           )}
