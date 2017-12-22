@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 describe 'GET /api/heros/:id/hero_abilities', autodoc: true do
-  let!(:hero) { create(:hero, name: '英雄1') }
+  let!(:hero) { create(:hero, name: '英雄1', locked: true) }
   let!(:ability1) { create(:ability, name: '英雄移動速度') }
   let!(:ability2) { create(:ability, name: '対亜人攻撃力') }
 

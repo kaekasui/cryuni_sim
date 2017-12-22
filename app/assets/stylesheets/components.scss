@@ -24,13 +24,6 @@
   }
 }
 
-.heroComponent {
-  img {
-    height: 60px;
-    margin: 10px;
-  }
-}
-
 .resultsComponent {
   padding-top: 10px;
   .cryuni-image {
@@ -82,9 +75,7 @@
   li.icon {
     list-style-type: none;
     float: left;
-    .hero_image {
-      cursor: pointer;
-      position: relative;
+    .hero-image {
       .selected-fether {
         position: absolute;
         z-index: 10;
@@ -110,6 +101,28 @@
       }
       th.attached_abilities {
         width: 220px;
+      }
+    }
+  }
+}
+
+.coreAbilitySettingComponent {
+  li.icon {
+    list-style-type: none;
+    float: left;
+    position: relative;
+    .hero-image {
+      img.locked {
+        -webkit-filter: brightness(60%);
+        filter: brightness(60%);
+      }
+      img.padlock {
+        width: 40px;
+        height: auto;
+        position: absolute;
+        z-index: 10;
+        top: -18px;
+        left: 10px;
       }
     }
   }

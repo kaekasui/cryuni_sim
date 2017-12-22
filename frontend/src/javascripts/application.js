@@ -4,6 +4,7 @@ import { render } from 'react-dom'
 import Results from './results/results'
 import VipAbilitySetting from './vip_ability/vip_ability_setting'
 import HeroAbilitySetting from './hero_ability/hero_ability_setting'
+import CoreAbilitySetting from './core_ability/core_ability_setting'
 
 class Simulator extends React.Component {
   constructor(props) {
@@ -38,6 +39,7 @@ class Simulator extends React.Component {
         <div className='col-md-6'>
           <VipAbilitySetting handleSelectVipAbility={this.setVipAbility} />
           <HeroAbilitySetting handleSelectHeroAbility={this.setHeroAbility} selectHero={this.setHero} />
+          <CoreAbilitySetting />
         </div>
         <div className='col-md-6'>
           <Results hero={this.state.hero} heroAbility={this.state.heroAbility} vipAbility={this.state.vipAbility} />
