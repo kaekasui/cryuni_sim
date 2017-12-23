@@ -12,18 +12,25 @@ export default class CoreAbilitySetting extends React.Component {
     }
     this.togglePadlock = this.togglePadlock.bind(this)
     this.setPadlockedToState = this.setPadlockedToState.bind(this)
+    this.setCoreAbilitiesToState = this.setCoreAbilitiesToState.bind(this)
   }
 
   componentWillMount() {
     this.getHeros()
   }
 
-  togglePadlock(hero_id) {
+  togglePadlock(heroId) {
     for (let index in this.state.heros) {
-      if (this.state.heros[index].id == hero_id) {
+      if (this.state.heros[index].id == heroId) {
         let heros = this.state.heros
         if (heros[index].locked == true) {
           heros[index].padlocked = !this.state.heros[index].padlocked
+          console.log(this.state.heros[index].padlocked)
+          if (this.state.heros[index].padlocked == true) {
+            heros[index].attached_core_abilities = []
+          } else {
+            this.getCoreAbilities(heroId)
+          }
           this.setState({heros: heros})
         }
       }
@@ -37,11 +44,32 @@ export default class CoreAbilitySetting extends React.Component {
     this.setState({heros: res})
   }
 
+  setCoreAbilitiesToState(heroId, res) {
+    for (let index in this.state.heros) {
+      if (this.state.heros[index].id == heroId) {
+        let heros = this.state.heros
+        heros[index].attached_core_abilities = res
+        this.setState({heros: heros})
+      }
+    }
+  }
+
   getHeros() {
     fetch('api/heros')
       .then((res) => res.json())
       .then((res) => {
         this.setPadlockedToState(res)
+      })
+      .catch((error) => {
+        console.error(error)
+      })
+  }
+
+  getCoreAbilities(heroId) {
+    fetch('api/heros/' + heroId + '/core_abilities')
+      .then((res) => res.json())
+      .then((res) => {
+        this.setCoreAbilitiesToState(heroId, res)
       })
       .catch((error) => {
         console.error(error)
