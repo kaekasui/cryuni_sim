@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import CoreHero from './core_hero'
 import Title from './../common/title'
@@ -25,13 +26,13 @@ export default class CoreAbilitySetting extends React.Component {
         let heros = this.state.heros
         if (heros[index].locked == true) {
           heros[index].padlocked = !this.state.heros[index].padlocked
-          console.log(this.state.heros[index].padlocked)
           if (this.state.heros[index].padlocked == true) {
             heros[index].attached_core_abilities = []
           } else {
             this.getCoreAbilities(heroId)
           }
           this.setState({heros: heros})
+          this.props.handleSetCoreAbilities(heros)
         }
       }
     }
@@ -92,4 +93,8 @@ export default class CoreAbilitySetting extends React.Component {
       </div>
     )
   }
+}
+
+CoreAbilitySetting.propTypes = {
+  handleSetCoreAbilities: PropTypes.func.isRequired
 }
