@@ -16,5 +16,10 @@ FactoryBot.define do
       type 'AttachedVipAbility'
       vip_ability
     end
+
+    factory :attached_core_ability, class: AttachedCoreAbility do
+      type 'AttachedCoreAbility'
+      hero
+    end
   end
 end
