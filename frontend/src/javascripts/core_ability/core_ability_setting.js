@@ -27,13 +27,11 @@ export default class CoreAbilitySetting extends React.Component {
         if (heros[index].locked == true) {
           heros[index].padlocked = !this.state.heros[index].padlocked
           if (this.state.heros[index].padlocked == true) {
-            //heros[index].attached_core_abilities = []
             this.props.handleRemoveCoreHero(heros[index])
           } else {
             this.getCoreAbilities(heroId)
           }
           this.setState({heros: heros})
-          //this.props.handleSetCoreAbilities(heros)
         }
       }
     }
@@ -51,8 +49,6 @@ export default class CoreAbilitySetting extends React.Component {
     for (let index in this.state.heros) {
       if (this.state.heros[index].id == heroId) {
         let heros = this.state.heros
-        //heros[index].attached_core_abilities = res
-        //this.setState({heros: heros})
         this.props.handleSetCoreHeros(heros[index], res)
       }
     }

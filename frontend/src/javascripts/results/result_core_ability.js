@@ -7,9 +7,6 @@ export default class ResultCoreAbility extends React.Component {
   }
 
   render() {
-    console.log('core')
-    console.log(this.props.coreHeros)
-    console.log('core')
     return (
       <div className='resultCoreAbilityComponent'>
         <div className='panel panel-default'>
