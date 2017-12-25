@@ -69,6 +69,15 @@
   .resultVipAbilityComponent {
     padding-top: 15px;
   }
+
+  .resultCoreAbilityComponent {
+    .core-hero {
+      padding-top: 10px;
+      span.hero-name {
+        font-weight: bold;
+      }
+    }
+  }
 }
 
 .heroAbilitySettingComponent {
