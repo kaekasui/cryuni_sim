@@ -27,12 +27,13 @@ export default class CoreAbilitySetting extends React.Component {
         if (heros[index].locked == true) {
           heros[index].padlocked = !this.state.heros[index].padlocked
           if (this.state.heros[index].padlocked == true) {
-            heros[index].attached_core_abilities = []
+            //heros[index].attached_core_abilities = []
+            this.props.handleRemoveCoreHero(heros[index])
           } else {
             this.getCoreAbilities(heroId)
           }
           this.setState({heros: heros})
-          this.props.handleSetCoreAbilities(heros)
+          //this.props.handleSetCoreAbilities(heros)
         }
       }
     }
@@ -41,6 +42,7 @@ export default class CoreAbilitySetting extends React.Component {
   setPadlockedToState(res) {
     for (let index in res) {
       res[index].padlocked = res[index].locked
+      res[index].attached_core_abilities = []
     }
     this.setState({heros: res})
   }
@@ -49,8 +51,9 @@ export default class CoreAbilitySetting extends React.Component {
     for (let index in this.state.heros) {
       if (this.state.heros[index].id == heroId) {
         let heros = this.state.heros
-        heros[index].attached_core_abilities = res
-        this.setState({heros: heros})
+        //heros[index].attached_core_abilities = res
+        //this.setState({heros: heros})
+        this.props.handleSetCoreHeros(heros[index], res)
       }
     }
   }
@@ -96,5 +99,6 @@ export default class CoreAbilitySetting extends React.Component {
 }
 
 CoreAbilitySetting.propTypes = {
-  handleSetCoreAbilities: PropTypes.func.isRequired
+  handleSetCoreHeros: PropTypes.func.isRequired,
+  handleRemoveCoreHero: PropTypes.func.isRequired
 }
