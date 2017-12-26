@@ -13,25 +13,26 @@ feature 'コアアビリティ', js: true do
   end
   let!(:hero3) do
     create(:hero, name: 'ランスロット', locked: true,
-                  image_name: 'lancelot.jpg', whole_image_name: 'sd_lancelot.png')
+                  image_name: 'lancelot.jpg', whole_image_name: 'lancelot.png')
   end
   let!(:ability1) { create(:ability, name: '英雄移動速度') }
   let!(:ability2) { create(:ability, name: '対魔獣攻撃力') }
 
-  let!(:ability) do
-    create(:ability, )
-  end
   let!(:attached_ability1) do
-    create(:attached_core_ability, hero: hero1, ability: ability1, score: '10.0')
+    create(:attached_core_ability,
+           hero: hero1, ability: ability1, score: '10.0')
   end
   let!(:attached_ability2) do
-    create(:attached_core_ability, hero: hero1, ability: ability2, score: '10.0')
+    create(:attached_core_ability,
+           hero: hero1, ability: ability2, score: '10.0')
   end
   let!(:attached_ability3) do
-    create(:attached_core_ability, hero: hero3, ability: ability1, score: '10.0')
+    create(:attached_core_ability,
+           hero: hero3, ability: ability1, score: '10.0')
   end
   let!(:attached_ability4) do
-    create(:attached_core_ability, hero: hero3, ability: ability2, score: '20.0')
+    create(:attached_core_ability,
+           hero: hero3, ability: ability2, score: '20.0')
   end
 
   background do
