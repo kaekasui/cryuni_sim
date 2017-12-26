@@ -11,6 +11,28 @@ feature 'コアアビリティ', js: true do
     create(:hero, name: 'ジャンヌ・ダルク', locked: false,
                   image_name: 'jeanne.jpg', whole_image_name: 'sd_jeanne.png')
   end
+  let!(:hero3) do
+    create(:hero, name: 'ランスロット', locked: true,
+                  image_name: 'lancelot.jpg', whole_image_name: 'sd_lancelot.png')
+  end
+  let!(:ability1) { create(:ability, name: '英雄移動速度') }
+  let!(:ability2) { create(:ability, name: '対魔獣攻撃力') }
+
+  let!(:ability) do
+    create(:ability, )
+  end
+  let!(:attached_ability1) do
+    create(:attached_core_ability, hero: hero1, ability: ability1, score: '10.0')
+  end
+  let!(:attached_ability2) do
+    create(:attached_core_ability, hero: hero1, ability: ability2, score: '10.0')
+  end
+  let!(:attached_ability3) do
+    create(:attached_core_ability, hero: hero3, ability: ability1, score: '10.0')
+  end
+  let!(:attached_ability4) do
+    create(:attached_core_ability, hero: hero3, ability: ability2, score: '20.0')
+  end
 
   background do
     visit root_path
@@ -56,7 +78,7 @@ feature 'コアアビリティ', js: true do
     scenario '対象の英雄のクリックで、鍵の表示非表示が切り替わること' do
       within '.coreAbilitySettingComponent' do
         # NOTE: img[alt='エンキドゥ']の画像は、not clickable だったためpadlockを指定
-        find('.padlock').click
+        page.all('.padlock')[0].click
 
         expect(page.all('.coreHeroComponent')[0].find('img')['src'])
           .to have_content 'assets/enkidu.jpg'
@@ -66,6 +88,36 @@ feature 'コアアビリティ', js: true do
           .to have_content 'assets/enkidu.jpg'
         expect(page.all('.coreHeroComponent')[0].all('img')[1]['src'])
           .to have_content 'assets/padlock.png'
+      end
+    end
+
+    scenario '対象の英雄のクリックで、コアアビリティが結果に表示されること' do
+      within '.coreAbilitySettingComponent' do
+        # NOTE: img[alt='エンキドゥ']の画像は、not clickable だったためpadlockを指定
+        page.all('.padlock')[0].click
+      end
+
+      within '.resultCoreAbilityComponent' do
+        expect(page).to have_content '英雄移動速度 10.0 %'
+        expect(page).to have_content '対魔獣攻撃力 10.0 %'
+        within '.resultTotalCoreAbilityComponent' do
+          expect(page).to have_content '英雄移動速度 10 %'
+          expect(page).to have_content '対魔獣攻撃力 10 %'
+        end
+      end
+
+      within '.coreAbilitySettingComponent' do
+        page.all('.padlock')[0].click
+      end
+
+      within '.resultCoreAbilityComponent' do
+        expect(page).to have_content '英雄移動速度 10.0 %'
+        expect(page).to have_content '対魔獣攻撃力 10.0 %'
+        expect(page).to have_content '対魔獣攻撃力 20.0 %'
+        within '.resultTotalCoreAbilityComponent' do
+          expect(page).to have_content '英雄移動速度 20 %'
+          expect(page).to have_content '対魔獣攻撃力 30 %'
+        end
       end
     end
   end
