@@ -15,7 +15,7 @@ export default class ResultTotalCoreAbility extends React.Component {
       coreAbilities.push(this.props.coreHeros[index].attached_core_abilities)
     }
     coreAbilities = [].concat(...coreAbilities)
-    let result = coreAbilities.reduce(function (r, a) {
+    let result = coreAbilities.reduce((r, a) => {
       r[a.ability_name] = r[a.ability_name] || []
       r[a.ability_name].ability_name = a.ability_name
       r[a.ability_name].score = (r[a.ability_name].score || 0.0) + Number.parseFloat(a.score)
