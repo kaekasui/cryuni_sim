@@ -27,7 +27,6 @@ export default class ResultTotalCoreAbility extends React.Component {
   }
 
   render() {
-    console.log(this.state.coreAbility)
     return (
       <div className='resultTotalCoreAbilityComponent'>
         <span>{'- 合計 -'}</span>

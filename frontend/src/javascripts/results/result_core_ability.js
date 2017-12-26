@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import ResultTotalCoreAbility from './result_total_core_ability'
+import ResultDetailCoreAbility from './result_detail_core_ability'
 
 export default class ResultCoreAbility extends React.Component {
   constructor(props) {
@@ -18,23 +19,7 @@ export default class ResultCoreAbility extends React.Component {
           <div className='panel-body'>
             <ResultTotalCoreAbility coreHeros={this.props.coreHeros} />
             <hr />
-            <span>{'- 詳細 -'}</span>
-            {this.props.coreHeros.map((coreHero) => (
-              <div key={coreHero.id}>
-                {coreHero.attached_core_abilities.length > 0 ? (
-                  <div className='core-hero'>
-                    <span className='hero-name'>{coreHero.name}</span>
-                    <ul>
-                      {coreHero.attached_core_abilities.map((ability) => (
-                        <li key={ability.id}>{ability.ability_name} {ability.score} {ability.unit}</li>
-                      ))}
-                    </ul>
-                  </div>
-                ) :(
-                  null
-                )}
-              </div>
-            ))}
+            <ResultDetailCoreAbility coreHeros={this.props.coreHeros} />
           </div>
         </div>
       </div>
