@@ -9,7 +9,7 @@ export default class ResultTotalCoreAbility extends React.Component {
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps() {
     let coreAbilities = []
     for (let index in this.props.coreHeros) {
       coreAbilities.push(this.props.coreHeros[index].attached_core_abilities)

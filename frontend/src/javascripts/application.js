@@ -43,7 +43,7 @@ class Simulator extends React.Component {
         coreHeros.splice(index, 1)
       }
     }
-    this.setState(coreHeros: coreHeros)
+    this.setState({coreHeros: coreHeros})
   }
 
   setCoreHeros(hero, coreAbilities) {
@@ -62,7 +62,7 @@ class Simulator extends React.Component {
     if (existCoreHero == false) {
       coreHeros.push(coreHero)
     }
-    this.setState(coreHeros: coreHeros)
+    this.setState({coreHeros: coreHeros})
   }
 
   render() {
@@ -71,7 +71,7 @@ class Simulator extends React.Component {
         <div className='col-md-6'>
           <VipAbilitySetting handleSelectVipAbility={this.setVipAbility} />
           <HeroAbilitySetting handleSelectHeroAbility={this.setHeroAbility} selectHero={this.setHero} />
-          <CoreAbilitySetting handleSetCoreHeros={this.setCoreHeros} handleRemoveCoreHero={this.removeCoreHero} />
+          <CoreAbilitySetting handleRemoveCoreHero={this.removeCoreHero} handleSetCoreHeros={this.setCoreHeros} />
         </div>
         <div className='col-md-6'>
           <Results coreHeros={this.state.coreHeros} hero={this.state.hero} heroAbility={this.state.heroAbility} vipAbility={this.state.vipAbility} />
