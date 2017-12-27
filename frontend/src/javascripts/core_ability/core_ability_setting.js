@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import CoreHero from './core_hero'
 import Title from './../common/title'
@@ -12,18 +13,24 @@ export default class CoreAbilitySetting extends React.Component {
     }
     this.togglePadlock = this.togglePadlock.bind(this)
     this.setPadlockedToState = this.setPadlockedToState.bind(this)
+    this.setCoreAbilitiesToState = this.setCoreAbilitiesToState.bind(this)
   }
 
   componentWillMount() {
     this.getHeros()
   }
 
-  togglePadlock(hero_id) {
+  togglePadlock(heroId) {
     for (let index in this.state.heros) {
-      if (this.state.heros[index].id == hero_id) {
+      if (this.state.heros[index].id == heroId) {
         let heros = this.state.heros
         if (heros[index].locked == true) {
           heros[index].padlocked = !this.state.heros[index].padlocked
+          if (this.state.heros[index].padlocked == true) {
+            this.props.handleRemoveCoreHero(heros[index])
+          } else {
+            this.getCoreAbilities(heroId)
+          }
           this.setState({heros: heros})
         }
       }
@@ -33,8 +40,18 @@ export default class CoreAbilitySetting extends React.Component {
   setPadlockedToState(res) {
     for (let index in res) {
       res[index].padlocked = res[index].locked
+      res[index].attached_core_abilities = []
     }
     this.setState({heros: res})
+  }
+
+  setCoreAbilitiesToState(heroId, res) {
+    for (let index in this.state.heros) {
+      if (this.state.heros[index].id == heroId) {
+        let heros = this.state.heros
+        this.props.handleSetCoreHeros(heros[index], res)
+      }
+    }
   }
 
   getHeros() {
@@ -42,6 +59,17 @@ export default class CoreAbilitySetting extends React.Component {
       .then((res) => res.json())
       .then((res) => {
         this.setPadlockedToState(res)
+      })
+      .catch((error) => {
+        console.error(error)
+      })
+  }
+
+  getCoreAbilities(heroId) {
+    fetch('api/heros/' + heroId + '/core_abilities')
+      .then((res) => res.json())
+      .then((res) => {
+        this.setCoreAbilitiesToState(heroId, res)
       })
       .catch((error) => {
         console.error(error)
@@ -64,4 +92,9 @@ export default class CoreAbilitySetting extends React.Component {
       </div>
     )
   }
+}
+
+CoreAbilitySetting.propTypes = {
+  handleSetCoreHeros: PropTypes.func.isRequired,
+  handleRemoveCoreHero: PropTypes.func.isRequired
 }
