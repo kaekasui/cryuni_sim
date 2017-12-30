@@ -14,9 +14,11 @@ gem 'puma', '~> 3.7'
 gem 'active_model_serializers'
 gem 'bootstrap-sass'
 gem 'draper', '> 3.x'
+gem 'jbuilder'
 gem 'rails-i18n'
 gem 'slim-rails'
 gem 'sass-rails'
+gem 'slack-api'
 
 group :development, :test do
   gem 'bullet'
