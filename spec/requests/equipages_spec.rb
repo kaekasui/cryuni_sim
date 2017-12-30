@@ -60,7 +60,7 @@ describe 'GET /api/equipages/:part', autodoc: true do
   end
 
   context '部位以外のURLの場合' do
-    it '200とデータが返ってくること' do
+    it '404が返ってくること' do
       get '/api/equipages/aaa'
 
       expect(response.status).to eq 404
