@@ -2,5 +2,5 @@
 
 require 'rails_helper'
 
-RSpec.describe Equipment, type: :model do
+RSpec.describe Equipage, type: :model do
 end

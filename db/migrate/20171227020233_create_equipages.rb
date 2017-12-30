@@ -1,6 +1,6 @@
-class CreateEquipment < ActiveRecord::Migration[5.1]
+class CreateEquipages < ActiveRecord::Migration[5.1]
   def change
-    create_table :equipment do |t|
+    create_table :equipages do |t|
       t.string :name, null: false
       t.integer :part, null: false
       t.integer :level, null: false

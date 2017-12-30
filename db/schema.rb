@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20171227020233) do
     t.index ["vip_ability_id"], name: "index_attached_abilities_on_vip_ability_id"
   end
 
-  create_table "equipment", force: :cascade do |t|
+  create_table "equipages", force: :cascade do |t|
     t.string "name", null: false
     t.integer "part", null: false
     t.integer "level", null: false
