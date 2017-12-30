@@ -58,4 +58,12 @@ describe 'GET /api/equipages/:part', autodoc: true do
       expect(response.body).to be_json_as(json)
     end
   end
+
+  context '部位以外のURLの場合' do
+    it '200とデータが返ってくること' do
+      get '/api/equipages/aaa'
+
+      expect(response.status).to eq 404
+    end
+  end
 end
