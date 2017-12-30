@@ -3,7 +3,7 @@
 FactoryBot.define do
   factory :equipage do
     sequence(:name) { |n| "装備#{n}" }
-    part { %w|hand head body foot accessory|.sample }
+    part { %w[hand head body foot accessory].sample }
     level { [*1..44].sample }
     min_grade 1
     max_grade 5
