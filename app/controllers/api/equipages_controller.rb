@@ -2,6 +2,7 @@
 
 class Api::EquipagesController < ApplicationController
   before_action :set_equipages, on: [:show]
+
   def show
     render json: @equipages
   end
