@@ -5,11 +5,13 @@ class Api::EquipagesController < ApplicationController
 
   def show
     render json: @equipages
+  rescue ActiveRecord::StatementInvalid
+    render :error404, status: 404, formats: :json
   end
 
   private
 
   def set_equipages
-    @equipages = Equipage.send(params[:part])
+    @equipages = Equipage.where(part: params[:part])
   end
 end
