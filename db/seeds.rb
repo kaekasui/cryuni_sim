@@ -39,6 +39,19 @@ CSV.foreach('db/seeds/vip_abilities.csv') do |row|
   )
 end
 
+# 英雄装備
+CSV.foreach('db/seeds/equipages.csv') do |row|
+  equipages = Equipage.find_or_initialize_by(name: row[0])
+  equipages.update_attributes(
+    part: row[1],
+    level: row[2],
+    min_grade: row[3],
+    max_grade: row[4],
+    card_slot: row[5],
+    image_name: row[6]
+  )
+end
+
 # ヒーローアビリティにあるアビリティ
 AttachedHeroAbility.destroy_all
 CSV.foreach('db/seeds/attached_hero_abilities.csv') do |row|

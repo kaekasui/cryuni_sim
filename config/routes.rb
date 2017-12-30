@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       resources :hero_abilities, only: %i[index]
       resources :core_abilities, only: %i[index]
     end
-
     resources :vip_abilities, only: %i[index]
+    resources :equipages, only: %i[show], param: :part
   end
 end
