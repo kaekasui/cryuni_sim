@@ -41,7 +41,7 @@ export default class Equipage extends React.Component {
         </div>
         <Modal ariaHideApp={false} isOpen={this.state.modalIsOpen}>
           <button aria-label='Close' className='close' onClick={this.handleClickCloseButton} type='button'>
-            <span aria-hidden='true'>{'&times;'}</span>
+            <span dangerouslySetInnerHTML={{__html: '&times'}} />
           </button>
           <table className='table table-bordered'>
             <tbody>

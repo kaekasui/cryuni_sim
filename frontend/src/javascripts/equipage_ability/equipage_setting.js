@@ -13,7 +13,12 @@ export default class EquipageSetting extends React.Component {
       <div className='equipageSettingComponent'>
         <Title title='◆装備' />
         <div className='equipages'>
+          <Equipage part='hand' />
           <Equipage part='head' />
+          <Equipage part='body' />
+          <Equipage part='foot' />
+          <Equipage part='accessory' />
+          <Equipage part='accessory' />
         </div>
       </div>
     )
