@@ -5,6 +5,7 @@ import Results from './results/results'
 import VipAbilitySetting from './vip_ability/vip_ability_setting'
 import HeroAbilitySetting from './hero_ability/hero_ability_setting'
 import CoreAbilitySetting from './core_ability/core_ability_setting'
+import EquipageSetting from './equipage_ability/equipage_setting'
 
 class Simulator extends React.Component {
   constructor(props) {
@@ -72,6 +73,7 @@ class Simulator extends React.Component {
           <VipAbilitySetting handleSelectVipAbility={this.setVipAbility} />
           <HeroAbilitySetting handleSelectHeroAbility={this.setHeroAbility} selectHero={this.setHero} />
           <CoreAbilitySetting handleRemoveCoreHero={this.removeCoreHero} handleSetCoreHeros={this.setCoreHeros} />
+          <EquipageSetting />
         </div>
         <div className='col-md-6'>
           <Results coreHeros={this.state.coreHeros} hero={this.state.hero} heroAbility={this.state.heroAbility} vipAbility={this.state.vipAbility} />
