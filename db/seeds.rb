@@ -104,3 +104,12 @@ CSV.foreach('db/seeds/attached_core_abilities.csv') do |row|
     unit: row[3]
   )
 end
+
+# グレード
+CSV.foreach('db/seeds/grades.csv') do |row|
+  grade = Grade.find_or_initialize_by(level: row[0])
+
+  grade.update_attributes(
+    image_name: row[1]
+  )
+end
