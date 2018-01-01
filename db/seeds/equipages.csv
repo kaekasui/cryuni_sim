@@ -1,6 +1,6 @@
-ショートソード,1,1,1,5,1,short_sword.png
-妖姫弓ティターニア,1,40,1,5,2,titania.png
-キャバリエヘルム,2,1,1,5,1,cavalier_helm.png
-くさりかたびら,3,8,1,5,1,kusarikatabira.png
-キャバリエブーツ,4,4,1,5,1,cavalier_boots.png
-竜人の腕輪,5,8,1,5,1,dragon_bracelet.png
+ショートソード,hand,1,1,5,1,short_sword.png
+妖姫弓ティターニア,hand,40,1,5,2,titania.png
+キャバリエヘルム,head,1,1,5,1,cavalier_helm.png
+くさりかたびら,body,8,1,5,1,kusarikatabira.png
+キャバリエブーツ,foot,4,1,5,1,cavalier_boots.png
+竜人の腕輪,accessory,8,1,5,1,dragon_bracelet.png

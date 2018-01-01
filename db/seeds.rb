@@ -104,3 +104,32 @@ CSV.foreach('db/seeds/attached_core_abilities.csv') do |row|
     unit: row[3]
   )
 end
+
+# グレード
+CSV.foreach('db/seeds/grades.csv') do |row|
+  grade = Grade.find_or_initialize_by(level: row[0])
+
+  grade.update_attributes(
+    image_name: row[1]
+  )
+end
+
+# 装備アビリティにあるアビリティ
+AttachedEquipageAbility.destroy_all
+CSV.foreach('db/seeds/attached_equipage_abilities.csv') do |row|
+  equipage = Equipage.find_by(name: row[0])
+  raise "ERROR: not found hero '#{row[0]}'" if equipage.blank?
+
+  grade = Grade.find_by(level: row[1])
+  raise "ERROR: not found grade '#{row[1]}'" if grade.blank?
+
+  ability = Ability.find_by(name: row[2])
+  raise "ERROR: not found ability '#{row[2]}'" if ability.blank?
+
+  equipage.attached_equipage_abilities.create(
+    grade: grade,
+    ability: ability,
+    score: row[3],
+    unit: row[4]
+  )
+end
