@@ -8,15 +8,21 @@ export default class Equipage extends React.Component {
     super(props)
     this.state = {
       modalIsOpen: false,
-      equipages: []
+      equipages: [],
+      selectedEquipage: null
     }
     this.handleClickEquipageSettingImage = this.handleClickEquipageSettingImage.bind(this)
+    this.handleSelectEquipage = this.handleSelectEquipage.bind(this)
     this.onClickCloseButton = this.onClickCloseButton.bind(this)
     this.getEquipages = this.getEquipages.bind(this)
   }
 
   handleClickEquipageSettingImage() {
     this.getEquipages()
+  }
+
+  handleSelectEquipage(equipage) {
+    this.setState({modalIsOpen: false, selectedEquipage: equipage})
   }
 
   getEquipages() {
@@ -38,9 +44,13 @@ export default class Equipage extends React.Component {
     return (
       <div className='equipageComponent'>
         <div className='equipage-image' onClick={this.handleClickEquipageSettingImage}>
-          <img src={'assets/equipages/blank_' + this.props.part + '.png'} />
+          {this.state.selectedEquipage ? (
+            <span>{this.state.selectedEquipage.name}</span>
+          ) : (
+            <img src={'assets/equipages/blank_' + this.props.part + '.png'} />
+          )}
         </div>
-        <ModalEquipageList equipages={this.state.equipages} handleClickCloseButton={this.onClickCloseButton} modalIsOpen={this.state.modalIsOpen} />
+        <ModalEquipageList equipages={this.state.equipages} handleClickCloseButton={this.onClickCloseButton} modalIsOpen={this.state.modalIsOpen} onSelectEquipage={this.handleSelectEquipage} />
       </div>
     )
   }

@@ -16,7 +16,7 @@ export default class ModalEquipagesList extends React.Component {
   }
 
   handleClickEquipage(equipage) {
-    console.log(equipage)
+    this.props.onSelectEquipage(equipage)
   }
 
   render() {
@@ -41,6 +41,7 @@ export default class ModalEquipagesList extends React.Component {
 
 ModalEquipagesList.propTypes = {
   handleClickCloseButton: PropTypes.func.isRequired,
+  onSelectEquipage: PropTypes.func.isRequired,
   equipages: PropTypes.array.isRequired,
   modalIsOpen: PropTypes.bool.isRequired
 }
