@@ -21,5 +21,11 @@ FactoryBot.define do
       type 'AttachedCoreAbility'
       hero
     end
+
+    factory :attached_equipage_ability, class: AttachedEquipageAbility do
+      type 'AttachedEquipageAbility'
+      equipage
+      grade
+    end
   end
 end

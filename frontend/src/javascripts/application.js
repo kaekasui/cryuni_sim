@@ -23,6 +23,7 @@ class Simulator extends React.Component {
     this.setVipAbility = this.setVipAbility.bind(this)
     this.setCoreHeros = this.setCoreHeros.bind(this)
     this.removeCoreHero = this.removeCoreHero.bind(this)
+    this.setEquipageAbility = this.setEquipageAbility.bind(this)
   }
 
   setHero(hero) {
@@ -66,6 +67,12 @@ class Simulator extends React.Component {
     this.setState({coreHeros: coreHeros})
   }
 
+  setEquipageAbility(part, equipage, ability) {
+    console.log(part)
+    console.log(equipage)
+    console.log(ability)
+  }
+
   render() {
     return (
       <div className="SimulatorComponent">
@@ -73,7 +80,7 @@ class Simulator extends React.Component {
           <VipAbilitySetting handleSelectVipAbility={this.setVipAbility} />
           <HeroAbilitySetting handleSelectHeroAbility={this.setHeroAbility} selectHero={this.setHero} />
           <CoreAbilitySetting handleRemoveCoreHero={this.removeCoreHero} handleSetCoreHeros={this.setCoreHeros} />
-          <EquipageSetting />
+          <EquipageSetting handleSelectEquipages={this.setEquipageAbility} />
         </div>
         <div className='col-md-6'>
           <Results coreHeros={this.state.coreHeros} hero={this.state.hero} heroAbility={this.state.heroAbility} vipAbility={this.state.vipAbility} />

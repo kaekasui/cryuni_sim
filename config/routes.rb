@@ -10,5 +10,8 @@ Rails.application.routes.draw do
     end
     resources :vip_abilities, only: %i[index]
     resources :equipages, only: %i[show], param: :part
+    resources :equipages, only: [] do
+      resources :equipage_abilities, only: %i[show], param: :grade
+    end
   end
 end
