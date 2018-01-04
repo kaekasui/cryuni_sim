@@ -18,6 +18,7 @@ class Api::EquipageAbilitiesController < ApplicationController
   end
 
   def set_equipage_abilities
-    @equipage_abilities = @equipage.attached_equipage_abilities.where(grade: @grade)
+    @equipage_abilities =
+      @equipage.attached_equipage_abilities.where(grade: @grade)
   end
 end

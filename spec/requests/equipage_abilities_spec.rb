@@ -10,16 +10,20 @@ describe 'GET /api/equipages/:id/equipage_abilities/:grade', autodoc: true do
   let(:grade2) { create(:grade, level: 2) }
   let(:grade3) { create(:grade, level: 3) }
   let!(:equipage_ability1) do
-    create(:attached_equipage_ability, equipage: equipage, ability: ability1, grade: grade2, score: '10.0')
+    create(:attached_equipage_ability,
+           equipage: equipage, ability: ability1, grade: grade2, score: '10.0')
   end
   let!(:equipage_ability2) do
-    create(:attached_equipage_ability, equipage: equipage, ability: ability2, grade: grade2, score: '20.0')
+    create(:attached_equipage_ability,
+           equipage: equipage, ability: ability2, grade: grade2, score: '20.0')
   end
   let!(:equipage_ability3) do
-    create(:attached_equipage_ability, equipage: equipage, ability: ability1, grade: grade3, score: '20.0')
+    create(:attached_equipage_ability,
+           equipage: equipage, ability: ability1, grade: grade3, score: '20.0')
   end
   let!(:equipage_ability4) do
-    create(:attached_equipage_ability, equipage: equipage, ability: ability2, grade: grade3, score: '30.0')
+    create(:attached_equipage_ability,
+           equipage: equipage, ability: ability2, grade: grade3, score: '30.0')
   end
 
   context 'グレードが2の場合' do
