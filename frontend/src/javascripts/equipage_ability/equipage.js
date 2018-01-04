@@ -23,6 +23,7 @@ export default class Equipage extends React.Component {
 
   handleSelectEquipage(equipage) {
     this.setState({modalIsOpen: false, selectedEquipage: equipage})
+    this.props.onSelectEquipage(this.props.part, equipage)
   }
 
   getEquipages() {
@@ -57,5 +58,6 @@ export default class Equipage extends React.Component {
 }
 
 Equipage.propTypes = {
+  onSelectEquipage: PropTypes.func.isRequired,
   part: PropTypes.string.isRequired
 }
