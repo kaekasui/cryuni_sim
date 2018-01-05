@@ -100,15 +100,11 @@ feature 'ヒーローアビリティ', js: true do
 
       within '.heroAbilitySettingComponent' do
         within '.intimacyFormComponent' do
-          # 英雄親密度を空にする
           fill_in 'intimacy-level', with: '1'
         end
       end
 
-      within '.resultHeroAbilityComponent' do
-        expect(page).to have_no_content '亜人攻撃力 30.0 %'
-        expect(page).to have_no_content '亜人攻撃力 10.0 %'
-      end
+      expect(page).to have_no_css '.resultHeroAbilityComponent'
 
       within '.heroAbilitySettingComponent' do
         find("img[alt='エンキドゥ']").click
