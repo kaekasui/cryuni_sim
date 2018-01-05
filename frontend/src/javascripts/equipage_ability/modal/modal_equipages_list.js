@@ -28,6 +28,9 @@ export default class ModalEquipagesList extends React.Component {
           </button>
           <table className='table table-bordered'>
             <tbody>
+              <tr className='modal-equipage-line'>
+                <td colSpan='2'>{'なし'}</td>
+              </tr>
               {this.props.equipages.map((equipage) =>
                 <ModalEquipage equipage={equipage} key={equipage.id} onClickEquipage={this.handleClickEquipage} />
               )}
