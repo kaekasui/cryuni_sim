@@ -3,6 +3,6 @@
 FactoryBot.define do
   factory :grade do
     level { [*1..5].sample }
-    image_name { '1.png' }
+    image_name { "#{level}.png" }
   end
 end
