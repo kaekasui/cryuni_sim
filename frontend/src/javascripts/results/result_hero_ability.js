@@ -9,22 +9,22 @@ export default class ResultHeroAbility extends React.Component {
   render() {
     return (
       <div className='resultHeroAbilityComponent'>
-        {this.props.heroAbility.attached_hero_abilities.length > 0 ? (
-          <div className='panel panel-default'>
-            <div className='panel-heading'>
-              {'ヒーローアビリティ'}
-            </div>
-            <div className='panel-body'>
+        <div className='panel panel-default'>
+          <div className='panel-heading'>
+            {'ヒーローアビリティ'}
+          </div>
+          <div className='panel-body'>
+            {this.props.heroAbility.attached_hero_abilities.length > 0 ? (
               <ul>
                 {this.props.heroAbility.attached_hero_abilities.map((ability) => (
                   <li key={ability.id}>{ability.ability_name} {ability.score} {ability.unit}</li>
                 ))}
               </ul>
-            </div>
+            ) : (
+              null
+            )}
           </div>
-        ) : (
-          null
-        )}
+        </div>
       </div>
     )
   }

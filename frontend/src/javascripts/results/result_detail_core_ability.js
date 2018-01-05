@@ -9,7 +9,11 @@ export default class ResultDetailCoreAbility extends React.Component {
   render() {
     return (
       <div className='resultDetailCoreAbilityComponent'>
-        <span>{'- 詳細 -'}</span>
+        {this.props.coreHeros.length > 0 ? (
+          <span>{'- 詳細 -'}</span>
+        ) : (
+          null
+        )}
         {this.props.coreHeros.map((coreHero) => (
           <div key={coreHero.id}>
             {coreHero.attached_core_abilities.length > 0 ? (

@@ -104,7 +104,10 @@ feature 'ヒーローアビリティ', js: true do
         end
       end
 
-      expect(page).to have_no_css '.resultHeroAbilityComponent'
+      within '.resultHeroAbilityComponent' do
+        expect(page).to have_no_content '亜人攻撃力 30.0 %'
+        expect(page).to have_no_content '亜人攻撃力 10.0 %'
+      end
 
       within '.heroAbilitySettingComponent' do
         find("img[alt='エンキドゥ']").click
