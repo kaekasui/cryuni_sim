@@ -134,6 +134,21 @@
   }
 }
 
+.equipageSettingComponent {
+  .equipage {
+    padding-top: 10px;
+    .equipageComponent {
+      .selectable-equipage {
+        display: inline-block;
+        cursor: pointer;
+        img {
+          width: 80px;
+        }
+      }
+    }
+  }
+}
+
 .modalEquipageComponent:hover {
   cursor: pointer;
   background-color: #FFA;
