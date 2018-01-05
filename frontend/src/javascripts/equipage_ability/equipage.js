@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import ModalEquipageList from './modal/modal_equipages_list'
+import GradeForm from './grade_form'
 
 export default class Equipage extends React.Component {
   constructor(props) {
@@ -44,11 +45,20 @@ export default class Equipage extends React.Component {
   render() {
     return (
       <div className='equipageComponent'>
-        <div className='equipage-image' onClick={this.handleClickEquipageSettingImage}>
+        <div className='equipage' onClick={this.handleClickEquipageSettingImage}>
           {this.state.selectedEquipage ? (
-            <span>{this.state.selectedEquipage.name}</span>
+            <div className='selected-equipage'>
+              <span>{this.state.selectedEquipage.name}</span>
+            </div>
           ) : (
             <img src={'assets/equipages/blank_' + this.props.part + '.png'} />
+          )}
+        </div>
+        <div className='grades'>
+          {this.state.selectedEquipage ? (
+            <GradeForm grades={this.state.selectedEquipage.range_grades} />
+          ) : (
+            null
           )}
         </div>
         <ModalEquipageList equipages={this.state.equipages} handleClickCloseButton={this.onClickCloseButton} modalIsOpen={this.state.modalIsOpen} onSelectEquipage={this.handleSelectEquipage} />

@@ -6,3 +6,7 @@
   overflow: scroll;
   height: 100vh;
 }
+
+.btn-group .btn + .btn, .btn-group .btn + .btn-group, .btn-group .btn-group + .btn, .btn-group .btn-group + .btn-group {
+  z-index: 0;
+}

@@ -107,10 +107,11 @@ end
 
 # グレード
 CSV.foreach('db/seeds/grades.csv') do |row|
-  grade = Grade.find_or_initialize_by(level: row[0])
+  grade = Grade.find_or_initialize_by(name: row[0])
 
   grade.update_attributes(
-    image_name: row[1]
+    level: row[1],
+    image_name: row[2]
   )
 end
 
