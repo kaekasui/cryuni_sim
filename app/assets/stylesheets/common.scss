@@ -10,3 +10,11 @@
     margin: 10px;
   }
 }
+
+.ReactModal__Content.ReactModal__Content--after-open {
+  width: 40%;
+  button.close {
+    top: -10px;
+    position: relative;
+  }
+}
