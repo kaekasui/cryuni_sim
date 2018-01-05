@@ -100,7 +100,6 @@ feature 'ヒーローアビリティ', js: true do
 
       within '.heroAbilitySettingComponent' do
         within '.intimacyFormComponent' do
-          # 英雄親密度を空にする
           fill_in 'intimacy-level', with: '1'
         end
       end

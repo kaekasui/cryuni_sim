@@ -14,10 +14,14 @@ export default class Results extends React.Component {
   render() {
     return (
       <div className='resultsComponent'>
-        <ResultImage hero={this.props.hero} vipAbility={this.props.vipAbility} />
-        <ResultHeroAbility heroAbility={this.props.heroAbility} />
-        <ResultVipAbility vipAbility={this.props.vipAbility} />
-        <ResultCoreAbility coreHeros={this.props.coreHeros} />
+        <div className='col-md-8'>
+          <ResultImage hero={this.props.hero} vipAbility={this.props.vipAbility} />
+        </div>
+        <div className='col-md-4'>
+          <ResultHeroAbility heroAbility={this.props.heroAbility} />
+          <ResultVipAbility vipAbility={this.props.vipAbility} />
+          <ResultCoreAbility coreHeros={this.props.coreHeros} />
+        </div>
       </div>
     )
   }

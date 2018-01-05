@@ -31,18 +31,24 @@ export default class EquipageSetting extends React.Component {
       <div className='equipageSettingComponent'>
         <Title title='◆装備' />
         <div className='equipages'>
-          <span>{'手'}</span>
-          <Equipage onSelectEquipage={this.handleSelectEquipage} part='hand' />
-          <span>{'頭'}</span>
-          <Equipage onSelectEquipage={this.handleSelectEquipage} part='head' />
-          <span>{'体'}</span>
-          <Equipage onSelectEquipage={this.handleSelectEquipage} part='body' />
-          <span>{'足'}</span>
-          <Equipage onSelectEquipage={this.handleSelectEquipage} part='foot' />
-          <span>{'アクセ'}</span>
-          <Equipage onSelectEquipage={this.handleSelectEquipage} part='accessory' />
-          <span>{'アクセ'}</span>
-          <Equipage onSelectEquipage={this.handleSelectEquipage} part='accessory' />
+          <div className='equipage'>
+            <Equipage onSelectEquipage={this.handleSelectEquipage} part='hand' />
+          </div>
+          <div className='equipage'>
+            <Equipage onSelectEquipage={this.handleSelectEquipage} part='head' />
+          </div>
+          <div className='equipage'>
+            <Equipage onSelectEquipage={this.handleSelectEquipage} part='body' />
+          </div>
+          <div className='equipage'>
+            <Equipage onSelectEquipage={this.handleSelectEquipage} part='foot' />
+          </div>
+          <div className='equipage'>
+            <Equipage onSelectEquipage={this.handleSelectEquipage} part='accessory' />
+          </div>
+          <div className='equipage'>
+            <Equipage onSelectEquipage={this.handleSelectEquipage} part='accessory' />
+          </div>
         </div>
       </div>
     )

@@ -9,22 +9,22 @@ export default class ResultVipAbility extends React.Component {
   render() {
     return (
       <div className='resultVipAbilityComponent'>
-        {this.props.vipAbility.attached_vip_abilities.length > 0 ? (
-          <div className='panel panel-default'>
-            <div className='panel-heading'>
-              {'VIPアビリティ'}
-            </div>
-            <div className='panel-body'>
+        <div className='panel panel-default'>
+          <div className='panel-heading'>
+            {'VIPアビリティ'}
+          </div>
+          <div className='panel-body'>
+            {this.props.vipAbility.attached_vip_abilities.length > 0 ? (
               <ul>
                 {this.props.vipAbility.attached_vip_abilities.map((ability) => (
                   <li key={ability.id}>{ability.ability_name} {ability.score} {ability.unit}</li>
                 ))}
               </ul>
-            </div>
+            ) : (
+              null
+            )}
           </div>
-        ) : (
-          null
-        )}
+        </div>
       </div>
     )
   }

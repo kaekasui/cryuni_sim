@@ -29,7 +29,11 @@ export default class ResultTotalCoreAbility extends React.Component {
   render() {
     return (
       <div className='resultTotalCoreAbilityComponent'>
-        <span>{'- 合計 -'}</span>
+        {this.state.coreAbility.length > 0 ? (
+          <span>{'- 合計 -'}</span>
+        ) : (
+          null
+        )}
         {this.state.coreAbility.map((ability, index) => (
           <p key={index}>{ability.ability_name} {ability.score} {ability.unit}</p>
         ))}

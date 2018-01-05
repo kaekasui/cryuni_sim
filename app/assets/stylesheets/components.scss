@@ -26,6 +26,11 @@
 
 .resultsComponent {
   padding-top: 10px;
+
+  .resultImageComponent {
+    display: inline-block;
+  }
+
   .cryuni-image {
     position: relative;
     h2 {
@@ -59,15 +64,7 @@
       padding: 0;
       margin: 0;
     }
-    width: 200px;
-  }
-
-  .resultHeroAbilityComponent {
-    padding-top: 15px;
-  }
-
-  .resultVipAbilityComponent {
-    padding-top: 15px;
+    width: 100%;
   }
 
   .resultCoreAbilityComponent {
@@ -135,4 +132,24 @@
       }
     }
   }
+}
+
+.equipageSettingComponent {
+  .equipage {
+    padding-top: 10px;
+    .equipageComponent {
+      .selectable-equipage {
+        display: inline-block;
+        cursor: pointer;
+        img {
+          width: 80px;
+        }
+      }
+    }
+  }
+}
+
+.modalEquipageComponent:hover {
+  cursor: pointer;
+  background-color: #FFA;
 }

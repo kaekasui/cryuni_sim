@@ -1,3 +1,12 @@
+.container {
+  width: 95%;
+}
+
+.col-md-5.left-screen, .col-md-7.right-screen {
+  overflow: scroll;
+  height: 100vh;
+}
+
 .btn-group .btn + .btn, .btn-group .btn + .btn-group, .btn-group .btn-group + .btn, .btn-group .btn-group + .btn-group {
   z-index: 0;
 }
