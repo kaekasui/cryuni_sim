@@ -28,16 +28,19 @@ describe 'GET /api/equipages/:part', autodoc: true do
           range_grades: [
             {
               id: grade1.id,
+              name: grade1.name,
               level: grade1.level,
               image_name: grade1.image_name
             },
             {
               id: grade2.id,
+              name: grade2.name,
               level: grade2.level,
               image_name: grade2.image_name
             },
             {
               id: grade3.id,
+              name: grade3.name,
               level: grade3.level,
               image_name: grade3.image_name
             }
@@ -55,16 +58,19 @@ describe 'GET /api/equipages/:part', autodoc: true do
           range_grades: [
             {
               id: grade1.id,
+              name: grade1.name,
               level: grade1.level,
               image_name: grade1.image_name
             },
             {
               id: grade2.id,
+              name: grade2.name,
               level: grade2.level,
               image_name: grade2.image_name
             },
             {
               id: grade3.id,
+              name: grade3.name,
               level: grade3.level,
               image_name: grade3.image_name
             }
@@ -93,16 +99,19 @@ describe 'GET /api/equipages/:part', autodoc: true do
           range_grades: [
             {
               id: grade1.id,
+              name: grade1.name,
               level: grade1.level,
               image_name: grade1.image_name
             },
             {
               id: grade2.id,
+              name: grade2.name,
               level: grade2.level,
               image_name: grade2.image_name
             },
             {
               id: grade3.id,
+              name: grade3.name,
               level: grade3.level,
               image_name: grade3.image_name
             }

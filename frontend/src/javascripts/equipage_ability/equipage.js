@@ -46,7 +46,12 @@ export default class Equipage extends React.Component {
       <div className='equipageComponent'>
         <div className='equipage-image' onClick={this.handleClickEquipageSettingImage}>
           {this.state.selectedEquipage ? (
-            <span>{this.state.selectedEquipage.name}</span>
+            <div className='selected-equipage'>
+              <span>{this.state.selectedEquipage.name}</span>
+              {this.state.selectedEquipage.range_grades.map((grade) =>
+                <span key={grade.id}>{grade.name}</span>
+              )}
+            </div>
           ) : (
             <img src={'assets/equipages/blank_' + this.props.part + '.png'} />
           )}
