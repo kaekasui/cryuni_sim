@@ -9,10 +9,15 @@ export default class ModalEquipagesList extends React.Component {
     super(props)
     this.handleClickCloseButton = this.handleClickCloseButton.bind(this)
     this.handleClickEquipage = this.handleClickEquipage.bind(this)
+    this.handleClickEmptyEquipage = this.handleClickEmptyEquipage.bind(this)
   }
 
   handleClickCloseButton() {
     this.props.handleClickCloseButton()
+  }
+
+  handleClickEmptyEquipage() {
+    this.props.onSelectEquipage(null)
   }
 
   handleClickEquipage(equipage) {
@@ -28,6 +33,9 @@ export default class ModalEquipagesList extends React.Component {
           </button>
           <table className='table table-bordered'>
             <tbody>
+              <tr className='modal-equipage-line' onClick={this.handleClickEmptyEquipage}>
+                <td colSpan='2'>{'なし'}</td>
+              </tr>
               {this.props.equipages.map((equipage) =>
                 <ModalEquipage equipage={equipage} key={equipage.id} onClickEquipage={this.handleClickEquipage} />
               )}

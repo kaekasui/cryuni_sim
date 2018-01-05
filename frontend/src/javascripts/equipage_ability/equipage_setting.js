@@ -12,7 +12,11 @@ export default class EquipageSetting extends React.Component {
   }
 
   handleSelectEquipage(part, equipage) {
-    this.getEquipageAbilities(part, equipage)
+    if (equipage) {
+      this.getEquipageAbilities(part, equipage)
+    } else {
+      this.props.handleSelectEquipages(part, equipage, [])
+    }
   }
 
   getEquipageAbilities(part, equipage) {
@@ -31,22 +35,22 @@ export default class EquipageSetting extends React.Component {
       <div className='equipageSettingComponent'>
         <Title title='◆装備' />
         <div className='equipages'>
-          <div className='equipage'>
+          <div className='equipage equipage-hand'>
             <Equipage onSelectEquipage={this.handleSelectEquipage} part='hand' />
           </div>
-          <div className='equipage'>
+          <div className='equipage equipage-head'>
             <Equipage onSelectEquipage={this.handleSelectEquipage} part='head' />
           </div>
-          <div className='equipage'>
+          <div className='equipage equipage-body'>
             <Equipage onSelectEquipage={this.handleSelectEquipage} part='body' />
           </div>
-          <div className='equipage'>
+          <div className='equipage equipage-foot'>
             <Equipage onSelectEquipage={this.handleSelectEquipage} part='foot' />
           </div>
-          <div className='equipage'>
+          <div className='equipage equipage-accessory1'>
             <Equipage onSelectEquipage={this.handleSelectEquipage} part='accessory' />
           </div>
-          <div className='equipage'>
+          <div className='equipage equipage-accessory2'>
             <Equipage onSelectEquipage={this.handleSelectEquipage} part='accessory' />
           </div>
         </div>
