@@ -14,15 +14,18 @@ feature '装備アビリティ', js: true do
   let!(:ability2) { create(:ability, name: '対魔獣攻撃力') }
   let!(:attached_ability1) do
     create(:attached_equipage_ability,
-           ability: ability1, grade: grade1, equipage: head_equipage1, score: 10.0)
+           ability: ability1, grade: grade1, equipage: head_equipage1,
+           score: 10.0)
   end
   let!(:attached_ability2) do
     create(:attached_equipage_ability,
-           ability: ability1, grade: grade1, equipage: head_equipage2, score: 20.0)
+           ability: ability1, grade: grade1, equipage: head_equipage2,
+           score: 20.0)
   end
   let!(:attached_ability3) do
     create(:attached_equipage_ability,
-           ability: ability2, grade: grade1, equipage: head_equipage2, score: 20.0)
+           ability: ability2, grade: grade1, equipage: head_equipage2,
+           score: 20.0)
   end
 
   background do
