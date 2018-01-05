@@ -5,7 +5,7 @@ export default class GradeForm extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      selectedGradeLevel: undefined
+      selectedGradeLevel: this.props.selectedGradeLevel
     }
     this.handleChangeGradeLevel = this.handleChangeGradeLevel.bind(this)
   }
@@ -31,5 +31,6 @@ export default class GradeForm extends React.Component {
 }
 
 GradeForm.propTypes = {
+  selectedGradeLevel: PropTypes.number.isRequired,
   grades: PropTypes.array.isRequired
 }
