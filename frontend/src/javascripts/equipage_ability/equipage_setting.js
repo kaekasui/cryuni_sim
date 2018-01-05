@@ -12,7 +12,11 @@ export default class EquipageSetting extends React.Component {
   }
 
   handleSelectEquipage(part, equipage) {
-    this.getEquipageAbilities(part, equipage)
+    if (equipage) {
+      this.getEquipageAbilities(part, equipage)
+    } else {
+      this.props.handleSelectEquipages(part, equipage, [])
+    }
   }
 
   getEquipageAbilities(part, equipage) {
