@@ -1,0 +1,8 @@
+.container {
+  width: 95%;
+}
+
+.col-md-5.left-screen, .col-md-7.right-screen {
+  overflow: scroll;
+  height: 100vh;
+}

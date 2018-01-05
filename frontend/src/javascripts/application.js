@@ -76,13 +76,13 @@ class Simulator extends React.Component {
   render() {
     return (
       <div className="SimulatorComponent">
-        <div className='col-md-6'>
+        <div className='col-md-5 left-screen'>
           <VipAbilitySetting handleSelectVipAbility={this.setVipAbility} />
           <HeroAbilitySetting handleSelectHeroAbility={this.setHeroAbility} selectHero={this.setHero} />
           <CoreAbilitySetting handleRemoveCoreHero={this.removeCoreHero} handleSetCoreHeros={this.setCoreHeros} />
           <EquipageSetting handleSelectEquipages={this.setEquipageAbility} />
         </div>
-        <div className='col-md-6'>
+        <div className='col-md-7 right-screen'>
           <Results coreHeros={this.state.coreHeros} hero={this.state.hero} heroAbility={this.state.heroAbility} vipAbility={this.state.vipAbility} />
         </div>
       </div>
