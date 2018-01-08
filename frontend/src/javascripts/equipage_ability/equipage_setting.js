@@ -48,10 +48,10 @@ export default class EquipageSetting extends React.Component {
             <Equipage onSelectEquipage={this.handleSelectEquipage} part='foot' />
           </div>
           <div className='equipage equipage-accessory1'>
-            <Equipage onSelectEquipage={this.handleSelectEquipage} part='accessory' />
+            <Equipage onSelectEquipage={this.handleSelectEquipage} part='accessory1' />
           </div>
           <div className='equipage equipage-accessory2'>
-            <Equipage onSelectEquipage={this.handleSelectEquipage} part='accessory' />
+            <Equipage onSelectEquipage={this.handleSelectEquipage} part='accessory2' />
           </div>
         </div>
       </div>
