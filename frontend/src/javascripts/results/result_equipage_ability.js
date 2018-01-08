@@ -19,7 +19,7 @@ export default class ResultEquipageAbility extends React.Component {
                 {Object.keys(this.props.equipageAbility).map((part) => (
                   <ul key={part}>
                     {this.props.equipageAbility[part].equipage ? (
-                      <li>{part}
+                      <li><b>{this.props.equipageAbility[part].equipage.part_human_name}</b>
                         <ul>
                           {this.props.equipageAbility[part].ability.map((ability) => (
                             <li key={ability.id}>{ability.ability_name} {ability.score} {ability.unit}</li>
