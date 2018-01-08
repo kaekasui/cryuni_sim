@@ -54,7 +54,7 @@ export default class Equipage extends React.Component {
         </div>
         <div className='grades'>
           {this.state.selectedEquipage ? (
-            <GradeForm selectedGradeLevel={this.state.selectedEquipage.min_grade} grades={this.state.selectedEquipage.range_grades} />
+            <GradeForm grades={this.state.selectedEquipage.range_grades} selectedGradeLevel={this.state.selectedEquipage.min_grade} />
           ) : (
             null
           )}

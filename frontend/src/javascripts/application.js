@@ -84,7 +84,7 @@ class Simulator extends React.Component {
           <EquipageSetting handleSelectEquipages={this.setEquipageAbility} />
         </div>
         <div className='col-md-7 right-screen'>
-          <Results coreHeros={this.state.coreHeros} hero={this.state.hero} heroAbility={this.state.heroAbility} vipAbility={this.state.vipAbility} equipageAbility={this.state.equipageAbility} />
+          <Results coreHeros={this.state.coreHeros} equipageAbility={this.state.equipageAbility} hero={this.state.hero} heroAbility={this.state.heroAbility} vipAbility={this.state.vipAbility} />
         </div>
       </div>
     )

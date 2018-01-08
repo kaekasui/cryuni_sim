@@ -18,17 +18,17 @@ export default class ResultEquipageAbility extends React.Component {
               <div>
                 {Object.keys(this.props.equipageAbility).map((part) => (
                   <ul key={part}>
-                  {this.props.equipageAbility[part].equipage ? (
-                    <li>{part}
-                      <ul>
-                        {this.props.equipageAbility[part].ability.map((ability) => (
-                          <li key={ability.id}>{ability.ability_name} {ability.score} {ability.unit}</li>
-                        ))}
-                      </ul>
-                    </li>
-                  ) : (
-                    null
-                  )}
+                    {this.props.equipageAbility[part].equipage ? (
+                      <li>{part}
+                        <ul>
+                          {this.props.equipageAbility[part].ability.map((ability) => (
+                            <li key={ability.id}>{ability.ability_name} {ability.score} {ability.unit}</li>
+                          ))}
+                        </ul>
+                      </li>
+                    ) : (
+                      null
+                    )}
                   </ul>
                 ))}
               </div>
