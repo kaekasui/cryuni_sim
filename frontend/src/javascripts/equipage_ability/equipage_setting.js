@@ -11,16 +11,16 @@ export default class EquipageSetting extends React.Component {
     this.getEquipageAbilities = this.getEquipageAbilities.bind(this)
   }
 
-  handleSelectEquipage(part, equipage) {
+  handleSelectEquipage(part, equipage, gradeLevel) {
     if (equipage) {
-      this.getEquipageAbilities(part, equipage)
+      this.getEquipageAbilities(part, equipage, gradeLevel)
     } else {
       this.props.handleSelectEquipages(part, equipage, [])
     }
   }
 
-  getEquipageAbilities(part, equipage) {
-    fetch('api/equipages/' + equipage.id + '/equipage_abilities/' + equipage.min_grade)
+  getEquipageAbilities(part, equipage, gradeLevel) {
+    fetch('api/equipages/' + equipage.id + '/equipage_abilities/' + gradeLevel)
       .then((res) => res.json())
       .then((res) => {
         this.props.handleSelectEquipages(part, equipage, res)
