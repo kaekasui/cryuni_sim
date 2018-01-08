@@ -11,16 +11,16 @@ export default class EquipageSetting extends React.Component {
     this.getEquipageAbilities = this.getEquipageAbilities.bind(this)
   }
 
-  handleSelectEquipage(part, equipage) {
+  handleSelectEquipage(part, equipage, gradeLevel) {
     if (equipage) {
-      this.getEquipageAbilities(part, equipage)
+      this.getEquipageAbilities(part, equipage, gradeLevel)
     } else {
       this.props.handleSelectEquipages(part, equipage, [])
     }
   }
 
-  getEquipageAbilities(part, equipage) {
-    fetch('api/equipages/' + equipage.id + '/equipage_abilities/' + equipage.min_grade)
+  getEquipageAbilities(part, equipage, gradeLevel) {
+    fetch('api/equipages/' + equipage.id + '/equipage_abilities/' + gradeLevel)
       .then((res) => res.json())
       .then((res) => {
         this.props.handleSelectEquipages(part, equipage, res)
@@ -48,10 +48,10 @@ export default class EquipageSetting extends React.Component {
             <Equipage onSelectEquipage={this.handleSelectEquipage} part='foot' />
           </div>
           <div className='equipage equipage-accessory1'>
-            <Equipage onSelectEquipage={this.handleSelectEquipage} part='accessory' />
+            <Equipage onSelectEquipage={this.handleSelectEquipage} part='accessory1' />
           </div>
           <div className='equipage equipage-accessory2'>
-            <Equipage onSelectEquipage={this.handleSelectEquipage} part='accessory' />
+            <Equipage onSelectEquipage={this.handleSelectEquipage} part='accessory2' />
           </div>
         </div>
       </div>

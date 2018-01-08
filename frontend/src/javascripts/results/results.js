@@ -5,6 +5,7 @@ import ResultImage from './result_image'
 import ResultHeroAbility from './result_hero_ability'
 import ResultVipAbility from './result_vip_ability'
 import ResultCoreAbility from './result_core_ability'
+import ResultEquipageAbility from './result_equipage_ability'
 
 export default class Results extends React.Component {
   constructor(props) {
@@ -21,6 +22,7 @@ export default class Results extends React.Component {
           <ResultHeroAbility heroAbility={this.props.heroAbility} />
           <ResultVipAbility vipAbility={this.props.vipAbility} />
           <ResultCoreAbility coreHeros={this.props.coreHeros} />
+          <ResultEquipageAbility equipageAbility={this.props.equipageAbility} />
         </div>
       </div>
     )
@@ -31,5 +33,6 @@ Results.propTypes = {
   hero: PropTypes.object.isRequired,
   heroAbility: PropTypes.object.isRequired,
   vipAbility: PropTypes.object.isRequired,
+  equipageAbility: PropTypes.object.isRequired,
   coreHeros: PropTypes.array.isRequired
 }

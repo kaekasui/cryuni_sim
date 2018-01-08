@@ -1,3 +1,10 @@
 ja:
   labels:
     level: レベル
+    part:
+      hand: 手
+      head: 頭
+      body: 胴
+      foot: 足
+      accessory1: アクセ1
+      accessory2: アクセ2

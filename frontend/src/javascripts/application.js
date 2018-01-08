@@ -14,6 +14,7 @@ class Simulator extends React.Component {
       hero: {
         name: ''
       },
+      equipageAbility: {},
       heroAbility: {attached_hero_abilities: []},
       vipAbility: {attached_vip_abilities: []},
       coreHeros: []
@@ -68,9 +69,9 @@ class Simulator extends React.Component {
   }
 
   setEquipageAbility(part, equipage, ability) {
-    console.log(part)
-    console.log(equipage)
-    console.log(ability)
+    let equipageAbility = this.state.equipageAbility
+    equipageAbility[part] = {equipage: equipage, ability: ability}
+    this.setState({equipageAbility: equipageAbility})
   }
 
   render() {
@@ -83,7 +84,7 @@ class Simulator extends React.Component {
           <EquipageSetting handleSelectEquipages={this.setEquipageAbility} />
         </div>
         <div className='col-md-7 right-screen'>
-          <Results coreHeros={this.state.coreHeros} hero={this.state.hero} heroAbility={this.state.heroAbility} vipAbility={this.state.vipAbility} />
+          <Results coreHeros={this.state.coreHeros} equipageAbility={this.state.equipageAbility} hero={this.state.hero} heroAbility={this.state.heroAbility} vipAbility={this.state.vipAbility} />
         </div>
       </div>
     )

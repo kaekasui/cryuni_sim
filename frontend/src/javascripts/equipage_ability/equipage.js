@@ -10,10 +10,12 @@ export default class Equipage extends React.Component {
     this.state = {
       modalIsOpen: false,
       equipages: [],
-      selectedEquipage: null
+      selectedEquipage: null,
+      selectedEquipageGrade: 0
     }
     this.handleClickEquipageSettingImage = this.handleClickEquipageSettingImage.bind(this)
     this.handleSelectEquipage = this.handleSelectEquipage.bind(this)
+    this.handleSelectEquipageGrade = this.handleSelectEquipageGrade.bind(this)
     this.onClickCloseButton = this.onClickCloseButton.bind(this)
     this.getEquipages = this.getEquipages.bind(this)
   }
@@ -23,8 +25,13 @@ export default class Equipage extends React.Component {
   }
 
   handleSelectEquipage(equipage) {
-    this.setState({modalIsOpen: false, selectedEquipage: equipage})
-    this.props.onSelectEquipage(this.props.part, equipage)
+    this.setState({modalIsOpen: false, selectedEquipage: equipage, selectedEquipageGrade: (equipage || {}).min_grade})
+    this.props.onSelectEquipage(this.props.part, equipage, (equipage || {}).min_grade)
+  }
+
+  handleSelectEquipageGrade(gradeLevel) {
+    this.setState({selectedEquipageGrade: gradeLevel})
+    this.props.onSelectEquipage(this.props.part, this.state.selectedEquipage, gradeLevel)
   }
 
   getEquipages() {
@@ -54,7 +61,7 @@ export default class Equipage extends React.Component {
         </div>
         <div className='grades'>
           {this.state.selectedEquipage ? (
-            <GradeForm selectedGradeLevel={this.state.selectedEquipage.min_grade} grades={this.state.selectedEquipage.range_grades} />
+            <GradeForm grades={this.state.selectedEquipage.range_grades} handleSelectEquipageGrade={this.handleSelectEquipageGrade} selectedGradeLevel={this.state.selectedEquipageGrade} />
           ) : (
             null
           )}
