@@ -25,8 +25,8 @@ export default class Equipage extends React.Component {
   }
 
   handleSelectEquipage(equipage) {
-    this.setState({modalIsOpen: false, selectedEquipage: equipage, selectedEquipageGrade: equipage.min_grade})
-    this.props.onSelectEquipage(this.props.part, equipage, equipage.min_grade)
+    this.setState({modalIsOpen: false, selectedEquipage: equipage, selectedEquipageGrade: (equipage || {}).min_grade})
+    this.props.onSelectEquipage(this.props.part, equipage, (equipage || {}).min_grade)
   }
 
   handleSelectEquipageGrade(gradeLevel) {
