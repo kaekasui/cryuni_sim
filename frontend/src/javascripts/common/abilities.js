@@ -13,7 +13,7 @@ export default class Abilities extends React.Component {
           <tbody>
             {this.props.abilities.map((ability) =>
               <tr key={ability.id}>
-                <td>{ability.ability_name}</td>
+                <td className='ability'>{ability.ability_name}</td>
                 <td>{ability.score} {ability.unit}</td>
               </tr>
             )}

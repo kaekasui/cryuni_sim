@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import Abilities from './../common/abilities'
+
 export default class ResultTotalCoreAbility extends React.Component {
   constructor(props) {
     super(props)
@@ -17,6 +19,7 @@ export default class ResultTotalCoreAbility extends React.Component {
     coreAbilities = [].concat(...coreAbilities)
     let result = coreAbilities.reduce((r, a) => {
       r[a.ability_name] = r[a.ability_name] || []
+      r[a.ability_name].id = a.id
       r[a.ability_name].ability_name = a.ability_name
       r[a.ability_name].score = (r[a.ability_name].score || 0.0) + Number.parseFloat(a.score)
       r[a.ability_name].unit = a.unit
@@ -34,6 +37,7 @@ export default class ResultTotalCoreAbility extends React.Component {
         ) : (
           null
         )}
+        <Abilities abilities={this.state.coreAbility} />
         {this.state.coreAbility.map((ability, index) => (
           <p key={index}>{ability.ability_name} {ability.score} {ability.unit}</p>
         ))}
