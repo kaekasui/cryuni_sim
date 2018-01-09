@@ -38,9 +38,6 @@ export default class ResultTotalCoreAbility extends React.Component {
           null
         )}
         <Abilities abilities={this.state.coreAbility} />
-        {this.state.coreAbility.map((ability, index) => (
-          <p key={index}>{ability.ability_name} {ability.score} {ability.unit}</p>
-        ))}
       </div>
     )
   }
