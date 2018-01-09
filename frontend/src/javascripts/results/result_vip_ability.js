@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import Abilities from './../common/abilities'
+
 export default class ResultVipAbility extends React.Component {
   constructor(props) {
     super(props)
@@ -14,15 +16,7 @@ export default class ResultVipAbility extends React.Component {
             {'VIPアビリティ'}
           </div>
           <div className='panel-body'>
-            {this.props.vipAbility.attached_vip_abilities.length > 0 ? (
-              <ul>
-                {this.props.vipAbility.attached_vip_abilities.map((ability) => (
-                  <li key={ability.id}>{ability.ability_name} {ability.score} {ability.unit}</li>
-                ))}
-              </ul>
-            ) : (
-              null
-            )}
+            <Abilities abilities={this.props.vipAbility.attached_vip_abilities} />
           </div>
         </div>
       </div>
