@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180110124411) do
+ActiveRecord::Schema.define(version: 20180110173252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,7 +33,9 @@ ActiveRecord::Schema.define(version: 20180110124411) do
     t.bigint "hero_id"
     t.bigint "equipage_id"
     t.bigint "grade_id"
+    t.bigint "card_id"
     t.index ["ability_id"], name: "index_attached_abilities_on_ability_id"
+    t.index ["card_id"], name: "index_attached_abilities_on_card_id"
     t.index ["equipage_id"], name: "index_attached_abilities_on_equipage_id"
     t.index ["grade_id"], name: "index_attached_abilities_on_grade_id"
     t.index ["hero_ability_id"], name: "index_attached_abilities_on_hero_ability_id"
@@ -97,6 +99,7 @@ ActiveRecord::Schema.define(version: 20180110124411) do
   end
 
   add_foreign_key "attached_abilities", "abilities"
+  add_foreign_key "attached_abilities", "cards"
   add_foreign_key "attached_abilities", "equipages"
   add_foreign_key "attached_abilities", "grades"
   add_foreign_key "attached_abilities", "hero_abilities"
