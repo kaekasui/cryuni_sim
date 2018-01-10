@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import Abilities from './../common/abilities'
+
 export default class ResultEquipageAbility extends React.Component {
   constructor(props) {
     super(props)
@@ -20,11 +22,7 @@ export default class ResultEquipageAbility extends React.Component {
                   <ul key={part}>
                     {this.props.equipageAbility[part].equipage ? (
                       <li><b>{this.props.equipageAbility[part].equipage.part_human_name}</b>
-                        <ul>
-                          {this.props.equipageAbility[part].ability.map((ability) => (
-                            <li key={ability.id}>{ability.ability_name} {ability.score} {ability.unit}</li>
-                          ))}
-                        </ul>
+                        <Abilities abilities={this.props.equipageAbility[part].ability} />
                       </li>
                     ) : (
                       null

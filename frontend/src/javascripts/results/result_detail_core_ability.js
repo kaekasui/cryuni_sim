@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import Abilities from './../common/abilities'
+
 export default class ResultDetailCoreAbility extends React.Component {
   constructor(props) {
     super(props)
@@ -19,11 +21,7 @@ export default class ResultDetailCoreAbility extends React.Component {
             {coreHero.attached_core_abilities.length > 0 ? (
               <div className='core-hero'>
                 <span className='hero-name'>{coreHero.name}</span>
-                <ul>
-                  {coreHero.attached_core_abilities.map((ability) => (
-                    <li key={ability.id}>{ability.ability_name} {ability.score} {ability.unit}</li>
-                  ))}
-                </ul>
+                <Abilities abilities={coreHero.attached_core_abilities} />
               </div>
             ) :(
               null

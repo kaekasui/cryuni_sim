@@ -24,6 +24,17 @@
   }
 }
 
+.abilitiesComponent {
+  table {
+    td {
+      padding: 0 5px;
+    }
+    td.ability {
+      min-width: 80px;
+    }
+  }
+}
+
 .resultsComponent {
   padding-top: 10px;
 
