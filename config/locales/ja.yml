@@ -1,6 +1,7 @@
 ja:
   labels:
     level: レベル
+    card: カード
     part:
       hand: 手
       head: 頭
