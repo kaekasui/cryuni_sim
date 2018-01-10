@@ -129,7 +129,7 @@ end
 AttachedEquipageAbility.destroy_all
 CSV.foreach('db/seeds/attached_equipage_abilities.csv') do |row|
   equipage = Equipage.find_by(name: row[0])
-  raise "ERROR: not found hero '#{row[0]}'" if equipage.blank?
+  raise "ERROR: not found equipage '#{row[0]}'" if equipage.blank?
 
   grade = Grade.find_by(level: row[1])
   raise "ERROR: not found grade '#{row[1]}'" if grade.blank?
@@ -138,6 +138,26 @@ CSV.foreach('db/seeds/attached_equipage_abilities.csv') do |row|
   raise "ERROR: not found ability '#{row[2]}'" if ability.blank?
 
   equipage.attached_equipage_abilities.create(
+    grade: grade,
+    ability: ability,
+    score: row[3],
+    unit: row[4]
+  )
+end
+
+# カードアビリティ
+AttachedCardAbility.destroy_all
+CSV.foreach('db/seeds/attached_card_abilities.csv') do |row|
+  card = Card.find_by(monster_name: row[0])
+  raise "ERROR: not found card '#{row[0]}'" if card.blank?
+
+  grade = Grade.find_by(level: row[1])
+  raise "ERROR: not found grade '#{row[1]}'" if grade.blank?
+
+  ability = Ability.find_by(name: row[2])
+  raise "ERROR: not found ability '#{row[2]}'" if ability.blank?
+
+  card.attached_card_abilities.create(
     grade: grade,
     ability: ability,
     score: row[3],
