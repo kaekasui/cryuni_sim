@@ -12,10 +12,10 @@ export default class Abilities extends React.Component {
         <table>
           <tbody>
             {this.props.abilities.map((ability) =>
-              <tr key={ability.id}>
+              (<tr key={ability.id}>
                 <td className='ability'>{ability.ability_name}</td>
                 <td>{ability.score} {ability.unit}</td>
-              </tr>
+              </tr>)
             )}
           </tbody>
         </table>
