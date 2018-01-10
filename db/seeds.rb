@@ -6,11 +6,17 @@ require 'csv'
 CSV.foreach('db/seeds/heros.csv') do |row|
   hero = Hero.find_or_initialize_by(name: row[1])
 
-  hero.update_attributes(
+  hero.attributes = {
+    position: $.,
     image_name: row[2],
     whole_image_name: row[3],
     locked: row[0]
-  )
+  }
+
+  if hero.changed?
+    hero.save
+    puts "Create or Update -- Hero: #{hero.name}"
+  end
 end
 
 # 英雄のヒーローアビリティ

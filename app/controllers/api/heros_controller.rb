@@ -2,7 +2,7 @@
 
 class Api::HerosController < ApplicationController
   def index
-    @heros = Hero.all
+    @heros = Hero.all.order(:position)
     render json: @heros
   end
 end
