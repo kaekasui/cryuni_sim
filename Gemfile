@@ -14,6 +14,7 @@ gem 'rack-cors'
 
 gem 'active_model_serializers'
 gem 'bootstrap-sass'
+gem 'dotenv'
 gem 'draper', '> 3.x'
 gem 'jbuilder'
 gem 'rails-i18n'
