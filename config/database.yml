@@ -81,5 +81,6 @@ test:
 production:
   <<: *default
   database: cryuni_sim_production
-  username: cryuni_sim
-  password: <%= ENV['CRYUNI_SIM_DATABASE_PASSWORD'] %>
+  user: <%= ENV['POSTGRESQL_USERNAME'] %>
+  host: <%= ENV['POSTGRESQL_HOST'] %>
+  password: <%= ENV['POSTGRESQL_PASSWORD'] %>
