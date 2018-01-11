@@ -6,5 +6,6 @@ FactoryBot.define do
     image_name { 'claudia.jpg' }
     whole_image_name { 'sd_claudia.png' }
     locked { false }
+    sequence(:position) { |n| n }
   end
 end

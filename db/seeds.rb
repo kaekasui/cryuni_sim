@@ -15,7 +15,7 @@ CSV.foreach('db/seeds/heros.csv') do |row|
 
   if hero.changed?
     hero.save
-    puts "Create or Update -- Hero: #{hero.name}"
+    puts "-- Hero: #{hero.name}"
   end
 end
 
