@@ -13,6 +13,8 @@ gem 'puma', '~> 3.7'
 
 gem 'active_model_serializers'
 gem 'bootstrap-sass'
+gem 'dotenv'
+gem 'dotenv-rails'
 gem 'draper', '> 3.x'
 gem 'jbuilder'
 gem 'rails-i18n'
