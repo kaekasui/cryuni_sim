@@ -21,13 +21,5 @@ module CryuniSim
     # config.api_only = true
     config.i18n.default_locale = :ja
     config.time_zone = 'Tokyo'
-
-    # CORS対応
-    config.middleware.insert_before 0, Rack::Cors do
-      allow do
-        origins '*'
-        resource '*', headers: :any, methods: %i[get post options]
-      end
-    end
   end
 end
