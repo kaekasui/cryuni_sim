@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import ModalEquipageList from './modal/modal_equipages_list'
 import GradeForm from './grade_form'
+import Card from './card'
 
 export default class Equipage extends React.Component {
   constructor(props) {
@@ -62,6 +63,17 @@ export default class Equipage extends React.Component {
         <div className='grades'>
           {this.state.selectedEquipage ? (
             <GradeForm grades={this.state.selectedEquipage.range_grades} onSelectEquipageGrade={this.handleSelectEquipageGrade} selectedGradeLevel={this.state.selectedEquipageGrade} />
+          ) : (
+            null
+          )}
+        </div>
+        <div className='cards'>
+          {this.state.selectedEquipage ? (
+            <div>
+              {Array.from(Array(this.state.selectedEquipage.card_slot).keys()).map((i) => (
+                <Card key={i} />
+              ))}
+            </div>
           ) : (
             null
           )}
