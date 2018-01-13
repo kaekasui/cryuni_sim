@@ -13,16 +13,32 @@ export default class ModalCardsList extends React.Component {
     this.handleClickCloseButton = this.handleClickCloseButton.bind(this)
     this.handleClickEmptyCard = this.handleClickEmptyCard.bind(this)
     this.handleClickCard = this.handleClickCard.bind(this)
+    this.getCards = this.getCards.bind(this)
   }
 
-  handleClickCloseButton() {
-    this.props.handleClickCloseButton()
+  componentWillMount() {
+    this.getCards()
   }
 
   handleClickEmptyCard() {
   }
 
   handleClickCard() {
+  }
+
+  handleClickCloseButton() {
+    this.props.handleClickCloseButton()
+  }
+
+  getCards() {
+    fetch('api/cards')
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({cards: res})
+      })
+      .catch((error) => {
+        console.error(error)
+      })
   }
 
   render() {

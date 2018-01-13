@@ -14,7 +14,6 @@ export default class ModalCard extends React.Component {
   render() {
     return (
       <tr className='modalCardComponent modal-card-line' key={this.props.card.id} onClick={this.handleClickCard}>
-        <td>{'Lv. ' + this.props.card.monster_name}</td>
         <td>{this.props.card.name}</td>
       </tr>
     )
