@@ -157,6 +157,13 @@
           width: 80px;
         }
       }
+      .selectable-card {
+        display: inline-block;
+        cursor: pointer;
+        img {
+          width: 60px;
+        }
+      }
     }
   }
 }

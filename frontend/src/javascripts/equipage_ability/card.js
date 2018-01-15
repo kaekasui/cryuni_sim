@@ -23,7 +23,7 @@ export default class Card extends React.Component {
   render() {
     return (
       <div className='cardComponent'>
-        <div className='card-field' onClick={this.handleClickCard}>
+        <div className='selectable-card' onClick={this.handleClickCard}>
           {'カード'}
         </div>
         <ModalCardsList handleClickCloseButton={this.onClickCloseButton} modalIsOpen={this.state.modalIsOpen} />
