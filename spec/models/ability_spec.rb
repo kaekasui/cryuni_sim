@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe Ability, type: :model do
   describe 'relationship' do
-    it { is_expected.to have_many(:attached_abilities) }
+    it { is_expected.to have_many(:attached_abilities).dependent(:destroy) }
   end
 
   describe 'validation' do

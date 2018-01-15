@@ -8,7 +8,8 @@ export default class ModalCardsList extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      cards: []
+      cards: [],
+      selectedCard: null
     }
     this.handleClickCloseButton = this.handleClickCloseButton.bind(this)
     this.handleClickEmptyCard = this.handleClickEmptyCard.bind(this)
@@ -21,6 +22,7 @@ export default class ModalCardsList extends React.Component {
   }
 
   handleClickEmptyCard() {
+    this.onSelectCard(null)
   }
 
   handleClickCard() {
@@ -28,6 +30,9 @@ export default class ModalCardsList extends React.Component {
 
   handleClickCloseButton() {
     this.props.handleClickCloseButton()
+  }
+
+  onSelectCard(card, gradeLevel) {
   }
 
   getCards() {

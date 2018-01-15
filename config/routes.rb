@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :equipages, only: [] do
       resources :equipage_abilities, only: %i[show], param: :grade
     end
-    resources :cards, only: %i[index]
+    resources :cards, only: %i[index] do
+      resources :card_abilities, only: %i[show], param: :grade
+    end
   end
 end
