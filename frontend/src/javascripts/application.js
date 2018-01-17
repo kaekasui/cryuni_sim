@@ -16,6 +16,7 @@ class Simulator extends React.Component {
         name: ''
       },
       equipageAbility: {},
+      cardAbility: {},
       heroAbility: {attached_hero_abilities: []},
       vipAbility: {attached_vip_abilities: []},
       coreHeros: []
@@ -26,6 +27,7 @@ class Simulator extends React.Component {
     this.setCoreHeros = this.setCoreHeros.bind(this)
     this.removeCoreHero = this.removeCoreHero.bind(this)
     this.setEquipageAbility = this.setEquipageAbility.bind(this)
+    this.setCardAbility = this.setCardAbility.bind(this)
   }
 
   setHero(hero) {
@@ -72,7 +74,13 @@ class Simulator extends React.Component {
   setEquipageAbility(part, equipage, ability) {
     let equipageAbility = this.state.equipageAbility
     equipageAbility[part] = {equipage: equipage, ability: ability}
-    this.setState({equipageAbility: equipageAbility})
+    this.setState({equipageAbility: equipageAbility, cardAbility: {}})
+  }
+
+  setCardAbility(part, index, ability) {
+    let cardAbility = this.state.cardAbility
+    cardAbility[part+index] = {ability: ability}
+    this.setState({cardAbility: cardAbility})
   }
 
   render() {
@@ -83,7 +91,7 @@ class Simulator extends React.Component {
           <VipAbilitySetting handleSelectVipAbility={this.setVipAbility} />
           <HeroAbilitySetting handleSelectHeroAbility={this.setHeroAbility} selectHero={this.setHero} />
           <CoreAbilitySetting handleRemoveCoreHero={this.removeCoreHero} handleSetCoreHeros={this.setCoreHeros} />
-          <EquipageSetting handleSelectEquipages={this.setEquipageAbility} />
+          <EquipageSetting handleSelectCards={this.setCardAbility} handleSelectEquipages={this.setEquipageAbility} />
         </div>
         <div className='col-md-7 right-screen'>
           <Results coreHeros={this.state.coreHeros} equipageAbility={this.state.equipageAbility} hero={this.state.hero} heroAbility={this.state.heroAbility} vipAbility={this.state.vipAbility} />

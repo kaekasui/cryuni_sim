@@ -27,5 +27,11 @@ FactoryBot.define do
       equipage
       grade
     end
+
+    factory :attached_card_ability, class: AttachedCardAbility do
+      type 'AttachedCardAbility'
+      card
+      grade
+    end
   end
 end

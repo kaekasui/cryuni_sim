@@ -8,7 +8,7 @@ export default class GradeForm extends React.Component {
   }
 
   handleChangeGradeLevel(e) {
-    this.props.onSelectEquipageGrade(Number.parseInt(e.target.value))
+    this.props.onSelectGrade(Number.parseInt(e.target.value))
   }
 
   render() {
@@ -28,7 +28,7 @@ export default class GradeForm extends React.Component {
 }
 
 GradeForm.propTypes = {
-  onSelectEquipageGrade: PropTypes.func.isRequired,
+  onSelectGrade: PropTypes.func.isRequired,
   selectedGradeLevel: PropTypes.number.isRequired,
   grades: PropTypes.array.isRequired
 }

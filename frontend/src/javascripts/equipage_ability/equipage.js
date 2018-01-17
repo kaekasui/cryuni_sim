@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import ModalEquipageList from './modal/modal_equipages_list'
 import GradeForm from './grade_form'
+import Card from './card'
 
 export default class Equipage extends React.Component {
   constructor(props) {
@@ -14,6 +15,7 @@ export default class Equipage extends React.Component {
       selectedEquipageGrade: 0
     }
     this.handleClickEquipageSettingImage = this.handleClickEquipageSettingImage.bind(this)
+    this.handleSelectCard = this.handleSelectCard.bind(this)
     this.handleSelectEquipage = this.handleSelectEquipage.bind(this)
     this.handleSelectEquipageGrade = this.handleSelectEquipageGrade.bind(this)
     this.onClickCloseButton = this.onClickCloseButton.bind(this)
@@ -27,6 +29,10 @@ export default class Equipage extends React.Component {
   handleSelectEquipage(equipage) {
     this.setState({modalIsOpen: false, selectedEquipage: equipage, selectedEquipageGrade: (equipage || {}).min_grade})
     this.props.onSelectEquipage(this.props.part, equipage, (equipage || {}).min_grade)
+  }
+
+  handleSelectCard(i, abilities) {
+    this.props.onSelectCard(this.props.part, i, abilities)
   }
 
   handleSelectEquipageGrade(gradeLevel) {
@@ -61,7 +67,18 @@ export default class Equipage extends React.Component {
         </div>
         <div className='grades'>
           {this.state.selectedEquipage ? (
-            <GradeForm grades={this.state.selectedEquipage.range_grades} onSelectEquipageGrade={this.handleSelectEquipageGrade} selectedGradeLevel={this.state.selectedEquipageGrade} />
+            <GradeForm grades={this.state.selectedEquipage.range_grades} onSelectGrade={this.handleSelectEquipageGrade} selectedGradeLevel={this.state.selectedEquipageGrade} />
+          ) : (
+            null
+          )}
+        </div>
+        <div className='cards'>
+          {this.state.selectedEquipage ? (
+            <div>
+              {Array.from(Array(this.state.selectedEquipage.card_slot).keys()).map((i) => (
+                <Card index={i} key={i} onSelectCard={this.handleSelectCard} />
+              ))}
+            </div>
           ) : (
             null
           )}
@@ -73,6 +90,7 @@ export default class Equipage extends React.Component {
 }
 
 Equipage.propTypes = {
+  onSelectCard: PropTypes.func.isRequired,
   onSelectEquipage: PropTypes.func.isRequired,
   part: PropTypes.string.isRequired
 }
