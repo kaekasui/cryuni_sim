@@ -37,12 +37,15 @@
 }
 
 .messageComponent {
+  .panel.panel-default:hover {
+    border-color: #FFE9A1;
+  }
   .panel.panel-default {
     margin-top: 10px;
     margin-bottom: 0;
     .panel-body.message:hover {
       cursor: pointer;
-      background-color: #FFFFE5;
+      background-color: #FFF2C8;
       a {
         text-decoration: none;
       }
