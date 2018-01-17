@@ -1,6 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 
+import Message from './message/message'
 import Results from './results/results'
 import VipAbilitySetting from './vip_ability/vip_ability_setting'
 import HeroAbilitySetting from './hero_ability/hero_ability_setting'
@@ -86,6 +87,7 @@ class Simulator extends React.Component {
     return (
       <div className="SimulatorComponent">
         <div className='col-md-5 left-screen'>
+          <Message />
           <VipAbilitySetting handleSelectVipAbility={this.setVipAbility} />
           <HeroAbilitySetting handleSelectHeroAbility={this.setHeroAbility} selectHero={this.setHero} />
           <CoreAbilitySetting handleRemoveCoreHero={this.removeCoreHero} handleSetCoreHeros={this.setCoreHeros} />
