@@ -15,6 +15,7 @@ export default class Equipage extends React.Component {
       selectedEquipageGrade: 0
     }
     this.handleClickEquipageSettingImage = this.handleClickEquipageSettingImage.bind(this)
+    this.handleSelectCard = this.handleSelectCard.bind(this)
     this.handleSelectEquipage = this.handleSelectEquipage.bind(this)
     this.handleSelectEquipageGrade = this.handleSelectEquipageGrade.bind(this)
     this.onClickCloseButton = this.onClickCloseButton.bind(this)
@@ -28,6 +29,10 @@ export default class Equipage extends React.Component {
   handleSelectEquipage(equipage) {
     this.setState({modalIsOpen: false, selectedEquipage: equipage, selectedEquipageGrade: (equipage || {}).min_grade})
     this.props.onSelectEquipage(this.props.part, equipage, (equipage || {}).min_grade)
+  }
+
+  handleSelectCard(i, abilities) {
+    this.props.onSelectCard(this.props.part, i, abilities)
   }
 
   handleSelectEquipageGrade(gradeLevel) {
@@ -71,7 +76,7 @@ export default class Equipage extends React.Component {
           {this.state.selectedEquipage ? (
             <div>
               {Array.from(Array(this.state.selectedEquipage.card_slot).keys()).map((i) => (
-                <Card key={i} />
+                <Card index={i} key={i} onSelectCard={this.handleSelectCard} />
               ))}
             </div>
           ) : (
@@ -85,6 +90,7 @@ export default class Equipage extends React.Component {
 }
 
 Equipage.propTypes = {
+  onSelectCard: PropTypes.func.isRequired,
   onSelectEquipage: PropTypes.func.isRequired,
   part: PropTypes.string.isRequired
 }

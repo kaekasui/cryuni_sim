@@ -8,6 +8,7 @@ export default class EquipageSetting extends React.Component {
   constructor(props) {
     super(props)
     this.handleSelectEquipage = this.handleSelectEquipage.bind(this)
+    this.handleSelectCard = this.handleSelectCard.bind(this)
     this.getEquipageAbilities = this.getEquipageAbilities.bind(this)
   }
 
@@ -17,6 +18,10 @@ export default class EquipageSetting extends React.Component {
     } else {
       this.props.handleSelectEquipages(part, equipage, [])
     }
+  }
+
+  handleSelectCard(part, index, abilities) {
+    this.props.handleSelectCards(part, index, abilities)
   }
 
   getEquipageAbilities(part, equipage, gradeLevel) {
@@ -36,22 +41,22 @@ export default class EquipageSetting extends React.Component {
         <Title title='◆装備' />
         <div className='equipages'>
           <div className='equipage equipage-hand'>
-            <Equipage onSelectEquipage={this.handleSelectEquipage} part='hand' />
+            <Equipage onSelectCard={this.handleSelectCard} onSelectEquipage={this.handleSelectEquipage} part='hand' />
           </div>
           <div className='equipage equipage-head'>
-            <Equipage onSelectEquipage={this.handleSelectEquipage} part='head' />
+            <Equipage onSelectCard={this.handleSelectCard} onSelectEquipage={this.handleSelectEquipage} part='head' />
           </div>
           <div className='equipage equipage-body'>
-            <Equipage onSelectEquipage={this.handleSelectEquipage} part='body' />
+            <Equipage onSelectCard={this.handleSelectCard} onSelectEquipage={this.handleSelectEquipage} part='body' />
           </div>
           <div className='equipage equipage-foot'>
-            <Equipage onSelectEquipage={this.handleSelectEquipage} part='foot' />
+            <Equipage onSelectCard={this.handleSelectCard} onSelectEquipage={this.handleSelectEquipage} part='foot' />
           </div>
           <div className='equipage equipage-accessory1'>
-            <Equipage onSelectEquipage={this.handleSelectEquipage} part='accessory1' />
+            <Equipage onSelectCard={this.handleSelectCard} onSelectEquipage={this.handleSelectEquipage} part='accessory1' />
           </div>
           <div className='equipage equipage-accessory2'>
-            <Equipage onSelectEquipage={this.handleSelectEquipage} part='accessory2' />
+            <Equipage onSelectCard={this.handleSelectCard} onSelectEquipage={this.handleSelectEquipage} part='accessory2' />
           </div>
         </div>
       </div>
@@ -60,5 +65,6 @@ export default class EquipageSetting extends React.Component {
 }
 
 EquipageSetting.propTypes = {
+  handleSelectCards: PropTypes.func.isRequired,
   handleSelectEquipages: PropTypes.func.isRequired
 }

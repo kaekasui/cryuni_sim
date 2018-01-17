@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import ModalCardsList from './modal/modal_cards_list'
 import GradeForm from './grade_form'
@@ -25,13 +26,28 @@ export default class Card extends React.Component {
     this.setState({modalIsOpen: false})
   }
 
-  onSelectCard(card, abilities) {
+  onSelectCard(card) {
     this.setState({modalIsOpen: false, selectedCard: card, selectedCardGrade: (card || {}).min_grade})
+    if (card) {
+      this.getCardAbilities(card, card.min_grade)
+    } else {
+      this.props.onSelectCard(this.props.index, [])
+    }
   }
 
   handleSelectCardGrade(gradeLevel) {
     this.setState({selectedCardGrade: gradeLevel})
-    //this.props.onSelectCard(this.state.selectedCard, gradeLevel)
+  }
+
+  getCardAbilities(card, gradeLevel) {
+    fetch('api/cards/' + card.id + '/card_abilities/' + gradeLevel)
+      .then((res) => res.json())
+      .then((res) => {
+        this.props.onSelectCard(this.props.index, res)
+      })
+      .catch((error) => {
+        console.error(error)
+      })
   }
 
   render() {
@@ -41,7 +57,7 @@ export default class Card extends React.Component {
           {this.state.selectedCard ? (
             <span>{this.state.selectedCard.name}</span>
           ) : (
-            <img src={'assets/cards/add_card.png'} />
+            <img src={'assets/cards/add_card.gif'} />
           )}
         </div>
         <div className='grades'>
@@ -55,4 +71,9 @@ export default class Card extends React.Component {
       </div>
     )
   }
+}
+
+Card.propTypes = {
+  index: PropTypes.number.isRequired,
+  onSelectCard: PropTypes.func.isRequired
 }
