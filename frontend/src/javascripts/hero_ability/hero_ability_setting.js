@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 
 import Hero from './hero'
 import HeroAbilities from './hero_abilities'
-import IntimacyForm from './intimacy_form'
 import Title from './../common/title'
 import CheckMessage from './../common/check_message'
 
@@ -18,7 +17,6 @@ export default class HeroAbilitySetting extends React.Component {
     }
     this.loadHeroAbilities = this.loadHeroAbilities.bind(this)
     this.selectHero = this.selectHero.bind(this)
-    this.setIntimacy = this.setIntimacy.bind(this)
     this.selectHeroAbility = this.selectHeroAbility.bind(this)
   }
 
@@ -46,10 +44,6 @@ export default class HeroAbilitySetting extends React.Component {
       })
   }
 
-  setIntimacy(level) {
-    this.setState({intimacy: level})
-  }
-
   selectHeroAbility(ability) {
     this.props.handleSelectHeroAbility({attached_hero_abilities: ability.attached_hero_abilities})
   }
@@ -67,14 +61,9 @@ export default class HeroAbilitySetting extends React.Component {
           )}
         </ul>
         <div className='clear' />
-        <div className='hero-intimacy-ability'>
-          <CheckMessage checked={this.state.intimacy != ''} message='英雄親密度のレベルを入力してください' />
-          <div className='col-md-5'>
-            <IntimacyForm handleSetIntimacy={this.setIntimacy} />
-          </div>
-          <div className='col-md-7'>
-            <HeroAbilities handleSelectHeroAbility={this.selectHeroAbility} heroAbilities={this.state.heroAbilities} intimacy={this.state.intimacy} />
-          </div>
+        <div className='hero-ability-table'>
+          <CheckMessage checked={this.state.intimacy != ''} message='英雄親密度のレベル帯を選択してください' />
+          <HeroAbilities handleSelectHeroAbility={this.selectHeroAbility} heroAbilities={this.state.heroAbilities} />
         </div>
       </div>
     )

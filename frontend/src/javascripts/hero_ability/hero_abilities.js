@@ -1,32 +1,41 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import AttachedAbilities from './attached_abilities'
+import HeroAbility from './hero_ability'
 
 export default class HeroAbilities extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      selectedIntimacy: null
+    }
+    this.handleClickHeroAbility = this.handleClickHeroAbility.bind(this)
   }
 
-  shouldComponentUpdate(nextProps) {
-    if (nextProps.intimacy !== this.props.intimacy || nextProps.heroAbilities !== this.props.heroAbilities) {
-      return true
-    } else {
-      return false
-    }
-  }
+  //shouldComponentUpdate(nextProps) {
+  //  if (nextProps.intimacy !== this.props.intimacy || nextProps.heroAbilities !== this.props.heroAbilities) {
+  //    return true
+  //  } else {
+  //    return false
+  //  }
+  //}
 
-  componentDidUpdate() {
-    let updated = false
-    for (let index in this.props.heroAbilities) {
-      if (this.props.heroAbilities[index].intimacy_level_from <= this.props.intimacy && this.props.intimacy <= this.props.heroAbilities[index].intimacy_level_to) {
-        this.props.handleSelectHeroAbility(this.props.heroAbilities[index])
-        updated = true
-      }
-    }
-    if (updated == false) {
-      this.props.handleSelectHeroAbility({attached_hero_abilities: []})
-    }
+  //componentDidUpdate() {
+  //  let updated = false
+  //  for (let index in this.props.heroAbilities) {
+  //    if (this.props.heroAbilities[index].intimacy_level_from <= this.props.intimacy && this.props.intimacy <= this.props.heroAbilities[index].intimacy_level_to) {
+  //      this.props.handleSelectHeroAbility(this.props.heroAbilities[index])
+  //      updated = true
+  //    }
+  //  }
+  //  if (updated == false) {
+  //    this.props.handleSelectHeroAbility({attached_hero_abilities: []})
+  //  }
+  //}
+  //
+  handleClickHeroAbility(ability) {
+    this.setState({selectedIntimacy: ability.id})
+    this.props.handleSelectHeroAbility({attached_hero_abilities: ability.attached_hero_abilities})
   }
 
   render() {
@@ -36,19 +45,14 @@ export default class HeroAbilities extends React.Component {
           <tbody>
             {this.props.heroAbilities.length? (
               <tr>
-                <th className='intimacy_lavel'>{'レベル'}</th>
+                <th className='intimacy_level'>{'レベル'}</th>
                 <th className='attached_abilities'>{'アビリティ'}</th>
               </tr>
             ) : (
               null
             )}
             {this.props.heroAbilities.map((ability) => (
-              <tr className={(ability.intimacy_level_from <= this.props.intimacy && this.props.intimacy <= ability.intimacy_level_to) ? 'active-ability' : ''} key={ability.id}>
-                <td>{ability.intimacy_level}</td>
-                <td>
-                  <AttachedAbilities abilities={ability.attached_hero_abilities} />
-                </td>
-              </tr>
+              <HeroAbility ability={ability} key={ability.id} selectedIntimacy={this.state.selectedIntimacy} handleClickHeroAbility={this.handleClickHeroAbility} />
             ))}
           </tbody>
         </table>
@@ -59,6 +63,5 @@ export default class HeroAbilities extends React.Component {
 
 HeroAbilities.propTypes = {
   handleSelectHeroAbility: PropTypes.func.isRequired,
-  heroAbilities: PropTypes.array.isRequired,
-  intimacy: PropTypes.string.isRequired
+  heroAbilities: PropTypes.array.isRequired
 }

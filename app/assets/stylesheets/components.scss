@@ -121,7 +121,7 @@
       }
     }
   }
-  .hero-intimacy-ability {
+  .hero-ability-table {
     padding-top: 15px;
   }
   .heroAbilitiesComponent {
@@ -131,8 +131,12 @@
       margin: 0;
     }
     table {
-      tr.active-ability {
-        background-color: #FFA;
+      tr.active-ability:hover {
+        cursor: pointer;
+        background-color: #FFF2C8;
+      }
+      tr.selected-ability {
+        background-color: #FFF2C8;
       }
       th.attached_abilities {
         width: 220px;
