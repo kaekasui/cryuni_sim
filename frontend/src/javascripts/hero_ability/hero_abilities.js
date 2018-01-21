@@ -6,9 +6,6 @@ import HeroAbility from './hero_ability'
 export default class HeroAbilities extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      selectedIntimacy: null
-    }
     this.handleClickHeroAbility = this.handleClickHeroAbility.bind(this)
   }
 
@@ -34,8 +31,7 @@ export default class HeroAbilities extends React.Component {
   //}
   //
   handleClickHeroAbility(ability) {
-    this.setState({selectedIntimacy: ability.id})
-    this.props.handleSelectHeroAbility({attached_hero_abilities: ability.attached_hero_abilities})
+    this.props.handleSelectHeroAbility({attached_hero_abilities: ability.attached_hero_abilities}, ability.id)
   }
 
   render() {
@@ -52,7 +48,7 @@ export default class HeroAbilities extends React.Component {
               null
             )}
             {this.props.heroAbilities.map((ability) => (
-              <HeroAbility ability={ability} key={ability.id} selectedIntimacy={this.state.selectedIntimacy} handleClickHeroAbility={this.handleClickHeroAbility} />
+              <HeroAbility ability={ability} key={ability.id} selectedIntimacy={this.props.selectedIntimacy} handleClickHeroAbility={this.handleClickHeroAbility} />
             ))}
           </tbody>
         </table>
@@ -62,6 +58,7 @@ export default class HeroAbilities extends React.Component {
 }
 
 HeroAbilities.propTypes = {
+  selectedIntimacy: PropTypes.number,
   handleSelectHeroAbility: PropTypes.func.isRequired,
   heroAbilities: PropTypes.array.isRequired
 }

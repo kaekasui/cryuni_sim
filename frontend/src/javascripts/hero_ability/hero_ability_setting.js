@@ -13,7 +13,7 @@ export default class HeroAbilitySetting extends React.Component {
       heros: [],
       hero: {},
       heroAbilities: [],
-      intimacy: ''
+      selectedIntimacy: null
     }
     this.loadHeroAbilities = this.loadHeroAbilities.bind(this)
     this.selectHero = this.selectHero.bind(this)
@@ -25,7 +25,7 @@ export default class HeroAbilitySetting extends React.Component {
   }
 
   selectHero(hero) {
-    this.setState({hero: hero})
+    this.setState({hero: hero, selectedIntimacy: null})
     this.props.selectHero(hero)
   }
 
@@ -44,7 +44,8 @@ export default class HeroAbilitySetting extends React.Component {
       })
   }
 
-  selectHeroAbility(ability) {
+  selectHeroAbility(ability, ability_id) {
+    this.setState({selectedIntimacy: ability_id})
     this.props.handleSelectHeroAbility({attached_hero_abilities: ability.attached_hero_abilities})
   }
 
@@ -62,8 +63,12 @@ export default class HeroAbilitySetting extends React.Component {
         </ul>
         <div className='clear' />
         <div className='hero-ability-table'>
-          <CheckMessage checked={this.state.intimacy != ''} message='英雄親密度のレベル帯を選択してください' />
-          <HeroAbilities handleSelectHeroAbility={this.selectHeroAbility} heroAbilities={this.state.heroAbilities} />
+          {Object.keys(this.state.hero).length == 0 ? (
+            null
+          ) : (
+            <CheckMessage checked={this.state.selectedIntimacy != null} message='英雄親密度のレベル帯を選択してください' />
+          )}
+          <HeroAbilities handleSelectHeroAbility={this.selectHeroAbility} heroAbilities={this.state.heroAbilities} selectedIntimacy={this.state.selectedIntimacy} />
         </div>
       </div>
     )
