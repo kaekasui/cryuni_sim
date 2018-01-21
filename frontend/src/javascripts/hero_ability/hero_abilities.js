@@ -27,7 +27,7 @@ export default class HeroAbilities extends React.Component {
               null
             )}
             {this.props.heroAbilities.map((ability) => (
-              <HeroAbility ability={ability} key={ability.id} selectedIntimacy={this.props.selectedIntimacy} handleClickHeroAbility={this.handleClickHeroAbility} />
+              <HeroAbility ability={ability} key={ability.id} onClickHeroAbility={this.handleClickHeroAbility} selectedIntimacy={this.props.selectedIntimacy} />
             ))}
           </tbody>
         </table>

@@ -10,7 +10,7 @@ export default class HeroAbility extends React.Component {
   }
 
   handleClickHeroAbility() {
-    this.props.handleClickHeroAbility(this.props.ability)
+    this.props.onClickHeroAbility(this.props.ability)
   }
 
   render() {
@@ -28,5 +28,5 @@ export default class HeroAbility extends React.Component {
 HeroAbility.propTypes = {
   ability: PropTypes.object.isRequired,
   selectedIntimacy: PropTypes.number,
-  handleClickHeroAbility: PropTypes.func.isRequired
+  onClickHeroAbility: PropTypes.func.isRequired
 }
