@@ -4,7 +4,7 @@ class Api::CardAbilitiesController < ApplicationController
   before_action :set_card, :set_grade, :set_card_abilities, on: [:show]
 
   def show
-    render json: @card_abilities.includes(:ability, :grade)
+    render json: @card_abilities.includes(:ability, :grade).order(:id)
   end
 
   private
