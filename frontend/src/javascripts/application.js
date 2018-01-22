@@ -31,7 +31,7 @@ class Simulator extends React.Component {
   }
 
   setHero(hero) {
-    this.setState({hero: hero})
+    this.setState({hero: hero, heroAbility: {attached_hero_abilities: []}})
   }
 
   setHeroAbility(abilities) {

@@ -76,11 +76,10 @@ feature 'ヒーローアビリティ', js: true do
     scenario 'あてはまるレベル帯がハイライトされること' do
       within '.heroAbilitySettingComponent' do
         find("img[alt='ジャンヌ・ダルク']").click
-        within '.intimacyFormComponent' do
-          fill_in 'intimacy-level', with: '10'
-        end
         within '.heroAbilitiesComponent' do
-          expect(page).to have_css 'tr.active-ability'
+          expect(page).to have_no_css 'tr.active-ability.selected-ability'
+          find('tr.active-ability').click
+          expect(page).to have_css 'tr.active-ability.selected-ability'
         end
       end
     end
@@ -88,8 +87,8 @@ feature 'ヒーローアビリティ', js: true do
     scenario '英雄表示部分にヒーローアビリティが表示されること' do
       within '.heroAbilitySettingComponent' do
         find("img[alt='ジャンヌ・ダルク']").click
-        within '.intimacyFormComponent' do
-          fill_in 'intimacy-level', with: '10'
+        within '.heroAbilitiesComponent' do
+          find('tr.active-ability').click
         end
       end
 
@@ -99,9 +98,7 @@ feature 'ヒーローアビリティ', js: true do
       end
 
       within '.heroAbilitySettingComponent' do
-        within '.intimacyFormComponent' do
-          fill_in 'intimacy-level', with: '1'
-        end
+        find("img[alt='エンキドゥ']").click
       end
 
       within '.resultHeroAbilityComponent' do
@@ -110,9 +107,8 @@ feature 'ヒーローアビリティ', js: true do
       end
 
       within '.heroAbilitySettingComponent' do
-        find("img[alt='エンキドゥ']").click
-        within '.intimacyFormComponent' do
-          fill_in 'intimacy-level', with: '8'
+        within '.heroAbilitiesComponent' do
+          find('tr.active-ability').click
         end
       end
 
@@ -127,17 +123,15 @@ feature 'ヒーローアビリティ', js: true do
     scenario 'ハイライトされている行がないこと' do
       within '.heroAbilitySettingComponent' do
         find("img[alt='エンキドゥ']").click
-        within '.intimacyFormComponent' do
-          fill_in 'intimacy-level', with: '4'
-        end
         within '.heroAbilitiesComponent' do
+          find('tr.active-ability').click
           # ハイライトされていることを確認
-          expect(page).to have_css 'tr.active-ability'
+          expect(page).to have_css 'tr.active-ability.selected-ability'
         end
         find("img[alt='ジャンヌ・ダルク']").click
         within '.heroAbilitiesComponent' do
           # ハイライトされなくなったことを確認
-          expect(page).to have_no_css 'tr.active-ability'
+          expect(page).to have_no_css 'tr.active-ability.selected-ability'
         end
       end
     end
@@ -178,14 +172,14 @@ feature 'ヒーローアビリティ', js: true do
     end
   end
 
-  scenario '英雄親密度の入力で、メッセージにチェックが入ること' do
+  scenario '英雄親密度のレベル帯の選択で、メッセージにチェックが入ること' do
     within '.heroAbilitySettingComponent' do
+      find("img[alt='エンキドゥ']").click
+
       expect(page.all('.checkMessageComponent')[1].find('img')['src'])
         .to have_content 'assets/incomplete.gif'
 
-      within '.intimacyFormComponent' do
-        fill_in 'intimacy-level', with: '8'
-      end
+      find('tr.active-ability').click
 
       expect(page.all('.checkMessageComponent')[1].find('img')['src'])
         .to have_content 'assets/complete.gif'
