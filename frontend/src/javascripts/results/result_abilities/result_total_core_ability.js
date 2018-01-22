@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Abilities from './../common/abilities'
+import Abilities from './../../common/abilities'
 
 export default class ResultTotalCoreAbility extends React.Component {
   constructor(props) {

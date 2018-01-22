@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import ResultImage from './result_image'
-import ResultHeroAbility from './result_hero_ability'
-import ResultVipAbility from './result_vip_ability'
-import ResultCoreAbility from './result_core_ability'
-import ResultEquipageAbility from './result_equipage_ability'
+import ResultHeroAbility from './result_abilities/result_hero_ability'
+import ResultVipAbility from './result_abilities/result_vip_ability'
+import ResultCoreAbility from './result_abilities/result_core_ability'
+import ResultEquipageAbility from './result_abilities/result_equipage_ability'
 
 export default class Results extends React.Component {
   constructor(props) {
