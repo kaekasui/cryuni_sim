@@ -22,7 +22,7 @@ export default class ResultEquipageAbility extends React.Component {
                   <ul key={part}>
                     {this.props.equipageAbility[part].equipage ? (
                       <li><b>{this.props.equipageAbility[part].equipage.part_human_name}</b>
-                        <Abilities abilities={this.props.equipageAbility[part].ability} />
+                        <Abilities abilities={this.props.equipageAbility[part].attached_equipage_abilities} />
                       </li>
                     ) : (
                       null

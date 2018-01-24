@@ -6,17 +6,35 @@ import ResultHeroAbility from './result_abilities/result_hero_ability'
 import ResultVipAbility from './result_abilities/result_vip_ability'
 import ResultCoreAbility from './result_abilities/result_core_ability'
 import ResultEquipageAbility from './result_abilities/result_equipage_ability'
+import Attacks from './attacks'
 
 export default class Results extends React.Component {
   constructor(props) {
     super(props)
   }
 
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps)
+    //console.log(nextProps.heroAbility)
+    //console.log(nextProps.vipAbility)
+    console.log(nextProps.equipageAbility)
+    //console.log(Object.values(nextProps.equipageAbility))
+    //console.log(Object.values(nextProps.equipageAbility).map((e) => e.attached_equipage_abilities))
+    //console.log(Array.prototype.concat.apply([], Object.values(nextProps.equipageAbility).map((e) => e.attached_equipage_abilities)))
+    //console.log(nextProps.coreHeros)
+  }
+
   render() {
+    let vipAbilities = this.props.vipAbility.attached_vip_abilities
+    let heroAbilities = this.props.heroAbility.attached_hero_abilities
+    let coreAbilities = Array.prototype.concat.apply([], this.props.coreHeros.map((c) => c.attached_core_abilities))
+    let equipageAbilities = Array.prototype.concat.apply([], Object.values(this.props.equipageAbility).map((e) => e.attached_equipage_abilities))
+
     return (
       <div className='resultsComponent'>
         <div className='col-md-8'>
           <ResultImage hero={this.props.hero} vipAbility={this.props.vipAbility} />
+          <Attacks vipAbilities={vipAbilities} heroAbilities={heroAbilities} coreAbilities={coreAbilities} equipageAbilities={equipageAbilities} />
         </div>
         <div className='col-md-4'>
           <ResultHeroAbility heroAbility={this.props.heroAbility} />

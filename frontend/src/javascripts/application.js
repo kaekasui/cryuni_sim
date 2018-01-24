@@ -15,7 +15,14 @@ class Simulator extends React.Component {
       hero: {
         name: ''
       },
-      equipageAbility: {},
+      equipageAbility: {
+        hand: {attached_equipage_abilities: []},
+        head: {attached_equipage_abilities: []},
+        body: {attached_equipage_abilities: []},
+        foot: {attached_equipage_abilities: []},
+        accessory1: {attached_equipage_abilities: []},
+        accessory2: {attached_equipage_abilities: []}
+      },
       cardAbility: {},
       heroAbility: {attached_hero_abilities: []},
       vipAbility: {attached_vip_abilities: []},
@@ -73,7 +80,7 @@ class Simulator extends React.Component {
 
   setEquipageAbility(part, equipage, ability) {
     let equipageAbility = this.state.equipageAbility
-    equipageAbility[part] = {equipage: equipage, ability: ability}
+    equipageAbility[part] = {equipage: equipage, attached_equipage_abilities: ability}
     this.setState({equipageAbility: equipageAbility, cardAbility: {}})
   }
 
