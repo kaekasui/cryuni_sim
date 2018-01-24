@@ -34,7 +34,7 @@ export default class Results extends React.Component {
       <div className='resultsComponent'>
         <div className='col-md-8'>
           <ResultImage hero={this.props.hero} vipAbility={this.props.vipAbility} />
-          <Attacks vipAbilities={vipAbilities} heroAbilities={heroAbilities} coreAbilities={coreAbilities} equipageAbilities={equipageAbilities} />
+          <Attacks coreAbilities={coreAbilities} equipageAbilities={equipageAbilities} heroAbilities={heroAbilities} vipAbilities={vipAbilities} />
         </div>
         <div className='col-md-4'>
           <ResultHeroAbility heroAbility={this.props.heroAbility} />
