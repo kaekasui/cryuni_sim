@@ -13,7 +13,12 @@ export default class Attacks extends React.Component {
       inorganicAttack: 0, // 対無機物攻撃力
       demonAttack: 0,     // 対悪魔攻撃力
       dragonAttack: 0,    // 対竜族攻撃力
-      divineAttack: 0     // 対神族攻撃力
+      divineAttack: 0,    // 対神族攻撃力
+      crystalAttack: 0,   // 対晶魔攻撃力
+      jikokuAttack: 0,    // 対光輪龍攻撃力
+      bishamonAttack: 0,  // 対究極龍攻撃力
+      koumokuAttack: 0,   // 対灼炎龍攻撃力
+      zouchoAttack: 0     // 対氷獄龍攻撃力
     }
   }
 
@@ -26,7 +31,12 @@ export default class Attacks extends React.Component {
         inorganicAttack: this.totalCalculator(nextProps, '対無機物攻撃力'),
         demonAttack: this.totalCalculator(nextProps, '対悪魔攻撃力'),
         dragonAttack: this.totalCalculator(nextProps, '対竜族攻撃力'),
-        divineAttack: this.totalCalculator(nextProps, '対神族攻撃力')
+        divineAttack: this.totalCalculator(nextProps, '対神族攻撃力'),
+        crystalAttack: this.totalCalculator(nextProps, '対晶魔攻撃力'),
+        jikokuAttack: this.totalCalculator(nextProps, '対光輪龍攻撃力'),
+        bishamonAttack: this.totalCalculator(nextProps, '対究極龍攻撃力'),
+        koumokuAttack: this.totalCalculator(nextProps, '対灼炎龍攻撃力'),
+        zouchoAttack: this.totalCalculator(nextProps, '対氷龍攻撃力')
       }
     )
   }
@@ -58,6 +68,11 @@ export default class Attacks extends React.Component {
         <Attack abilityName={'対悪魔攻撃力'} score={this.state.monsterAttack + this.state.demonAttack} />
         <Attack abilityName={'対竜族攻撃力'} score={this.state.monsterAttack + this.state.dragonAttack} />
         <Attack abilityName={'対神族攻撃力'} score={this.state.monsterAttack + this.state.divineAttack} />
+        <Attack abilityName={'対晶魔攻撃力'} score={this.state.monsterAttack + this.state.crystalAttack} />
+        <Attack abilityName={'対光輪龍攻撃力'} score={this.state.monsterAttack + this.state.jikokuAttack} />
+        <Attack abilityName={'対究極龍攻撃力'} score={this.state.monsterAttack + this.state.bishamonAttack} />
+        <Attack abilityName={'対灼炎龍攻撃力'} score={this.state.monsterAttack + this.state.koumokuAttack} />
+        <Attack abilityName={'対氷獄龍攻撃力'} score={this.state.monsterAttack + this.state.zouchoAttack} />
         <div className='clear' />
       </div>
     )
