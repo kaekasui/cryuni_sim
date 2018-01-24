@@ -10,7 +10,8 @@ export default class Attack extends React.Component {
     return (
       <div className='attackComponent'>
         <span className='abilityName'>{this.props.abilityName}</span>
-        <span>{this.props.score}</span>
+        <br />
+        <span>{'+' + this.props.score}</span>
         <span>{'%'}</span>
       </div>
     )

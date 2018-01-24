@@ -52,12 +52,13 @@ export default class Attacks extends React.Component {
   render() {
     return (
       <div className='attacksComponent'>
-        <Attack abilityName={'対亜人攻撃力'} score={this.state.ahitoAttack} />
-        <Attack abilityName={'対幻獣攻撃力'} score={this.state.eidolonAttack} />
-        <Attack abilityName={'対無機物攻撃力'} score={this.state.inorganicAttack} />
-        <Attack abilityName={'対悪魔攻撃力'} score={this.state.demonAttack} />
-        <Attack abilityName={'対竜族攻撃力'} score={this.state.dragonAttack} />
-        <Attack abilityName={'対神族攻撃力'} score={this.state.divineAttack} />
+        <Attack abilityName={'対亜人攻撃力'} score={this.state.monsterAttack + this.state.ahitoAttack} />
+        <Attack abilityName={'対幻獣攻撃力'} score={this.state.monsterAttack + this.state.eidolonAttack} />
+        <Attack abilityName={'対無機物攻撃力'} score={this.state.monsterAttack + this.state.inorganicAttack} />
+        <Attack abilityName={'対悪魔攻撃力'} score={this.state.monsterAttack + this.state.demonAttack} />
+        <Attack abilityName={'対竜族攻撃力'} score={this.state.monsterAttack + this.state.dragonAttack} />
+        <Attack abilityName={'対神族攻撃力'} score={this.state.monsterAttack + this.state.divineAttack} />
+        <div className='clear' />
       </div>
     )
   }

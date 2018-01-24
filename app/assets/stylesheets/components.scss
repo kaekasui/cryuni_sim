@@ -77,13 +77,29 @@
       width: 490px;
       position: absolute;
       left: 10px;
-      top: -200px;
+      top: -250px;
     }
     .vip-level-image img {
       position: absolute;
       width: 70px;
-      bottom: -230px;
+      bottom: -100px;
       left: 85%;
+    }
+  }
+
+  position: relative;
+  .attacksComponent {
+    position: absolute;
+    bottom: 10px;
+    .attackComponent {
+      display: inline-block;
+      float: left;
+      padding: 10px;
+      color: white;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.7);
+      margin: 8px;
+      border-radius: 8px;
     }
   }
 
