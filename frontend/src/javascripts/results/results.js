@@ -13,17 +13,6 @@ export default class Results extends React.Component {
     super(props)
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.log(nextProps)
-    //console.log(nextProps.heroAbility)
-    //console.log(nextProps.vipAbility)
-    console.log(nextProps.equipageAbility)
-    //console.log(Object.values(nextProps.equipageAbility))
-    //console.log(Object.values(nextProps.equipageAbility).map((e) => e.attached_equipage_abilities))
-    //console.log(Array.prototype.concat.apply([], Object.values(nextProps.equipageAbility).map((e) => e.attached_equipage_abilities)))
-    //console.log(nextProps.coreHeros)
-  }
-
   render() {
     let vipAbilities = this.props.vipAbility.attached_vip_abilities
     let heroAbilities = this.props.heroAbility.attached_hero_abilities

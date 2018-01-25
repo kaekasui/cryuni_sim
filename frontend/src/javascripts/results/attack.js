@@ -13,6 +13,7 @@ export default class Attack extends React.Component {
         <br />
         <span>{'+' + this.props.score}</span>
         <span>{'%'}</span>
+        <span className='attack-shadow' />
       </div>
     )
   }

@@ -97,9 +97,22 @@
       padding: 8px;
       color: white;
       text-align: center;
-      background-color: rgba(0, 0, 0, .7);
+      background-color: rgba(0, 0, 0, .6);
       margin: 4px 10px;
       border-radius: 8px;
+      z-index: 0;
+
+      position: relative;
+      .attack-shadow {
+        position: absolute;
+        background-color: red; //rgba(0, 0, 0, .7);
+        top: 40px;
+        width: 80%;
+        height: 10px;
+        left: 10px;
+        z-index: -1;
+        border-radius: 5px;
+      }
     }
   }
 
