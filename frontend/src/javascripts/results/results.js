@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import ResultImage from './result_image'
+import ResultDetailImage from './result_detail_image'
 import ResultHeroAbility from './result_abilities/result_hero_ability'
 import ResultVipAbility from './result_abilities/result_vip_ability'
 import ResultCoreAbility from './result_abilities/result_core_ability'
@@ -24,6 +25,7 @@ export default class Results extends React.Component {
         <div className='col-md-8'>
           <ResultImage hero={this.props.hero} vipAbility={this.props.vipAbility} />
           <Attacks coreAbilities={coreAbilities} equipageAbilities={equipageAbilities} heroAbilities={heroAbilities} vipAbilities={vipAbilities} />
+          <ResultDetailImage />
         </div>
         <div className='col-md-4'>
           <ResultHeroAbility heroAbility={this.props.heroAbility} />

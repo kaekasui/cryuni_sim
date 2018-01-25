@@ -58,39 +58,38 @@
 
   .resultImageComponent {
     display: inline-block;
+
+    .cryuni-image {
+      position: relative;
+      h2 {
+        padding: 10px;
+        font-size: 15px;
+        position: absolute;
+        color: #EEE;
+        left: 10px;
+        background-color: #000;
+      }
+      .cryuni-background-image img {
+        width: 500px;
+      }
+      .whole-image img {
+        width: 490px;
+        position: absolute;
+        left: 10px;
+        top: -260px;
+      }
+      .vip-level-image img {
+        position: absolute;
+        width: 70px;
+        bottom: -95px;
+        left: 85%;
+      }
+    }
   }
 
-  .cryuni-image {
-    position: relative;
-    h2 {
-      padding: 10px;
-      font-size: 15px;
-      position: absolute;
-      color: #EEE;
-      left: 10px;
-      background-color: #000;
-    }
-    .cryuni-background-image img {
-      width: 500px;
-    }
-    .whole-image img {
-      width: 490px;
-      position: absolute;
-      left: 10px;
-      top: -260px;
-    }
-    .vip-level-image img {
-      position: absolute;
-      width: 70px;
-      bottom: -95px;
-      left: 85%;
-    }
-  }
-
-  position: relative;
   .attacksComponent {
     position: absolute;
-    bottom: 10px;
+    top: 460px;
     .attackComponent {
       img.ability-icon {
         position: relative;
@@ -120,6 +119,13 @@
         z-index: -1;
         border-radius: 5px;
       }
+    }
+  }
+
+  .resultDetailImageComponent {
+    padding-top: 10px;
+    .ability-background-image img {
+      width: 500px;
     }
   }
 
