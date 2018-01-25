@@ -92,6 +92,13 @@
     position: absolute;
     bottom: 10px;
     .attackComponent {
+      img.ability-icon {
+        position: relative;
+        width: 23px;
+        padding-right: 5px;
+        bottom: 2px;
+        right: 2px;
+      }
       display: inline-block;
       float: left;
       padding: 8px;
