@@ -36,7 +36,7 @@ export default class Attacks extends React.Component {
         jikokuAttack: this.totalCalculator(nextProps, '対光輪龍攻撃力'),
         bishamonAttack: this.totalCalculator(nextProps, '対究極龍攻撃力'),
         koumokuAttack: this.totalCalculator(nextProps, '対灼炎龍攻撃力'),
-        zouchoAttack: this.totalCalculator(nextProps, '対氷龍攻撃力')
+        zouchoAttack: this.totalCalculator(nextProps, '対氷獄龍攻撃力')
       }
     )
   }
@@ -46,6 +46,7 @@ export default class Attacks extends React.Component {
     let heroScore = this.totalCalculatorByAbilityName(nextProps.heroAbilities, targetAbilityName)
     let coreScore = this.totalCalculatorByAbilityName(nextProps.coreAbilities, targetAbilityName)
     let equipageScore = this.totalCalculatorByAbilityName(nextProps.equipageAbilities, targetAbilityName)
+    console.log(nextProps.equipageAbilities)
     return vipScore + heroScore + coreScore + equipageScore
   }
 
