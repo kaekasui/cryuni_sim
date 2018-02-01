@@ -13,6 +13,8 @@ true,オリヴィエ,olivier.jpg,sd_olivier.png
 true,ペルセウス,perseus.jpg,sd_perseus.png
 true,トリスタン,tristan.jpg,sd_tristan.png
 true,巴御前,tomoegozen.jpg,sd_tomoegozen.png
+true,ヴァルガス,vargas.jpg,
+true,エルザ,elza.jpg,
 true,セミラミス,semiramis.jpg,sd_semiramis.png
 true,シャルロット,charlotte.jpg,sd_charlotte.png
 true,ギルガメッシュ,gilgames.jpg,sd_gilgames.png
@@ -22,8 +24,6 @@ true,源義経,yoshitune.jpg,sd_yoshitune.png
 true,ガッツ,guts.jpg,sd_guts.png
 true,ファルネーゼ,farnese.jpg,sd_farnese.png
 true,ブーディカ,boudica.jpg,sd_boudica.png
-true,ヴァルガス,vargas.jpg,
-true,エルザ,elza.jpg,
 true,セルハ,xelha.jpg,
 true,パーシヴァル,percival.jpg,sd_percival.png
 true,孫尚香,son.jpg,sd_son.png
@@ -40,3 +40,5 @@ true,ゴウセル,gouseru.jpg,
 true,マーリン,merlin.jpg,
 true,カエサル,caesar.jpg,
 true,クレオパトラ,cleopatra.jpg,
+true,セフィア,cefia.jpg
+true,ラーマ,rama.jpg
