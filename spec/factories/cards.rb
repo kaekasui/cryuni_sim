@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :card do
-    sequence(:monster_name) { |n| "魔獣#{n}" }
+    sequence(:name) { |n| "魔獣#{n}のカード" }
     min_grade 1
     max_grade 5
   end
