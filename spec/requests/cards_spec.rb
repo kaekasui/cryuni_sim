@@ -16,7 +16,7 @@ describe 'GET /api/cards', autodoc: true do
     json = [
       {
         id: card1.id,
-        name: card1.decorate.name,
+        name: card1.name,
         min_grade: card1.min_grade,
         max_grade: card1.max_grade,
         image_name: card1.image_name,
@@ -43,7 +43,7 @@ describe 'GET /api/cards', autodoc: true do
       },
       {
         id: card2.id,
-        name: card2.decorate.name,
+        name: card2.name,
         min_grade: card2.min_grade,
         max_grade: card2.max_grade,
         image_name: card2.image_name,
