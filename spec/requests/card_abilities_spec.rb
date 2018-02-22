@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 describe 'GET /api/cards/:id/card_abilities/:grade', autodoc: true do
-  let!(:card) { create(:card, name: 'ゴブリン') }
+  let!(:card) { create(:card, name: 'ゴブリンカード') }
   let!(:ability1) { create(:ability, name: '英雄移動速度') }
   let!(:ability2) { create(:ability, name: '対亜人攻撃力') }
 
