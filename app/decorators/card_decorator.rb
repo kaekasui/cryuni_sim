@@ -3,7 +3,7 @@
 class CardDecorator < Draper::Decorator
   delegate_all
 
-  def name
-    monster_name + I18n.t('labels.card')
+  def card_name
+    name + I18n.t('labels.card')
   end
 end

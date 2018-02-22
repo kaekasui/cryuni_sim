@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 class CardSerializer < ActiveModel::Serializer
-  attributes :id, :name, :min_grade, :max_grade, :image_name, :range_grades
+  attributes :id, :card_name, :min_grade, :max_grade, :image_name, :range_grades
 
-  def name
-    object.decorate.name
+  def card_name
+    object.decorate.card_name
   end
 
   def range_grades

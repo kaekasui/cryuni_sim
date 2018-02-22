@@ -55,7 +55,7 @@ export default class Card extends React.Component {
       <div className='cardComponent'>
         <div className='selectable-card' onClick={this.handleClickCard}>
           {this.state.selectedCard ? (
-            <span>{this.state.selectedCard.name}</span>
+            <span>{this.state.selectedCard.card_name}</span>
           ) : (
             <img src={'assets/cards/add_card.gif'} />
           )}
