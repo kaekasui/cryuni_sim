@@ -21,6 +21,22 @@ CSV.foreach('db/seeds/heros.csv') do |row|
   save_and_print(hero, hero.name)
 end
 
+# アビリティ
+CSV.foreach('db/seeds/abilities.csv') do |row|
+  ability = Ability.find_or_initialize_by(name: row[0])
+  save_and_print(ability, ability.name)
+end
+
+# グレード
+CSV.foreach('db/seeds/grades.csv') do |row|
+  grade = Grade.find_or_initialize_by(name: row[0])
+  grade.attributes = {
+    level: row[1],
+    image_name: row[2]
+  }
+  save_and_print(grade, grade.name)
+end
+
 # VIPアビリティ
 CSV.foreach('db/seeds/vip_abilities.csv') do |row|
   vip_ability = VipAbility.find_or_initialize_by(vip_level: row[0])
@@ -41,22 +57,6 @@ CSV.foreach('db/seeds/hero_abilities.csv') do |row|
     intimacy_level_to: row[2]
   }
   save_and_print(hero_ability, hero.name)
-end
-
-# アビリティ
-CSV.foreach('db/seeds/abilities.csv') do |row|
-  ability = Ability.find_or_initialize_by(name: row[0])
-  save_and_print(ability, ability.name)
-end
-
-# グレード
-CSV.foreach('db/seeds/grades.csv') do |row|
-  grade = Grade.find_or_initialize_by(name: row[0])
-  grade.attributes = {
-    level: row[1],
-    image_name: row[2]
-  }
-  save_and_print(grade, grade.name)
 end
 
 # 英雄装備
