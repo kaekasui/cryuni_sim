@@ -6,7 +6,7 @@ namespace :db do
   namespace :seed do
     desc 'Remove unused records'
     task unused: :environment do
-      target_keys = [:klass, :column_name, :csv_index]
+      target_keys = %i[klass column_name csv_index]
       targets = [
         [Hero, :name, 1],
         [Ability, :name, 0],

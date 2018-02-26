@@ -24,9 +24,9 @@ describe 'db:seed:unused' do
     end
 
     it 'remove 2 unused heros' do
-      expect{
+      expect do
         subject.invoke
-      }.to change(Hero, :count).by(-2)
+      end.to change(Hero, :count).by(-2)
     end
   end
 
@@ -37,9 +37,9 @@ describe 'db:seed:unused' do
     end
 
     it 'remove 2 unused abilities' do
-      expect{
+      expect do
         subject.invoke
-      }.to change(Ability, :count).by(-2)
+      end.to change(Ability, :count).by(-2)
     end
   end
 
@@ -50,9 +50,9 @@ describe 'db:seed:unused' do
     end
 
     it 'remove 2 unused grades' do
-      expect{
+      expect do
         subject.invoke
-      }.to change(Grade, :count).by(-2)
+      end.to change(Grade, :count).by(-2)
     end
   end
 
@@ -63,9 +63,9 @@ describe 'db:seed:unused' do
     end
 
     it 'remove 2 unused grades' do
-      expect{
+      expect do
         subject.invoke
-      }.to change(VipAbility, :count).by(-2)
+      end.to change(VipAbility, :count).by(-2)
     end
   end
 
@@ -76,10 +76,9 @@ describe 'db:seed:unused' do
     end
 
     it 'remove 2 unused grades' do
-      expect{
+      expect do
         subject.invoke
-      }.to change(HeroAbility, :count).by(-2)
+      end.to change(HeroAbility, :count).by(-2)
     end
   end
-
 end

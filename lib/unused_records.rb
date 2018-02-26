@@ -19,14 +19,15 @@ class UnusedRecordsManager
       @unused_records.destroy_all
       puts "== Deleted #{@klass.name}: #{column_names}"
     end
-  rescue
+  rescue StandardError
     puts "== #{@klass.name}の不要なデータ削除時にエラーが発生しました"
   end
 
   private
 
   def load_unused_records
-    attrs = CSV.read("#{SEED_DIRECTORY}/#{@klass.name.underscore.pluralize}.csv")
+    csv_filename = "#{SEED_DIRECTORY}/#{@klass.name.underscore.pluralize}.csv"
+    attrs = CSV.read(csv_filename)
     diff = @klass.pluck(@column_name) - attrs.map { |attr| attr[@csv_index] }
     @klass.where(@column_name => diff)
   end
