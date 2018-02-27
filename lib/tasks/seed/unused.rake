@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'unused_records'
+require 'unused_records_manager'
 
 namespace :db do
   namespace :seed do
@@ -12,7 +12,8 @@ namespace :db do
         [Ability, :name, 0],
         [Grade, :name, 0],
         [VipAbility, :vip_level, 0],
-        [HeroAbility, :stage, 3]
+        [HeroAbility, :stage, 3],
+        [Equipage, :name, 0]
       ]
       targets.each do |target|
         ary = [target_keys, target].transpose

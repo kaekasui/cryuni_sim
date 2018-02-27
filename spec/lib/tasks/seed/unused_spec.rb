@@ -62,7 +62,7 @@ describe 'db:seed:unused' do
       create(:vip_ability, vip_level: 30)
     end
 
-    it 'remove 2 unused grades' do
+    it 'remove 2 unused vip abilities' do
       expect do
         subject.invoke
       end.to change(VipAbility, :count).by(-2)
@@ -75,10 +75,23 @@ describe 'db:seed:unused' do
       create(:hero_ability, stage: 9)
     end
 
-    it 'remove 2 unused grades' do
+    it 'remove 2 unused hero abilities' do
       expect do
         subject.invoke
       end.to change(HeroAbility, :count).by(-2)
+    end
+  end
+
+  context 'there are some unused equipages' do
+    before do
+      create(:equipage, name: '対魔獣装備')
+      create(:equipage, name: '対魔獣装備2')
+    end
+
+    it 'remove 2 unused equipages' do
+      expect do
+        subject.invoke
+      end.to change(Equipage, :count).by(-2)
     end
   end
 end
