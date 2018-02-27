@@ -94,4 +94,17 @@ describe 'db:seed:unused' do
       end.to change(Equipage, :count).by(-2)
     end
   end
+
+  context 'there are some unused cards' do
+    before do
+      create(:card, name: '魔獣カード')
+      create(:card, name: '魔獣2カード')
+    end
+
+    it 'remove 2 unused cards' do
+      expect do
+        subject.invoke
+      end.to change(Card, :count).by(-2)
+    end
+  end
 end

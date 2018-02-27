@@ -13,7 +13,8 @@ namespace :db do
         [Grade, :name, 0],
         [VipAbility, :vip_level, 0],
         [HeroAbility, :stage, 3],
-        [Equipage, :name, 0]
+        [Equipage, :name, 0],
+        [Card, :name, 0]
       ]
       targets.each do |target|
         ary = [target_keys, target].transpose

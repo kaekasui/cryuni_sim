@@ -75,7 +75,7 @@ end
 
 # カード
 CSV.foreach('db/seeds/cards.csv') do |row|
-  card = Card.find_or_initialize_by(monster_name: row[0])
+  card = Card.find_or_initialize_by(name: row[0])
   card.attributes = {
     min_grade: row[1],
     max_grade: row[2],
