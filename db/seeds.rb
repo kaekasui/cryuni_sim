@@ -81,7 +81,7 @@ CSV.foreach('db/seeds/cards.csv') do |row|
     max_grade: row[2],
     image_name: row[3]
   }
-  save_and_print(card, card.monster_name)
+  save_and_print(card, card.name)
 end
 
 # ヒーローアビリティにあるアビリティ
@@ -174,7 +174,7 @@ end
 
 # カードアビリティ
 CSV.foreach('db/seeds/attached_card_abilities.csv') do |row|
-  card = Card.find_by(monster_name: row[0])
+  card = Card.find_by(name: row[0])
   raise "ERROR: not found card '#{row[0]}'" if card.blank?
 
   grade = Grade.find_by(level: row[1])
@@ -192,6 +192,6 @@ CSV.foreach('db/seeds/attached_card_abilities.csv') do |row|
   }
   save_and_print(
     attached_ability,
-    "#{card.monster_name}, #{grade.level}, #{ability.name}"
+    "#{card.name}, #{grade.level}, #{ability.name}"
   )
 end
