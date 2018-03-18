@@ -31,11 +31,13 @@ class CsvComparator
   end
 
   def conditions
+    target_keys = @target_columns.keys.map
     if @klass.superclass.name == 'AttachedAbility'
-      conditions_ary = @target_columns.keys.map.with_index { |key, i| [key, diff.transpose[i]] }.flatten(1)
+      conditions_ary =
+        target_keys.with_index { |key, i| [key, diff.transpose[i]] }.flatten(1)
       [Hash[*conditions_ary]]
     else
-      @target_columns.keys.map.with_index { |key, i| [key => [diff][i]] }.flatten
+      target_keys.with_index { |key, i| [key => [diff][i]] }.flatten
     end
   end
 

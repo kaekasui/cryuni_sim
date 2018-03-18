@@ -119,13 +119,20 @@ describe 'db:seed:unused' do
     let!(:ability2) { create(:ability, name: '対無機物攻撃力') }
 
     before do
-      create(:attached_hero_ability, hero_ability: hero_ability1, ability: ability, score: 5)
-      create(:attached_hero_ability, hero_ability: hero_ability1, ability: ability1, score: 5)
-      create(:attached_hero_ability, hero_ability: hero_ability1, ability: ability2, score: 10)
-      create(:attached_hero_ability, hero_ability: hero_ability2, ability: ability1, score: 5)
-      create(:attached_hero_ability, hero_ability: hero_ability2, ability: ability2, score: 10)
-      create(:attached_hero_ability, hero_ability: hero_ability3, ability: ability1, score: 10)
-      create(:attached_hero_ability, hero_ability: hero_ability3, ability: ability2, score: 20)
+      create(:attached_hero_ability,
+             hero_ability: hero_ability1, ability: ability, score: 5)
+      create(:attached_hero_ability,
+             hero_ability: hero_ability1, ability: ability1, score: 5)
+      create(:attached_hero_ability,
+             hero_ability: hero_ability1, ability: ability2, score: 10)
+      create(:attached_hero_ability,
+             hero_ability: hero_ability2, ability: ability1, score: 5)
+      create(:attached_hero_ability,
+             hero_ability: hero_ability2, ability: ability2, score: 10)
+      create(:attached_hero_ability,
+             hero_ability: hero_ability3, ability: ability1, score: 10)
+      create(:attached_hero_ability,
+             hero_ability: hero_ability3, ability: ability2, score: 20)
     end
 
     it 'remove 5 unused attached hero abilities' do
