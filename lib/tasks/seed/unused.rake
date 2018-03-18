@@ -15,7 +15,7 @@ namespace :db do
         [HeroAbility, { stage: 3 }],
         [Equipage, { name: 0 }],
         [Card, { name: 0 }],
-        # [AttachedHeroAbility, nil, nil]
+        [AttachedHeroAbility, { hero_id: 0, hero_ability_id: 1, ability_id: 2 }]
       ]
       targets.each do |target|
         ary = [target_keys, target].transpose

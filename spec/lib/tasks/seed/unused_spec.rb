@@ -107,4 +107,31 @@ describe 'db:seed:unused' do
       end.to change(Card, :count).by(-2)
     end
   end
+
+  context 'there are some unused attached hero abilities' do
+    let!(:hero1) { create(:hero, name: 'クローディア') }
+    let!(:hero2) { create(:hero, name: 'ランスロット') }
+    let!(:hero_ability1) { create(:hero_ability, hero: hero1, stage: 10) }
+    let!(:hero_ability2) { create(:hero_ability, hero: hero2, stage: 11) }
+    let!(:hero_ability3) { create(:hero_ability, hero: hero2, stage: 12) }
+    let!(:ability) { create(:ability, name: '英雄移動速度') }
+    let!(:ability1) { create(:ability, name: '対悪魔攻撃力') }
+    let!(:ability2) { create(:ability, name: '対無機物攻撃力') }
+
+    before do
+      create(:attached_hero_ability, hero_ability: hero_ability1, ability: ability, score: 5)
+      create(:attached_hero_ability, hero_ability: hero_ability1, ability: ability1, score: 5)
+      create(:attached_hero_ability, hero_ability: hero_ability1, ability: ability2, score: 10)
+      create(:attached_hero_ability, hero_ability: hero_ability2, ability: ability1, score: 5)
+      create(:attached_hero_ability, hero_ability: hero_ability2, ability: ability2, score: 10)
+      create(:attached_hero_ability, hero_ability: hero_ability3, ability: ability1, score: 10)
+      create(:attached_hero_ability, hero_ability: hero_ability3, ability: ability2, score: 20)
+    end
+
+    it 'remove 5 unused attached hero abilities' do
+      expect do
+        subject.invoke
+      end.to change(AttachedHeroAbility, :count).by(-6)
+    end
+  end
 end
