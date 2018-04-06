@@ -38,14 +38,14 @@
 
 .messageComponent {
   .panel.panel-default:hover {
-    border-color: #FFE9A1;
+    border-color: darken($pale-yellow, 10%);
   }
   .panel.panel-default {
     margin-top: 10px;
     margin-bottom: 0;
     .panel-body.message:hover {
       cursor: pointer;
-      background-color: #FFF2C8;
+      background-color: $pale-yellow;
       a {
         text-decoration: none;
       }
@@ -175,10 +175,10 @@
     table {
       tr.active-ability:hover {
         cursor: pointer;
-        background-color: #FFF2C8;
+        background-color: $pale-yellow;
       }
       tr.selected-ability {
-        background-color: #FFF2C8;
+        background-color: $pale-yellow;
       }
       th.attached_abilities {
         width: 220px;
