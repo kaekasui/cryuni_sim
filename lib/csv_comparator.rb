@@ -15,8 +15,9 @@ class CsvComparator
   def destroy_unused_records
     return if diff.blank?
     unused_records = @klass.where(*conditions)
+    conditions_str = conditions
     unused_records.destroy_all
-    puts "=== Deleted #{@klass.name} === #{conditions}"
+    puts "=== Deleted #{@klass.name} === #{conditions_str}"
   end
 
   private
