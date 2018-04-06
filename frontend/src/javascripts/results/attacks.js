@@ -46,7 +46,6 @@ export default class Attacks extends React.Component {
     let heroScore = this.totalCalculatorByAbilityName(nextProps.heroAbilities, targetAbilityName)
     let coreScore = this.totalCalculatorByAbilityName(nextProps.coreAbilities, targetAbilityName)
     let equipageScore = this.totalCalculatorByAbilityName(nextProps.equipageAbilities, targetAbilityName)
-    console.log(nextProps.equipageAbilities)
     return vipScore + heroScore + coreScore + equipageScore
   }
 
