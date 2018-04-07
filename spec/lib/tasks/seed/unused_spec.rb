@@ -227,10 +227,41 @@ describe 'db:seed:unused' do
              equipage: equipage2, grade: grade2, ability: ability3)
     end
 
-    it 'remove 5 unused attached core abilities' do
+    it 'remove 5 unused attached equipage abilities' do
       expect do
         subject.invoke
       end.to change(AttachedEquipageAbility, :count).by(-5)
+    end
+  end
+
+  context 'there are some unused attached card abilities' do
+    let!(:card1) { create(:card, name: 'ゴブリンカード') }
+    let!(:card2) { create(:card, name: 'ゴーレムカード') }
+    let!(:grade1) { create(:grade, name: '普通', level: 1) }
+    let!(:grade2) { create(:grade, name: '上等', level: 2) }
+    let!(:ability1) { create(:ability, name: '英雄移動速度') }
+    let!(:ability2) { create(:ability, name: '対悪魔攻撃力') }
+    let!(:ability3) { create(:ability, name: '対無機物攻撃力') }
+
+    before do
+      create(:attached_card_ability,
+             card: card1, grade: grade1, ability: ability1)
+      create(:attached_card_ability,
+             card: card1, grade: grade1, ability: ability2)
+      create(:attached_card_ability,
+             card: card1, grade: grade1, ability: ability3)
+      create(:attached_card_ability,
+             card: card1, grade: grade2, ability: ability1)
+      create(:attached_card_ability,
+             card: card2, grade: grade1, ability: ability1)
+      create(:attached_card_ability,
+             card: card2, grade: grade2, ability: ability3)
+    end
+
+    it 'remove 5 unused attached core abilities' do
+      expect do
+        subject.invoke
+      end.to change(AttachedCardAbility, :count).by(-5)
     end
   end
 end
