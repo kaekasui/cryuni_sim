@@ -15,7 +15,7 @@ export default class Message extends React.Component {
       <div className='messageComponent'>
         <div className='panel panel-default' onClick={this.handleClickPanel}>
           <div className='panel-body message'>
-            {'当サイトへの課金をお待ちしてます。サイトの管理費、開発・運用費にあてさせていただきます。一日一回クリックだけでも何卒ーヾ(｡>﹏<｡)ﾉﾞ✧*。'}
+            {'一日一回クリックを何卒ーヾ(｡>﹏<｡)ﾉﾞ✧*。'}
           </div>
         </div>
       </div>

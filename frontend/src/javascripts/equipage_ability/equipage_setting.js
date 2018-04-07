@@ -41,21 +41,27 @@ export default class EquipageSetting extends React.Component {
         <Title title='◆装備' />
         <div className='equipages'>
           <div className='equipage equipage-hand'>
+            {'手'}
             <Equipage onSelectCard={this.handleSelectCard} onSelectEquipage={this.handleSelectEquipage} part='hand' />
           </div>
           <div className='equipage equipage-head'>
+            {'頭'}
             <Equipage onSelectCard={this.handleSelectCard} onSelectEquipage={this.handleSelectEquipage} part='head' />
           </div>
           <div className='equipage equipage-body'>
+            {'胴'}
             <Equipage onSelectCard={this.handleSelectCard} onSelectEquipage={this.handleSelectEquipage} part='body' />
           </div>
           <div className='equipage equipage-foot'>
+            {'足'}
             <Equipage onSelectCard={this.handleSelectCard} onSelectEquipage={this.handleSelectEquipage} part='foot' />
           </div>
           <div className='equipage equipage-accessory1'>
+            {'アクセ1'}
             <Equipage onSelectCard={this.handleSelectCard} onSelectEquipage={this.handleSelectEquipage} part='accessory1' />
           </div>
           <div className='equipage equipage-accessory2'>
+            {'アクセ2'}
             <Equipage onSelectCard={this.handleSelectCard} onSelectEquipage={this.handleSelectEquipage} part='accessory2' />
           </div>
         </div>
