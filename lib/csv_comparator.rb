@@ -10,45 +10,51 @@ class CsvComparator
     @target_columns = target_columns
     csv_filename = "#{SEED_DIRECTORY}/#{@klass.name.underscore.pluralize}.csv"
     @csv_attrs = CSV.read(csv_filename)
+    @conditions_str = ''
   end
 
   def destroy_unused_records
     return if diff.blank?
-    unused_records = @klass.where(*conditions)
-    conditions_str = conditions
+    unused_records =
+      if @klass.superclass.name == 'AttachedAbility'
+        unused_attached_records
+      else
+        unused_master_records
+      end
     unused_records.destroy_all
-    puts "=== Deleted #{@klass.name} === #{conditions_str}"
+    puts "=== Deleted #{@klass.name} === #{@conditions_str}"
   end
 
   private
 
+  def unused_attached_records
+    conditions_ary = diff.map do |d|
+      ary = [@target_columns.keys, d].transpose
+      Hash[*ary.flatten]
+    end
+    unused_records = @klass.where(id: nil)
+    conditions_ary.each do |condition|
+      unused_records = unused_records.or(@klass.where(condition))
+    end
+    @conditions_str = conditions_ary
+    unused_records
+  end
+
+  def unused_master_records
+    target_keys = @target_columns.keys.map
+    conditions = target_keys.with_index { |key, i| [key => [diff][i]] }.flatten
+    @conditions_str = conditions
+    @klass.where(*conditions)
+  end
+
   def diff
-    if @klass.superclass.name == 'AttachedAbility'
-      attached_abilities_diff
+    case @klass.name
+    when 'AttachedHeroAbility'
+      @klass.pluck(*@target_columns.keys) - generated_hero_ability_attrs
     else
       @klass.pluck(*@target_columns.keys).map(&:to_s) \
         - @csv_attrs.map { |attr| attr[*@target_columns.values] }
     end
-  end
-
-  def conditions
-    target_keys = @target_columns.keys.map
-    if @klass.superclass.name == 'AttachedAbility'
-      conditions_ary =
-        target_keys.with_index { |key, i| [key, diff.transpose[i]] }.flatten(1)
-      [Hash[*conditions_ary]]
-    else
-      target_keys.with_index { |key, i| [key => [diff][i]] }.flatten
-    end
-  end
-
-  def attached_abilities_diff
-    generated_attrs =
-      case @klass.name
-      when 'AttachedHeroAbility'
-        generated_hero_ability_attrs
-      end
-    @klass.pluck(*@target_columns.keys) - generated_attrs
   end
 
   def generated_hero_ability_attrs
