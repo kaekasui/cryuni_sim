@@ -48,14 +48,19 @@ class CsvComparator
   end
 
   def diff
-    case @klass.name
-    when 'AttachedHeroAbility'
-      @klass.pluck(*@target_columns.keys) - generated_hero_ability_attrs
-    when 'AttachedVipAbility'
-      @klass.pluck(*@target_columns.keys) - generated_vip_ability_attrs
+    if @klass.superclass.name == 'AttachedAbility'
+      @klass.pluck(*@target_columns.keys) - generated_attached_ability_attrs
     else
       @klass.pluck(*@target_columns.keys).map(&:to_s) \
         - @csv_attrs.map { |attr| attr[*@target_columns.values] }
+    end
+  end
+
+  def generated_attached_ability_attrs
+    case @klass.name
+    when 'AttachedHeroAbility' then generated_hero_ability_attrs
+    when 'AttachedVipAbility' then generated_vip_ability_attrs
+    when 'AttachedCoreAbility' then generated_core_ability_attrs
     end
   end
 
@@ -74,6 +79,14 @@ class CsvComparator
       vip_ability = VipAbility.find_by(vip_level: attr[0])
       ability = Ability.find_by(name: attr[1])
       [vip_ability.try(:id), ability.try(:id)].compact
+    end
+  end
+
+  def generated_core_ability_attrs
+    @csv_attrs.map do |attr|
+      hero = Hero.find_by(name: attr[0])
+      ability = Ability.find_by(name: attr[1])
+      [hero.try(:id), ability.try(:id)].compact
     end
   end
 end

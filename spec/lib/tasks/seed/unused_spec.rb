@@ -167,10 +167,39 @@ describe 'db:seed:unused' do
              vip_ability: vip_ability3, ability: ability2, score: 20)
     end
 
-    it 'remove 5 unused attached hero abilities' do
+    it 'remove 4 unused attached vip abilities' do
       expect do
         subject.invoke
       end.to change(AttachedVipAbility, :count).by(-4)
+    end
+  end
+
+  context 'there are some unused attached core abilities' do
+    let!(:hero1) { create(:hero, name: 'ランスロット') }
+    let!(:hero2) { create(:hero, name: 'クローディア') }
+    let!(:ability1) { create(:ability, name: '英雄移動速度') }
+    let!(:ability2) { create(:ability, name: '対悪魔攻撃力') }
+    let!(:ability3) { create(:ability, name: '対無機物攻撃力') }
+
+    before do
+      create(:attached_core_ability,
+             hero: hero1, ability: ability1, score: 5)
+      create(:attached_core_ability,
+             hero: hero1, ability: ability2, score: 5)
+      create(:attached_core_ability,
+             hero: hero1, ability: ability3, score: 10)
+      create(:attached_core_ability,
+             hero: hero2, ability: ability1, score: 5)
+      create(:attached_core_ability,
+             hero: hero2, ability: ability2, score: 10)
+      create(:attached_core_ability,
+             hero: hero2, ability: ability3, score: 10)
+    end
+
+    it 'remove 5 unused attached core abilities' do
+      expect do
+        subject.invoke
+      end.to change(AttachedCoreAbility, :count).by(-5)
     end
   end
 end
