@@ -7,19 +7,11 @@ namespace :db do
     desc 'Remove unused records'
     task unused: :environment do
       target_keys = %i[klass target_columns]
-      targets = [
-        [Hero, { name: 1 }],
-        [Ability, { name: 0 }],
-        [Grade, { name: 0 }],
-        [VipAbility, { vip_level: 0 }],
-        [HeroAbility, { stage: 3 }],
-        [Equipage, { name: 0 }],
-        [Card, { name: 0 }],
-        [AttachedHeroAbility,
-         { hero_id: 0, hero_ability_id: 1, ability_id: 2 }],
-        [AttachedVipAbility, { vip_ability_id: 0, ability_id: 1 }],
-        [AttachedCoreAbility, { hero_id: 0, ability_id: 1 }]
-      ]
+      csv_data = CSV.read('lib/csv_comparator_targets.csv')
+      targets = csv_data.map do |line_ary|
+        columns = Hash[*line_ary[1..-1].flatten].symbolize_keys
+        [line_ary[0].constantize, columns.each { |k, v| columns[k] = v.to_i }]
+      end
       targets.each do |target|
         ary = [target_keys, target].transpose
         comparator = CsvComparator.new(Hash[*ary.flatten])

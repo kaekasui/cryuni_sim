@@ -61,6 +61,7 @@ class CsvComparator
     when 'AttachedHeroAbility' then generated_hero_ability_attrs
     when 'AttachedVipAbility' then generated_vip_ability_attrs
     when 'AttachedCoreAbility' then generated_core_ability_attrs
+    when 'AttachedEquipageAbility' then generated_equipage_ability_attrs
     end
   end
 
@@ -87,6 +88,15 @@ class CsvComparator
       hero = Hero.find_by(name: attr[0])
       ability = Ability.find_by(name: attr[1])
       [hero.try(:id), ability.try(:id)].compact
+    end
+  end
+
+  def generated_equipage_ability_attrs
+    @csv_attrs.map do |attr|
+      equipage = Equipage.find_by(name: attr[0])
+      grade = Grade.find_by(level: attr[1])
+      ability = Ability.find_by(name: attr[2])
+      [equipage.try(:id), grade.try(:id), ability.try(:id)].compact
     end
   end
 end
