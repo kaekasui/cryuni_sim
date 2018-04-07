@@ -1,0 +1,12 @@
+Hero,name,1
+Ability,name,0
+Grade,name,0
+VipAbility,vip_level,0
+HeroAbility,stage,3
+Equipage,name,0
+Card,name,0
+AttachedHeroAbility,hero_id,0,hero_ability_id,1,ability_id,2
+AttachedVipAbility,vip_ability_id,0,ability_id,1
+AttachedCoreAbility,hero_id,0,ability_id,1
+AttachedEquipageAbility,equipage_id,0,grade_id,1,ability_id,2
+AttachedCardAbility,card_id,0,grade_id,1,ability_id,2

@@ -141,4 +141,127 @@ describe 'db:seed:unused' do
       end.to change(AttachedHeroAbility, :count).by(-6)
     end
   end
+
+  context 'there are some unused attached vip abilities' do
+    let!(:vip_ability1) { create(:vip_ability, vip_level: 10) }
+    let!(:vip_ability2) { create(:vip_ability, vip_level: 11) }
+    let!(:vip_ability3) { create(:vip_ability, vip_level: 12) }
+    let!(:ability) { create(:ability, name: '英雄移動速度') }
+    let!(:ability1) { create(:ability, name: '対悪魔攻撃力') }
+    let!(:ability2) { create(:ability, name: '対無機物攻撃力') }
+
+    before do
+      create(:attached_vip_ability,
+             vip_ability: vip_ability1, ability: ability, score: 5)
+      create(:attached_vip_ability,
+             vip_ability: vip_ability1, ability: ability1, score: 5)
+      create(:attached_vip_ability,
+             vip_ability: vip_ability1, ability: ability2, score: 10)
+      create(:attached_vip_ability,
+             vip_ability: vip_ability2, ability: ability1, score: 5)
+      create(:attached_vip_ability,
+             vip_ability: vip_ability2, ability: ability2, score: 10)
+      create(:attached_vip_ability,
+             vip_ability: vip_ability3, ability: ability1, score: 10)
+      create(:attached_vip_ability,
+             vip_ability: vip_ability3, ability: ability2, score: 20)
+    end
+
+    it 'remove 4 unused attached vip abilities' do
+      expect do
+        subject.invoke
+      end.to change(AttachedVipAbility, :count).by(-4)
+    end
+  end
+
+  context 'there are some unused attached core abilities' do
+    let!(:hero1) { create(:hero, name: 'ランスロット') }
+    let!(:hero2) { create(:hero, name: 'クローディア') }
+    let!(:ability1) { create(:ability, name: '英雄移動速度') }
+    let!(:ability2) { create(:ability, name: '対悪魔攻撃力') }
+    let!(:ability3) { create(:ability, name: '対無機物攻撃力') }
+
+    before do
+      create(:attached_core_ability,
+             hero: hero1, ability: ability1, score: 5)
+      create(:attached_core_ability,
+             hero: hero1, ability: ability2, score: 5)
+      create(:attached_core_ability,
+             hero: hero1, ability: ability3, score: 10)
+      create(:attached_core_ability,
+             hero: hero2, ability: ability1, score: 5)
+      create(:attached_core_ability,
+             hero: hero2, ability: ability2, score: 10)
+      create(:attached_core_ability,
+             hero: hero2, ability: ability3, score: 10)
+    end
+
+    it 'remove 5 unused attached core abilities' do
+      expect do
+        subject.invoke
+      end.to change(AttachedCoreAbility, :count).by(-5)
+    end
+  end
+
+  context 'there are some unused attached equipage abilities' do
+    let!(:equipage1) { create(:equipage, :hand, name: 'エリートソード') }
+    let!(:equipage2) { create(:equipage, :hand, name: '光翼のセイバー') }
+    let!(:grade1) { create(:grade, name: '普通', level: 1) }
+    let!(:grade2) { create(:grade, name: '上等', level: 2) }
+    let!(:ability1) { create(:ability, name: '英雄移動速度') }
+    let!(:ability2) { create(:ability, name: '対悪魔攻撃力') }
+    let!(:ability3) { create(:ability, name: '対無機物攻撃力') }
+
+    before do
+      create(:attached_equipage_ability,
+             equipage: equipage1, grade: grade1, ability: ability1)
+      create(:attached_equipage_ability,
+             equipage: equipage1, grade: grade1, ability: ability2)
+      create(:attached_equipage_ability,
+             equipage: equipage1, grade: grade1, ability: ability3)
+      create(:attached_equipage_ability,
+             equipage: equipage1, grade: grade2, ability: ability1)
+      create(:attached_equipage_ability,
+             equipage: equipage2, grade: grade1, ability: ability1)
+      create(:attached_equipage_ability,
+             equipage: equipage2, grade: grade2, ability: ability3)
+    end
+
+    it 'remove 5 unused attached equipage abilities' do
+      expect do
+        subject.invoke
+      end.to change(AttachedEquipageAbility, :count).by(-5)
+    end
+  end
+
+  context 'there are some unused attached card abilities' do
+    let!(:card1) { create(:card, name: 'ゴブリンカード') }
+    let!(:card2) { create(:card, name: 'ゴーレムカード') }
+    let!(:grade1) { create(:grade, name: '普通', level: 1) }
+    let!(:grade2) { create(:grade, name: '上等', level: 2) }
+    let!(:ability1) { create(:ability, name: '英雄移動速度') }
+    let!(:ability2) { create(:ability, name: '対悪魔攻撃力') }
+    let!(:ability3) { create(:ability, name: '対無機物攻撃力') }
+
+    before do
+      create(:attached_card_ability,
+             card: card1, grade: grade1, ability: ability1)
+      create(:attached_card_ability,
+             card: card1, grade: grade1, ability: ability2)
+      create(:attached_card_ability,
+             card: card1, grade: grade1, ability: ability3)
+      create(:attached_card_ability,
+             card: card1, grade: grade2, ability: ability1)
+      create(:attached_card_ability,
+             card: card2, grade: grade1, ability: ability1)
+      create(:attached_card_ability,
+             card: card2, grade: grade2, ability: ability3)
+    end
+
+    it 'remove 5 unused attached core abilities' do
+      expect do
+        subject.invoke
+      end.to change(AttachedCardAbility, :count).by(-5)
+    end
+  end
 end
