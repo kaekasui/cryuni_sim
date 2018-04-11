@@ -7,6 +7,10 @@ import VipAbilitySetting from './vip_ability/vip_ability_setting'
 import HeroAbilitySetting from './hero_ability/hero_ability_setting'
 import CoreAbilitySetting from './core_ability/core_ability_setting'
 import EquipageSetting from './equipage_ability/equipage_setting'
+import WarSkillSetting from './war_skill/war_skill_setting'
+import FoundingSkillSetting from './founding_skill/founding_skill_setting'
+import AttackSkillSetting from './attack_skill/attack_skill_setting'
+import StudyHeroSetting from './study_hero/study_hero_setting'
 
 class Simulator extends React.Component {
   constructor(props) {
@@ -99,6 +103,10 @@ class Simulator extends React.Component {
           <HeroAbilitySetting handleSelectHeroAbility={this.setHeroAbility} selectHero={this.setHero} />
           <CoreAbilitySetting handleRemoveCoreHero={this.removeCoreHero} handleSetCoreHeros={this.setCoreHeros} />
           <EquipageSetting handleSelectCards={this.setCardAbility} handleSelectEquipages={this.setEquipageAbility} />
+          <WarSkillSetting />
+          <FoundingSkillSetting />
+          <AttackSkillSetting />
+          <StudyHeroSetting />
         </div>
         <div className='col-md-7 right-screen'>
           <Results coreHeros={this.state.coreHeros} equipageAbility={this.state.equipageAbility} hero={this.state.hero} heroAbility={this.state.heroAbility} vipAbility={this.state.vipAbility} />
