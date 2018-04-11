@@ -10,9 +10,9 @@
   "scripts": {
     "stylelint": "stylelint",
     "eslint": "eslint",
-    "release": "webpack --config config/production/webpack.config.js",
-    "build": "webpack --config config/development/webpack.config.js",
-    "watch": "webpack --watch --config config/development/webpack.config.js"
+    "release": "webpack",
+    "build": "webpack --mode development",
+    "watch": "webpack --watch --mode development"
   },
   "repository": {
     "type": "git",
@@ -40,7 +40,8 @@
     "react-modal": "^3.1.10",
     "react-tooltip": "^3.4.0",
     "stylelint": "^9.2.0",
-    "webpack": "^3.9.1"
+    "webpack": "^4.5.0",
+    "webpack-cli": "^2.0.14"
   },
   "dependencies": {
     "react": "^16.2.0",
