@@ -5,6 +5,7 @@
 .col-md-5.left-screen, .col-md-7.right-screen {
   overflow: scroll;
   height: 100vh;
+  padding-bottom: 100px;
 }
 
 .btn-group > .btn:hover, .btn-group > .btn:focus, .btn-group > .btn:active, .btn-group > .btn.active, .btn-group-vertical > .btn:hover, .btn-group-vertical > .btn:focus, .btn-group-vertical > .btn:active, .btn-group-vertical > .btn.active {
