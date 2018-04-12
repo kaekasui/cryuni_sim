@@ -41,13 +41,13 @@
 }
 
 .messageComponent {
+  text-align: right;
   .info-button {
-    list-style-type: none;
-    text-align: right;
     padding-top: 10px;
-    li {
-      padding-top: 5px;
+    span {
+      display: inline;
       img {
+        margin-top: 5px;
         cursor: pointer;
         width: 250px;
       }
