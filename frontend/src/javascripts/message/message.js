@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactTooltip from 'react-tooltip'
 
 import ModalTwitter from './modal_twitter'
 
@@ -29,7 +30,8 @@ export default class Message extends React.Component {
     return (
       <div className='messageComponent'>
         <ul className='info-button'>
-          <li onClick={this.handleClickPresentBoxButton}>
+          <li data-tip={'一日一回クリックをお願いします'} onClick={this.handleClickPresentBoxButton}>
+            <ReactTooltip />
             <img src={'assets/present_box_button.png'} />
           </li>
           <li onClick={this.handleClickInfoButton}>
