@@ -33,8 +33,10 @@ export default class Message extends React.Component {
             {'一日一回クリックを何卒ーヾ(｡>﹏<｡)ﾉﾞ✧*。'}
           </div>
         </div>
-        <div>
-          <a className='btn btn-default' onClick={this.handleClickInfoButton}>{'お知らせ'}</a>
+        <div className='info-button'>
+          <a onClick={this.handleClickInfoButton}>
+            <img src={'assets/info_button.png'} />
+          </a>
           <ModalTwitter handleClickCloseButton={this.onClickCloseButton} modalIsOpen={this.state.modalIsOpen} />
         </div>
       </div>
