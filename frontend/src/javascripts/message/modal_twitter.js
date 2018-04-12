@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Modal from 'react-modal'
 
+import Tweets from './tweets'
+
 export default class ModalTwitter extends React.Component {
   constructor(props) {
     super(props)
@@ -19,6 +21,7 @@ export default class ModalTwitter extends React.Component {
           <button aria-label='Close' className='close' onClick={this.handleClickCloseButton} type='button'>
             <span dangerouslySetInnerHTML={{__html: '&times'}} />
           </button>
+          <Tweets />
         </Modal>
       </div>
     )
