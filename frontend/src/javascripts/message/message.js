@@ -1,14 +1,17 @@
 import React from 'react'
 import ReactTooltip from 'react-tooltip'
+import ReactCookie from 'react-cookies'
 
 import ModalTwitter from './modal_twitter'
 
 export default class Message extends React.Component {
   constructor(props) {
     super(props)
+    let targetTime = new Date()
+    targetTime.setHours(targetTime.getHours() - 12)
     this.state = {
       modalIsOpen: false,
-      clickedPresentBox: false
+      clickedPresentBox: targetTime < ReactCookie.load('clicked_present_box_at')
     }
     this.handleClickPresentBoxButton = this.handleClickPresentBoxButton.bind(this)
     this.handleClickInfoButton = this.handleClickInfoButton.bind(this)
@@ -17,6 +20,7 @@ export default class Message extends React.Component {
 
   handleClickPresentBoxButton() {
     this.setState({clickedPresentBox: true})
+    ReactCookie.save('clicked_present_box_at', new Date().getTime())
     window.open('http://amzn.to/2D4YEfG')
   }
 
