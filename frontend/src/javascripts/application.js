@@ -94,9 +94,6 @@ class Simulator extends React.Component {
     this.setState({cardAbility: cardAbility})
   }
 
-
-
-
   render() {
     return (
       <div className="SimulatorComponent">
