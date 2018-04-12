@@ -11,11 +11,24 @@ export default class Message extends React.Component {
     targetTime.setHours(targetTime.getHours() - 12)
     this.state = {
       modalIsOpen: false,
-      clickedPresentBox: targetTime < ReactCookie.load('clicked_present_box_at')
+      clickedPresentBox: targetTime.getTime() < parseInt(ReactCookie.load('clicked_present_box_at'))
     }
     this.handleClickPresentBoxButton = this.handleClickPresentBoxButton.bind(this)
     this.handleClickInfoButton = this.handleClickInfoButton.bind(this)
     this.onClickCloseButton = this.onClickCloseButton.bind(this)
+    this.updateClickedPresentBox = this.updateClickedPresentBox.bind(this)
+  }
+
+  componentDidMount() {
+    setInterval(this.updateClickedPresentBox, 10000)
+  }
+
+  updateClickedPresentBox() {
+    let targetTime = new Date()
+    targetTime.setHours(targetTime.getHours() - 12)
+    this.setState({
+      clickedPresentBox: targetTime.getTime() < parseInt(ReactCookie.load('clicked_present_box_at'))
+    })
   }
 
   handleClickPresentBoxButton() {
