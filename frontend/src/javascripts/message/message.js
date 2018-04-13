@@ -1,19 +1,39 @@
 import React from 'react'
+import ReactTooltip from 'react-tooltip'
+import ReactCookie from 'react-cookies'
 
 import ModalTwitter from './modal_twitter'
 
 export default class Message extends React.Component {
   constructor(props) {
     super(props)
+    let targetTime = new Date()
+    targetTime.setHours(targetTime.getHours() - 12)
     this.state = {
-      modalIsOpen: false
+      modalIsOpen: false,
+      clickedPresentBox: targetTime.getTime() < parseInt(ReactCookie.load('clicked_present_box_at'))
     }
-    this.handleClickPanel = this.handleClickPanel.bind(this)
+    this.handleClickPresentBoxButton = this.handleClickPresentBoxButton.bind(this)
     this.handleClickInfoButton = this.handleClickInfoButton.bind(this)
     this.onClickCloseButton = this.onClickCloseButton.bind(this)
+    this.updateClickedPresentBox = this.updateClickedPresentBox.bind(this)
   }
 
-  handleClickPanel() {
+  componentDidMount() {
+    setInterval(this.updateClickedPresentBox, 10000)
+  }
+
+  updateClickedPresentBox() {
+    let targetTime = new Date()
+    targetTime.setHours(targetTime.getHours() - 12)
+    this.setState({
+      clickedPresentBox: targetTime.getTime() < parseInt(ReactCookie.load('clicked_present_box_at'))
+    })
+  }
+
+  handleClickPresentBoxButton() {
+    this.setState({clickedPresentBox: true})
+    ReactCookie.save('clicked_present_box_at', new Date().getTime())
     window.open('http://amzn.to/2D4YEfG')
   }
 
@@ -28,17 +48,21 @@ export default class Message extends React.Component {
   render() {
     return (
       <div className='messageComponent'>
-        <div className='panel panel-default' onClick={this.handleClickPanel}>
-          <div className='panel-body message'>
-            {'一日一回クリックを何卒ーヾ(｡>﹏<｡)ﾉﾞ✧*。'}
-          </div>
-        </div>
         <div className='info-button'>
-          <a onClick={this.handleClickInfoButton}>
-            <img src={'assets/info_button.png'} />
-          </a>
-          <ModalTwitter handleClickCloseButton={this.onClickCloseButton} modalIsOpen={this.state.modalIsOpen} />
+          <span data-tip={'一日一回クリックをお願いします'} onClick={this.handleClickPresentBoxButton}>
+            <ReactTooltip />
+            {this.state.clickedPresentBox ? (
+              <img src={'assets/present_box_empty_button.png'} />
+            ) : (
+              <img src={'assets/present_box_button.png'} />
+            )}
+          </span>
+          <span className='break' />
+          <span>
+            <img src={'assets/info_button.png'} onClick={this.handleClickInfoButton} />
+          </span>
         </div>
+        <ModalTwitter handleClickCloseButton={this.onClickCloseButton} modalIsOpen={this.state.modalIsOpen} />
       </div>
     )
   }

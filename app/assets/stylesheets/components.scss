@@ -36,27 +36,19 @@
   }
 }
 
+.tweetsComponent {
+  text-align: center;
+}
+
 .messageComponent {
-  .panel.panel-default:hover {
-    border-color: darken($pale-yellow, 10%);
-  }
-  .panel.panel-default {
-    margin-top: 10px;
-    margin-bottom: 0;
-    .panel-body.message:hover {
-      cursor: pointer;
-      background-color: $pale-yellow;
-      a {
-        text-decoration: none;
-      }
-    }
-  }
+  text-align: right;
   .info-button {
     padding-top: 10px;
-    text-align: right;
-    a {
-      cursor: pointer;
+    span {
+      display: inline;
       img {
+        margin-top: 5px;
+        cursor: pointer;
         width: 250px;
       }
     }

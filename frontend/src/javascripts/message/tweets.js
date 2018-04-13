@@ -12,7 +12,7 @@ export default class Tweets extends React.Component {
   render() {
     return (
       <div className='tweetsComponent'>
-        <a className='twitter-timeline' href='https://twitter.com/cryuni_info?ref_src=twsrc%5Etfw' />
+        <a className='twitter-timeline' data-width='400' href='https://twitter.com/cryuni_info?ref_src=twsrc%5Etfw' />
       </div>
     )
   }
