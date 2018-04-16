@@ -59,7 +59,7 @@ export default class Message extends React.Component {
           </span>
           <span className='break' />
           <span>
-            <img src={'assets/info_button.png'} onClick={this.handleClickInfoButton} />
+            <img onClick={this.handleClickInfoButton} src={'assets/info_button.png'} />
           </span>
         </div>
         <ModalTwitter handleClickCloseButton={this.onClickCloseButton} modalIsOpen={this.state.modalIsOpen} />
