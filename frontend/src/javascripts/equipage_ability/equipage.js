@@ -61,7 +61,7 @@ export default class Equipage extends React.Component {
           )}
         </div>
         <div className='cards'>
-          {this.state.false ? (
+          {this.state.selectedEquipage ? (
             <div>
               {Array.from(Array(this.state.selectedEquipage.card_slot).keys()).map((i) => (
                 <Card index={i} key={i} onSelectCard={this.handleSelectCard} />

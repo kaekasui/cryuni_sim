@@ -38,7 +38,7 @@ export default class EquipageSetting extends React.Component {
   render() {
     return (
       <div className='equipageSettingComponent'>
-        <Title title='◆装備（カード：coming soon!）' />
+        <Title title='◆装備とカード' />
         <div className='equipages'>
           <div className='equipage equipage-hand'>
             {'手'}
