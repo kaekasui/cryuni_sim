@@ -51,7 +51,7 @@ feature 'コアアビリティ', js: true do
       within '.coreAbilitySettingComponent' do
         # 画像が英雄の画像しかない = 鍵画像がない
         expect(page.all('.coreHeroComponent')[1].find('img')['src'])
-          .to have_content 'assets/jeanne.jpg'
+          .to have_content 'assets/hero_icons/jeanne.jpg'
       end
     end
 
@@ -61,7 +61,7 @@ feature 'コアアビリティ', js: true do
 
         # 画像が英雄の画像しかない = 鍵画像がない
         expect(page.all('.coreHeroComponent')[1].find('img')['src'])
-          .to have_content 'assets/jeanne.jpg'
+          .to have_content 'assets/hero_icons/jeanne.jpg'
       end
     end
   end
@@ -70,7 +70,7 @@ feature 'コアアビリティ', js: true do
     scenario '対象の英雄に鍵が表示されていること' do
       within '.coreAbilitySettingComponent' do
         expect(page.all('.coreHeroComponent')[0].all('img')[0]['src'])
-          .to have_content 'assets/enkidu.jpg'
+          .to have_content 'assets/hero_icons/enkidu.jpg'
         expect(page.all('.coreHeroComponent')[0].all('img')[1]['src'])
           .to have_content 'assets/padlock.png'
       end
@@ -82,11 +82,11 @@ feature 'コアアビリティ', js: true do
         page.all('.padlock')[0].click
 
         expect(page.all('.coreHeroComponent')[0].find('img')['src'])
-          .to have_content 'assets/enkidu.jpg'
+          .to have_content 'assets/hero_icons/enkidu.jpg'
 
         find("img[alt='エンキドゥ']").click
         expect(page.all('.coreHeroComponent')[0].all('img')[0]['src'])
-          .to have_content 'assets/enkidu.jpg'
+          .to have_content 'assets/hero_icons/enkidu.jpg'
         expect(page.all('.coreHeroComponent')[0].all('img')[1]['src'])
           .to have_content 'assets/padlock.png'
       end
