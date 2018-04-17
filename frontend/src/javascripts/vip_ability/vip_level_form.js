@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import CheckMessage from './../common/check_message'
+import Loading from './../common/loading'
 
 export default class VipLevelForm extends React.Component {
   constructor(props) {
@@ -43,7 +44,7 @@ export default class VipLevelForm extends React.Component {
     return (
       <div className='vipLevelFormComponent'>
         {this.state.isLoading ? (
-          <p>{'Loading ...'}</p>
+          <Loading />
         ) : (
           <div>
             <CheckMessage checked={this.state.selectedVipLevel == undefined ? false : true} message='VIPレベルを選択してください' />
