@@ -146,7 +146,7 @@ feature 'ヒーローアビリティ', js: true do
 
       # 羽が表示されていることを確認
       expect(page.all('.heroComponent')[0].all('img')[1]['src'])
-        .to have_content 'assets/hero_icons/fether.png'
+        .to have_content 'assets/fether.png'
 
       find("img[alt='ジャンヌ・ダルク']").click
 
@@ -156,19 +156,19 @@ feature 'ヒーローアビリティ', js: true do
 
       # 羽が移動していることを確認
       expect(page.all('.heroComponent')[1].all('img')[1]['src'])
-        .to have_content 'assets/hero_icons/fether.png'
+        .to have_content 'assets/fether.png'
     end
   end
 
   scenario '英雄の選択で、メッセージにチェックが入ること' do
     within '.heroAbilitySettingComponent' do
       expect(page.all('.checkMessageComponent')[0].find('img')['src'])
-        .to have_content 'assets/hero_icons/incomplete.gif'
+        .to have_content 'assets/incomplete.gif'
 
       find("img[alt='エンキドゥ']").click
 
       expect(page.all('.checkMessageComponent')[0].find('img')['src'])
-        .to have_content 'assets/hero_icons/complete.gif'
+        .to have_content 'assets/complete.gif'
     end
   end
 
@@ -177,12 +177,12 @@ feature 'ヒーローアビリティ', js: true do
       find("img[alt='エンキドゥ']").click
 
       expect(page.all('.checkMessageComponent')[1].find('img')['src'])
-        .to have_content 'assets/hero_icons/incomplete.gif'
+        .to have_content 'assets/incomplete.gif'
 
       find('tr.active-ability').click
 
       expect(page.all('.checkMessageComponent')[1].find('img')['src'])
-        .to have_content 'assets/hero_icons/complete.gif'
+        .to have_content 'assets/complete.gif'
     end
   end
 end

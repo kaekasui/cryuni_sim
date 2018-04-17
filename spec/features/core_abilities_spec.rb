@@ -72,7 +72,7 @@ feature 'コアアビリティ', js: true do
         expect(page.all('.coreHeroComponent')[0].all('img')[0]['src'])
           .to have_content 'assets/hero_icons/enkidu.jpg'
         expect(page.all('.coreHeroComponent')[0].all('img')[1]['src'])
-          .to have_content 'assets/hero_icons/padlock.png'
+          .to have_content 'assets/padlock.png'
       end
     end
 
@@ -88,7 +88,7 @@ feature 'コアアビリティ', js: true do
         expect(page.all('.coreHeroComponent')[0].all('img')[0]['src'])
           .to have_content 'assets/hero_icons/enkidu.jpg'
         expect(page.all('.coreHeroComponent')[0].all('img')[1]['src'])
-          .to have_content 'assets/hero_icons/padlock.png'
+          .to have_content 'assets/padlock.png'
       end
     end
 
