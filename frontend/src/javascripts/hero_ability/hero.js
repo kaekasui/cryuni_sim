@@ -29,7 +29,11 @@ export default class Hero extends React.Component {
       <div className='heroComponent'>
         <span className='hero-image' data-tip={this.props.hero.name} onClick={this.handleClickHeroImage} >
           <ReactTooltip />
-          <img alt={this.props.hero.name} src={'assets/' + this.props.hero.image_name} />
+          {this.props.hero.image_name ? (
+            <img alt={this.props.hero.name} src={'assets/hero_icons/' + this.props.hero.image_name} />
+          ) : (
+            <img alt={this.props.hero.name} src={'assets/hero_icons/no_image_icon.jpg'} />
+          )}
           {this.props.selectedHero.name == this.props.hero.name ? (
             <img className='selected-fether' src='assets/fether.png' />
           ) : (

@@ -141,7 +141,7 @@ feature 'ヒーローアビリティ', js: true do
     within '.heroAbilitySettingComponent' do
       # エンキドゥで、画像が1つしか見つからない=羽がない
       expect(page.all('.heroComponent')[0].find('img')['src'])
-        .to have_content 'assets/enkidu.jpg'
+        .to have_content 'assets/hero_icons/enkidu.jpg'
       find("img[alt='エンキドゥ']").click
 
       # 羽が表示されていることを確認
@@ -152,7 +152,7 @@ feature 'ヒーローアビリティ', js: true do
 
       # エンキドゥで、画像が1つしか見つからない=羽がない
       expect(page.all('.heroComponent')[0].find('img')['src'])
-        .to have_content 'assets/enkidu.jpg'
+        .to have_content 'assets/hero_icons/enkidu.jpg'
 
       # 羽が移動していることを確認
       expect(page.all('.heroComponent')[1].all('img')[1]['src'])

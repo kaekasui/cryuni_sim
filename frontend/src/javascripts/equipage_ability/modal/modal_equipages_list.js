@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Modal from 'react-modal'
 
 import ModalEquipage from './modal_equipage'
+import Loading from './../../common/loading'
 
 export default class ModalEquipagesList extends React.Component {
   constructor(props) {
@@ -52,7 +53,7 @@ export default class ModalEquipagesList extends React.Component {
             <span dangerouslySetInnerHTML={{__html: '&times'}} />
           </button>
           {this.state.isLoading ? (
-            <p>{'Loading ...'}</p>
+            <Loading />
           ) : (
             <table className='table table-bordered'>
               <tbody>
