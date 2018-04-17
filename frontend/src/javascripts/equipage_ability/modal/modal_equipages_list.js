@@ -7,9 +7,29 @@ import ModalEquipage from './modal_equipage'
 export default class ModalEquipagesList extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      equipages: [],
+      isLoading: true
+    }
     this.handleClickCloseButton = this.handleClickCloseButton.bind(this)
     this.handleClickEquipage = this.handleClickEquipage.bind(this)
     this.handleClickEmptyEquipage = this.handleClickEmptyEquipage.bind(this)
+    this.getEquipages = this.getEquipages.bind(this)
+  }
+
+  componentWillMount() {
+    this.getEquipages()
+  }
+
+  getEquipages() {
+    fetch('api/equipages/' + this.props.part)
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({equipages: res, isLoading: false})
+      })
+      .catch((error) => {
+        console.error(error)
+      })
   }
 
   handleClickCloseButton() {
@@ -31,16 +51,20 @@ export default class ModalEquipagesList extends React.Component {
           <button aria-label='Close' className='close' onClick={this.handleClickCloseButton} type='button'>
             <span dangerouslySetInnerHTML={{__html: '&times'}} />
           </button>
-          <table className='table table-bordered'>
-            <tbody>
-              <tr className='modal-equipage-line' onClick={this.handleClickEmptyEquipage}>
-                <td colSpan='2'>{'なし'}</td>
-              </tr>
-              {this.props.equipages.map((equipage) =>
-                <ModalEquipage equipage={equipage} key={equipage.id} onClickEquipage={this.handleClickEquipage} />
-              )}
-            </tbody>
-          </table>
+          {this.state.isLoading ? (
+            <p>{'Loading ...'}</p>
+          ) : (
+            <table className='table table-bordered'>
+              <tbody>
+                <tr className='modal-equipage-line' onClick={this.handleClickEmptyEquipage}>
+                  <td colSpan='2'>{'なし'}</td>
+                </tr>
+                {this.state.equipages.map((equipage) =>
+                  <ModalEquipage equipage={equipage} key={equipage.id} onClickEquipage={this.handleClickEquipage} />
+                )}
+              </tbody>
+            </table>
+          )}
         </Modal>
       </div>
     )
@@ -48,8 +72,8 @@ export default class ModalEquipagesList extends React.Component {
 }
 
 ModalEquipagesList.propTypes = {
+  part: PropTypes.string.isRequired,
   handleClickCloseButton: PropTypes.func.isRequired,
   onSelectEquipage: PropTypes.func.isRequired,
-  equipages: PropTypes.array.isRequired,
   modalIsOpen: PropTypes.bool.isRequired
 }
