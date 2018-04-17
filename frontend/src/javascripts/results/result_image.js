@@ -16,7 +16,7 @@ export default class ResultImage extends React.Component {
           </span>
           {this.props.hero.whole_image_name ? (
             <span className='whole-image'>
-              <img src={'assets/' + this.props.hero.whole_image_name} />
+              <img src={'assets/hero_images/' + this.props.hero.whole_image_name} />
             </span>
           ) : (
             null
