@@ -8,6 +8,7 @@ require 'rspec/rails'
 require 'shoulda-matchers'
 require 'rspec/json_matcher'
 # require 'capybara/poltergeist'
+require 'capybara/rspec'
 require 'capybara-screenshot/rspec'
 require 'simplecov'
 require 'selenium-webdriver'
@@ -26,8 +27,17 @@ end
 
 Capybara.default_max_wait_time = 20
 
+Capybara.javascript_driver = :selenium
 Capybara.register_driver :selenium do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome)
+  Capybara::Selenium::Driver.new(
+    app,
+    browser: :chrome,
+    desired_capabilities: Selenium::WebDriver::Remote::Capabilities.chrome(
+      chrome_options: {
+        args: %w(headless disable-gpu window-size=1680,1050),
+      }
+    )
+  )
 end
 
 ActiveRecord::Migration.maintain_test_schema!
