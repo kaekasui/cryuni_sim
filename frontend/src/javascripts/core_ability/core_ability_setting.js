@@ -4,11 +4,13 @@ import PropTypes from 'prop-types'
 import CoreHero from './core_hero'
 import Title from './../common/title'
 import CheckMessage from './../common/check_message'
+import Loading from './../common/loading'
 
 export default class CoreAbilitySetting extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      isLoading: true,
       heros: []
     }
     this.togglePadlock = this.togglePadlock.bind(this)
@@ -42,7 +44,7 @@ export default class CoreAbilitySetting extends React.Component {
       res[index].padlocked = res[index].locked
       res[index].attached_core_abilities = []
     }
-    this.setState({heros: res})
+    this.setState({heros: res, isLoading: false})
   }
 
   setCoreAbilitiesToState(heroId, res) {
@@ -80,15 +82,21 @@ export default class CoreAbilitySetting extends React.Component {
     return (
       <div className='coreAbilitySettingComponent'>
         <Title title='◆コアアビリティ' />
-        <CheckMessage checked message='コアアビリティ開放済みの英雄を選択してください' />
-        <ul>
-          {this.state.heros.map((hero) =>
-            (<li className='icon' key={hero.id}>
-              <CoreHero handleClickCoreHeroImage={this.togglePadlock} hero={hero} />
-            </li>)
-          )}
-        </ul>
-        <div className='clear' />
+        {this.state.isLoading ? (
+          <Loading />
+        ) : (
+          <div>
+            <CheckMessage checked message='コアアビリティ開放済みの英雄を選択してください' />
+            <ul>
+              {this.state.heros.map((hero) =>
+                (<li className='icon' key={hero.id}>
+                  <CoreHero handleClickCoreHeroImage={this.togglePadlock} hero={hero} />
+                </li>)
+              )}
+            </ul>
+            <div className='clear' />
+          </div>
+        )}
       </div>
     )
   }
