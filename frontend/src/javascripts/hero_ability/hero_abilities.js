@@ -7,9 +7,6 @@ import Loading from './../common/loading'
 export default class HeroAbilities extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      isLoading: false
-    }
     this.handleClickHeroAbility = this.handleClickHeroAbility.bind(this)
   }
 
@@ -20,7 +17,7 @@ export default class HeroAbilities extends React.Component {
   render() {
     return (
       <div className='heroAbilitiesComponent'>
-        {this.state.isLoading ? (
+        {this.props.isLoading ? (
           <Loading />
         ) : (
           <table className='table table-bordered'>
@@ -45,7 +42,7 @@ export default class HeroAbilities extends React.Component {
 }
 
 HeroAbilities.propTypes = {
-  isLoading: PropTypes.bool,
+  isLoading: PropTypes.bool.isRequired,
   selectedIntimacy: PropTypes.number,
   handleSelectHeroAbility: PropTypes.func.isRequired,
   heroAbilities: PropTypes.array.isRequired

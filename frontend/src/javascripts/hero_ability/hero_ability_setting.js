@@ -15,6 +15,7 @@ export default class HeroAbilitySetting extends React.Component {
       heros: [],
       hero: {},
       heroAbilities: [],
+      heroAbilityIsLoading: false,
       selectedIntimacy: null
     }
     this.selectHero = this.selectHero.bind(this)
@@ -26,7 +27,7 @@ export default class HeroAbilitySetting extends React.Component {
   }
 
   selectHero(hero) {
-    this.setState({hero: hero, selectedIntimacy: null})
+    this.setState({hero: hero, selectedIntimacy: null, heroAbilityIsLoading: true})
     this.getHeroAbilities(hero.id)
     this.props.selectHero(hero)
   }
@@ -46,7 +47,7 @@ export default class HeroAbilitySetting extends React.Component {
     fetch('api/heros/' + hero_id + '/hero_abilities')
       .then((res) => res.json())
       .then((res) => {
-        this.setState({heroAbilities: res})
+        this.setState({heroAbilities: res, heroAbilityIsLoading: false})
       })
       .catch((error) => {
         console.error(error)
@@ -81,7 +82,7 @@ export default class HeroAbilitySetting extends React.Component {
               ) : (
                 <div>
                   <CheckMessage checked={this.state.selectedIntimacy != null} message='英雄親密度のレベル帯を選択してください' />
-                  <HeroAbilities handleSelectHeroAbility={this.selectHeroAbility} heroAbilities={this.state.heroAbilities} selectedIntimacy={this.state.selectedIntimacy} />
+                  <HeroAbilities handleSelectHeroAbility={this.selectHeroAbility} heroAbilities={this.state.heroAbilities} selectedIntimacy={this.state.selectedIntimacy} isLoading={this.state.heroAbilityIsLoading} />
                 </div>
               )}
             </div>
