@@ -17,7 +17,6 @@ export default class HeroAbilitySetting extends React.Component {
       heroAbilities: [],
       selectedIntimacy: null
     }
-    this.loadHeroAbilities = this.loadHeroAbilities.bind(this)
     this.selectHero = this.selectHero.bind(this)
     this.selectHeroAbility = this.selectHeroAbility.bind(this)
   }
@@ -28,11 +27,8 @@ export default class HeroAbilitySetting extends React.Component {
 
   selectHero(hero) {
     this.setState({hero: hero, selectedIntimacy: null})
+    this.getHeroAbilities(hero.id)
     this.props.selectHero(hero)
-  }
-
-  loadHeroAbilities(heroAbilities) {
-    this.setState({heroAbilities: heroAbilities})
   }
 
   getHeros() {
@@ -40,6 +36,17 @@ export default class HeroAbilitySetting extends React.Component {
       .then((res) => res.json())
       .then((res) => {
         this.setState({heros: res, isLoading: false})
+      })
+      .catch((error) => {
+        console.error(error)
+      })
+  }
+
+  getHeroAbilities(hero_id) {
+    fetch('api/heros/' + hero_id + '/hero_abilities')
+      .then((res) => res.json())
+      .then((res) => {
+        this.setState({heroAbilities: res})
       })
       .catch((error) => {
         console.error(error)
@@ -63,7 +70,7 @@ export default class HeroAbilitySetting extends React.Component {
             <ul>
               {this.state.heros.map((hero) =>
                 (<li className='icon' key={hero.id}>
-                  <Hero handleLoadHeroAbilities={this.loadHeroAbilities} hero={hero} selectHero={this.selectHero} selectedHero={this.state.hero} />
+                  <Hero hero={hero} selectHero={this.selectHero} selectedHero={this.state.hero} />
                 </li>)
               )}
             </ul>
@@ -72,9 +79,11 @@ export default class HeroAbilitySetting extends React.Component {
               {Object.keys(this.state.hero).length == 0 ? (
                 null
               ) : (
-                <CheckMessage checked={this.state.selectedIntimacy != null} message='英雄親密度のレベル帯を選択してください' />
+                <div>
+                  <CheckMessage checked={this.state.selectedIntimacy != null} message='英雄親密度のレベル帯を選択してください' />
+                  <HeroAbilities handleSelectHeroAbility={this.selectHeroAbility} heroAbilities={this.state.heroAbilities} selectedIntimacy={this.state.selectedIntimacy} />
+                </div>
               )}
-              <HeroAbilities handleSelectHeroAbility={this.selectHeroAbility} heroAbilities={this.state.heroAbilities} selectedIntimacy={this.state.selectedIntimacy} />
             </div>
           </div>
         )}
