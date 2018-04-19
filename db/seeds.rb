@@ -39,11 +39,11 @@ end
 
 # VIPアビリティ
 CSV.foreach('db/seeds/vip_abilities.csv') do |row|
-  vip_ability = VipAbility.find_or_initialize_by(vip_level: row[0])
+  vip_ability = VipAbility.find_or_initialize_by(vip_rank: row[0])
   vip_ability.attributes = {
     image_name: row[1]
   }
-  save_and_print(vip_ability, vip_ability.vip_level)
+  save_and_print(vip_ability, vip_ability.vip_rank)
 end
 
 # 英雄のヒーローアビリティ
@@ -114,7 +114,7 @@ end
 
 # VIPアビリティにあるアビリティ
 CSV.foreach('db/seeds/attached_vip_abilities.csv') do |row|
-  vip_ability = VipAbility.find_by(vip_level: row[0])
+  vip_ability = VipAbility.find_by(vip_rank: row[0])
   raise "ERROR: not found vip level '#{row[0]}'" if vip_ability.blank?
 
   ability = Ability.find_by(name: row[1])
@@ -127,7 +127,7 @@ CSV.foreach('db/seeds/attached_vip_abilities.csv') do |row|
     score: row[2],
     unit: row[3]
   }
-  save_and_print(attached_ability, "#{vip_ability.vip_level}, #{ability.name}")
+  save_and_print(attached_ability, "#{vip_ability.vip_rank}, #{ability.name}")
 end
 
 # コアアビリティにあるアビリティ
