@@ -28,7 +28,7 @@ jobs:
 
       # Bundle install dependencies
       - run: gem update bundler
-      - run: bundle install --path vendor/bundle
+      - run: bundle install --path vendor/bundle --clean
 
       # Store bundle cache
       - type: cache-save
@@ -48,6 +48,12 @@ jobs:
       - run:
           name: Run npm install
           command: npm install
+
+      - run:
+          name: Update Chromedriver
+          command: |
+            sudo apt-get update
+            sudo apt-get install google-chrome-stable
 
       - save_cache:
           name: Store npm cache

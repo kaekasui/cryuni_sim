@@ -9,19 +9,7 @@ export default class Hero extends React.Component {
   }
 
   handleClickHeroImage() {
-    this.getHeroAbilities()
     this.props.selectHero(this.props.hero)
-  }
-
-  getHeroAbilities() {
-    fetch('api/heros/' + this.props.hero.id + '/hero_abilities')
-      .then((res) => res.json())
-      .then((res) => {
-        this.props.handleLoadHeroAbilities(res)
-      })
-      .catch((error) => {
-        console.error(error)
-      })
   }
 
   render() {
@@ -48,6 +36,5 @@ export default class Hero extends React.Component {
 Hero.propTypes = {
   hero: PropTypes.object.isRequired,
   selectHero: PropTypes.func.isRequired,
-  selectedHero: PropTypes.object,
-  handleLoadHeroAbilities: PropTypes.func.isRequired
+  selectedHero: PropTypes.object
 }
