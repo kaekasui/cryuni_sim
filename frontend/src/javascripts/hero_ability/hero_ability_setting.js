@@ -82,7 +82,7 @@ export default class HeroAbilitySetting extends React.Component {
               ) : (
                 <div>
                   <CheckMessage checked={this.state.selectedIntimacy != null} message='英雄親密度のレベル帯を選択してください' />
-                  <HeroAbilities handleSelectHeroAbility={this.selectHeroAbility} heroAbilities={this.state.heroAbilities} selectedIntimacy={this.state.selectedIntimacy} isLoading={this.state.heroAbilityIsLoading} />
+                  <HeroAbilities handleSelectHeroAbility={this.selectHeroAbility} heroAbilities={this.state.heroAbilities} isLoading={this.state.heroAbilityIsLoading} selectedIntimacy={this.state.selectedIntimacy} />
                 </div>
               )}
             </div>
