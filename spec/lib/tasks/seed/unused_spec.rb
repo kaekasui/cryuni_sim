@@ -58,8 +58,8 @@ describe 'db:seed:unused' do
 
   context 'there are some unused vip abilities' do
     before do
-      create(:vip_ability, vip_level: 25)
-      create(:vip_ability, vip_level: 30)
+      create(:vip_ability, vip_rank: 25)
+      create(:vip_ability, vip_rank: 30)
     end
 
     it 'remove 2 unused vip abilities' do
@@ -143,9 +143,9 @@ describe 'db:seed:unused' do
   end
 
   context 'there are some unused attached vip abilities' do
-    let!(:vip_ability1) { create(:vip_ability, vip_level: 10) }
-    let!(:vip_ability2) { create(:vip_ability, vip_level: 11) }
-    let!(:vip_ability3) { create(:vip_ability, vip_level: 12) }
+    let!(:vip_ability1) { create(:vip_ability, vip_rank: 10) }
+    let!(:vip_ability2) { create(:vip_ability, vip_rank: 11) }
+    let!(:vip_ability3) { create(:vip_ability, vip_rank: 12) }
     let!(:ability) { create(:ability, name: '英雄移動速度') }
     let!(:ability1) { create(:ability, name: '対悪魔攻撃力') }
     let!(:ability2) { create(:ability, name: '対無機物攻撃力') }

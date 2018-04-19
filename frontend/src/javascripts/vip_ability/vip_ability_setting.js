@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import VipLevelForm from './vip_level_form'
+import VipRankForm from './vip_rank_form'
 import Title from './../common/title'
 
 export default class VipAbilitySetting extends React.Component {
@@ -9,13 +9,13 @@ export default class VipAbilitySetting extends React.Component {
     super(props)
     this.state = {
       vipAbilities: [],
-      vipLevel: ''
+      vipRank: ''
     }
     this.setVipAbility = this.setVipAbility.bind(this)
   }
 
   setVipAbility(vip_ability) {
-    this.setState({vipLevel: vip_ability.vip_level})
+    this.setState({vipRank: vip_ability.vip_rank})
     this.props.handleSelectVipAbility(vip_ability)
   }
 
@@ -24,7 +24,7 @@ export default class VipAbilitySetting extends React.Component {
       <div className='vipAbilitySettingComponent'>
         <Title title='◆VIPアビリティ' />
         <div className='vip-ability'>
-          <VipLevelForm handleSetVipAbility={this.setVipAbility} />
+          <VipRankForm handleSetVipAbility={this.setVipAbility} />
         </div>
       </div>
     )

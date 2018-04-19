@@ -3,6 +3,6 @@
 class Api::VipAbilitiesController < ApplicationController
   def index
     render json: VipAbility
-      .includes(attached_vip_abilities: :ability).order(:vip_level)
+      .includes(attached_vip_abilities: :ability).order(:vip_rank)
   end
 end

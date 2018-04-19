@@ -22,8 +22,8 @@ export default class ResultImage extends React.Component {
             null
           )}
           {this.props.vipAbility.image_name ? (
-            <span className='vip-level-image'>
-              <img src={'assets/vip_levels/' + this.props.vipAbility.image_name} />
+            <span className='vip-rank-image'>
+              <img src={'assets/vip_ranks/' + this.props.vipAbility.image_name} />
             </span>
           ) : (
             null

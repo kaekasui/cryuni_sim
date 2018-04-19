@@ -1,7 +1,7 @@
 Hero,name,1
 Ability,name,0
 Grade,name,0
-VipAbility,vip_level,0
+VipAbility,vip_rank,0
 HeroAbility,stage,3
 Equipage,name,0
 Card,name,0

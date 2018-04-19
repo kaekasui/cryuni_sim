@@ -6,10 +6,10 @@ feature 'VIPアビリティ', js: true do
   let!(:ability1) { create(:ability, name: '英雄移動速度') }
   let!(:ability2) { create(:ability, name: '対魔獣攻撃力') }
   let!(:vip_ability1) do
-    create(:vip_ability, vip_level: 1, image_name: 'lv1.gif')
+    create(:vip_ability, vip_rank: 1, image_name: 'rank1.gif')
   end
   let!(:vip_ability2) do
-    create(:vip_ability, vip_level: 2, image_name: 'lv2.gif')
+    create(:vip_ability, vip_rank: 2, image_name: 'rank2.gif')
   end
 
   let!(:attached_ability1) do
@@ -34,17 +34,17 @@ feature 'VIPアビリティ', js: true do
   end
 
   scenario '選択したVIPレベルがアクティブになること' do
-    within '.vipLevelFormComponent' do
-      expect(page).to have_no_css '.btn-group label.active#level-1'
-      find('#level-1').click
+    within '.vipRankFormComponent' do
+      expect(page).to have_no_css '.btn-group label.active#rank-1'
+      find('#rank-1').click
 
-      expect(page).to have_css '.btn-group label.active#level-1'
+      expect(page).to have_css '.btn-group label.active#rank-1'
     end
   end
 
   scenario '選択したVIPレベルのアビリティが結果に表示されること' do
-    within '.vipLevelFormComponent' do
-      find('#level-1').click
+    within '.vipRankFormComponent' do
+      find('#rank-1').click
     end
 
     within '.resultVipAbilityComponent' do
@@ -52,8 +52,8 @@ feature 'VIPアビリティ', js: true do
       expect(page).to have_content '対魔獣攻撃力 20.0 %'
     end
 
-    within '.vipLevelFormComponent' do
-      find('#level-2').click
+    within '.vipRankFormComponent' do
+      find('#rank-2').click
     end
 
     within '.resultVipAbilityComponent' do
