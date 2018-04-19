@@ -78,7 +78,7 @@ class CsvComparator
 
   def generated_vip_ability_attrs
     @csv_attrs.map do |attr|
-      vip_ability = VipAbility.find_by(vip_level: attr[0])
+      vip_ability = VipAbility.find_by(vip_rank: attr[0])
       ability = Ability.find_by(name: attr[1])
       [vip_ability.try(:id), ability.try(:id)].compact
     end

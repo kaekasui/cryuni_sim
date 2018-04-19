@@ -5,8 +5,8 @@ require 'rails_helper'
 describe 'GET /api/vip_abilities', autodoc: true do
   let!(:ability1) { create(:ability, name: '英雄移動速度') }
   let!(:ability2) { create(:ability, name: '対魔獣攻撃力') }
-  let!(:vip_ability1) { create(:vip_ability, vip_level: 1) }
-  let!(:vip_ability2) { create(:vip_ability, vip_level: 2) }
+  let!(:vip_ability1) { create(:vip_ability, vip_rank: 1) }
+  let!(:vip_ability2) { create(:vip_ability, vip_rank: 2) }
 
   let!(:attached_ability1) do
     create(:attached_vip_ability,
@@ -32,7 +32,7 @@ describe 'GET /api/vip_abilities', autodoc: true do
     json = [
       {
         id: vip_ability1.id,
-        vip_level: 1,
+        vip_rank: 1,
         image_name: vip_ability1.image_name,
         attached_vip_abilities: [
           {
@@ -51,7 +51,7 @@ describe 'GET /api/vip_abilities', autodoc: true do
       },
       {
         id: vip_ability2.id,
-        vip_level: 2,
+        vip_rank: 2,
         image_name: vip_ability2.image_name,
         attached_vip_abilities: [
           {

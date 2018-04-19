@@ -6,10 +6,10 @@ feature 'VIPアビリティ', js: true do
   let!(:ability1) { create(:ability, name: '英雄移動速度') }
   let!(:ability2) { create(:ability, name: '対魔獣攻撃力') }
   let!(:vip_ability1) do
-    create(:vip_ability, vip_level: 1, image_name: 'lv1.gif')
+    create(:vip_ability, vip_rank: 1, image_name: 'lv1.gif')
   end
   let!(:vip_ability2) do
-    create(:vip_ability, vip_level: 2, image_name: 'lv2.gif')
+    create(:vip_ability, vip_rank: 2, image_name: 'lv2.gif')
   end
 
   let!(:attached_ability1) do
