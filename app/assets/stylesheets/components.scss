@@ -232,3 +232,12 @@
     }
   }
 }
+
+.equipageInformationComponent {
+  position: fixed;
+  top: 40px;
+  left: 45%;
+  .panel.panel-default {
+    width: 400px;
+  }
+}

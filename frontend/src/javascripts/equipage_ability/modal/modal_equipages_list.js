@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Modal from 'react-modal'
 
 import ModalEquipage from './modal_equipage'
+import EquipageInformation from './equipage_information'
 import Loading from './../../common/loading'
 
 export default class ModalEquipagesList extends React.Component {
@@ -10,10 +11,13 @@ export default class ModalEquipagesList extends React.Component {
     super(props)
     this.state = {
       equipages: [],
+      mouseEnterEquipage: {},
       isLoading: true
     }
     this.handleClickCloseButton = this.handleClickCloseButton.bind(this)
     this.handleClickEquipage = this.handleClickEquipage.bind(this)
+    this.handleMouseEnterEquipage = this.handleMouseEnterEquipage.bind(this)
+    this.handleMouseLeaveEquipage = this.handleMouseLeaveEquipage.bind(this)
     this.handleClickEmptyEquipage = this.handleClickEmptyEquipage.bind(this)
     this.getEquipages = this.getEquipages.bind(this)
   }
@@ -45,6 +49,14 @@ export default class ModalEquipagesList extends React.Component {
     this.props.onSelectEquipage(equipage)
   }
 
+  handleMouseEnterEquipage(equipage) {
+    this.setState({mouseEnterEquipage: equipage})
+  }
+
+  handleMouseLeaveEquipage() {
+    this.setState({mouseEnterEquipage: {}})
+  }
+
   render() {
     return (
       <div className='modalEquipagesListComponent'>
@@ -55,16 +67,23 @@ export default class ModalEquipagesList extends React.Component {
           {this.state.isLoading ? (
             <Loading />
           ) : (
-            <table className='table table-bordered'>
-              <tbody>
-                <tr className='modal-equipage-line' onClick={this.handleClickEmptyEquipage}>
-                  <td colSpan='2'>{'なし'}</td>
-                </tr>
-                {this.state.equipages.map((equipage) =>
-                  <ModalEquipage equipage={equipage} key={equipage.id} onClickEquipage={this.handleClickEquipage} />
-                )}
-              </tbody>
-            </table>
+            <div>
+              <table className='table table-bordered'>
+                <tbody>
+                  <tr className='modal-equipage-line' onClick={this.handleClickEmptyEquipage}>
+                    <td colSpan='2'>{'なし'}</td>
+                  </tr>
+                  {this.state.equipages.map((equipage) =>
+                    <ModalEquipage equipage={equipage} key={equipage.id} onClickEquipage={this.handleClickEquipage} onMouseEnterEquipage={this.handleMouseEnterEquipage} onMouseLeaveEquipage={this.handleMouseLeaveEquipage} />
+                  )}
+                </tbody>
+              </table>
+              {Object.keys(this.state.mouseEnterEquipage).length > 0 ? (
+                <EquipageInformation equipage={this.state.mouseEnterEquipage} />
+              ) : (
+                null
+              )}
+            </div>
           )}
         </Modal>
       </div>
