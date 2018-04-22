@@ -16,22 +16,6 @@ span.break:before {
   }
 }
 
-.ReactModal__Content.ReactModal__Content--after-open {
-  width: 65%;
-  table {
-    width: 40%;
-  }
-  button.close {
-    top: -10px;
-    position: relative;
-  }
-}
-
-.equipage-name {
-  font-weight: bold;
-  padding: 5px 0px;
-}
-
 .modal-equipage-line:hover {
   cursor: pointer;
   background-color: $pale-yellow;

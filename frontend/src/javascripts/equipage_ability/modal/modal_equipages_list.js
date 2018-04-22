@@ -67,7 +67,7 @@ export default class ModalEquipagesList extends React.Component {
           {this.state.isLoading ? (
             <Loading />
           ) : (
-            <div>
+            <div className='equipages-list'>
               <table className='table table-bordered'>
                 <tbody>
                   <tr className='modal-equipage-line' onClick={this.handleClickEmptyEquipage} onMouseEnter={this.handleMouseLeaveEquipage}>
@@ -79,7 +79,11 @@ export default class ModalEquipagesList extends React.Component {
                 </tbody>
               </table>
               {Object.keys(this.state.mouseEnterEquipage).length > 0 ? (
-                <EquipageInformation equipage={this.state.mouseEnterEquipage} />
+                <div className='panel panel-default'>
+                  <div className='panel-body'>
+                    <EquipageInformation equipage={this.state.mouseEnterEquipage} />
+                  </div>
+                </div>
               ) : (
                 null
               )}

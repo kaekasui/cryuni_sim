@@ -11,15 +11,11 @@ export default class EquipageInformation extends React.Component {
   render() {
     return (
       <div className='equipageInformationComponent'>
-        <div className='panel panel-default'>
-          <div className='panel-body'>
-            <div className='equipage-name'>{this.props.equipage.name}</div>
-            <EquipageImage imageName={this.props.equipage.image_name} />
-            <div className='equipage-base-info'>
-              <div className='equipage-level'>{'装備レベル：'}{this.props.equipage.level}</div>
-              <div className='equipage-card-slot'>{'カードスロット数：'}{this.props.equipage.card_slot}</div>
-            </div>
-          </div>
+        <div className='equipage-name'>{this.props.equipage.name}</div>
+        <EquipageImage imageName={this.props.equipage.image_name} />
+        <div className='equipage-base-info'>
+          <div className='equipage-level'>{'装備レベル：'}{this.props.equipage.level}</div>
+          <div className='equipage-card-slot'>{'カードスロット数：'}{this.props.equipage.card_slot}</div>
         </div>
       </div>
     )

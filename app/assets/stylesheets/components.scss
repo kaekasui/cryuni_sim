@@ -247,17 +247,35 @@
   }
 }
 
-.equipageInformationComponent {
-  width: 28%;
-  position: fixed;
-  top: 60px;
-  left: 33%;
-  .panel.panel-default {
+.ReactModal__Content.ReactModal__Content--after-open {
+  width: 65%;
+  table {
+    width: 40%;
+  }
+  button.close {
+    top: -10px;
     position: relative;
-    .equipage-base-info {
+  }
+  .equipages-list {
+    position: relative;
+    .panel.panel-default {
       position: absolute;
-      top: 50px;
-      left: 130px;
+      top: 20px;
+      left: 45%;
+      width: 40%;
     }
+  }
+}
+
+.equipageInformationComponent {
+  position: relative;
+  .equipage-name {
+    font-weight: bold;
+    padding: 5px 0px;
+  }
+  .equipage-base-info {
+    position: absolute;
+    top: 50px;
+    left: 130px;
   }
 }
