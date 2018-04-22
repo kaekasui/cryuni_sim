@@ -10,9 +10,12 @@ export default class EquipageImage extends React.Component {
     return (
       <div className='equipageImageComponent'>
         {this.props.imageName ? (
-          <img src={'assets/equipages/' + this.props.imageName} />
+          <span className='equipage-image'>
+            <img className='equipage-background' src={'assets/grades/grade_gray.png'} />
+            <img className='equipage' src={'assets/equipages/' + this.props.imageName} />
+          </span>
         ) : (
-          <img src={'assets/hatena.png'} />
+          <img className='hatena' src={'assets/hatena.png'} />
         )}
       </div>
     )

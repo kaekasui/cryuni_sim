@@ -221,6 +221,13 @@
         img {
           width: 80px;
         }
+        span.equipage-image {
+          position: relative;
+        }
+        img.equipage {
+          position: absolute;
+          padding: 12px;
+        }
       }
       .selectable-card {
         display: inline-block;
