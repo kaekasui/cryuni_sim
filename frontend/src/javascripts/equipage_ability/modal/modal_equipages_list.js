@@ -73,7 +73,7 @@ export default class ModalEquipagesList extends React.Component {
                   <tr className='modal-equipage-line' onMouseEnter={this.handleMouseLeaveEquipage}>
                     <td colSpan='2'>
                       <span>{'なし'}</span>
-                      <img className='equipage-button remove-equipage' src='assets/equipages/remove_equipage.png' onClick={this.handleClickEmptyEquipage} />
+                      <img className='equipage-button remove-equipage' onClick={this.handleClickEmptyEquipage} src='assets/equipages/remove_equipage.png' />
                     </td>
                   </tr>
                   {this.state.equipages.map((equipage) =>

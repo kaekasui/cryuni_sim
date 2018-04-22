@@ -21,7 +21,7 @@ feature 'カードアビリティ', js: true do
     before do
       page.all('.equipageComponent')[0].find('img').click
       within '.ReactModal__Overlay.ReactModal__Overlay--after-open' do
-        find('.modalEquipageComponent').click
+        find('.equipage-button.set-equipage', match: :first).click
       end
 
       # 選択した装備が表示される

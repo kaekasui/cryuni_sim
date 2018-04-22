@@ -39,7 +39,7 @@ feature '装備アビリティ', js: true do
       expect(page).to have_content head_equipage1.name
       expect(page).to have_content head_equipage2.name
 
-      page.all('.modalEquipageComponent')[1].click
+      page.all('.modalEquipageComponent img.set-equipage')[1].click
     end
 
     # 選択した装備が表示される
@@ -56,7 +56,7 @@ feature '装備アビリティ', js: true do
       expect(page).to have_content head_equipage1.name
       expect(page).to have_content head_equipage2.name
 
-      page.all('.modal-equipage-line')[0].click
+      find('.equipage-button.remove-equipage', match: :first).click
     end
 
     # 装備が未選択になる
@@ -76,7 +76,7 @@ feature '装備アビリティ', js: true do
       expect(page).to have_content head_equipage1.name
       expect(page).to have_content head_equipage2.name
 
-      page.all('.modalEquipageComponent')[1].click
+      page.all('.modalEquipageComponent img.set-equipage')[1].click
     end
 
     within '.equipageSettingComponent' do
