@@ -248,16 +248,12 @@
 }
 
 .equipageInformationComponent {
+  width: 28%;
   position: fixed;
-  top: 40px;
-  left: 45%;
+  top: 60px;
+  left: 33%;
   .panel.panel-default {
     position: relative;
-    width: 400px;
-    .equipage-name {
-      font-weight: bold;
-      padding: 5px 0px;
-    }
     .equipage-base-info {
       position: absolute;
       top: 50px;
