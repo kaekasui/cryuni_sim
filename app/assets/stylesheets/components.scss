@@ -257,11 +257,15 @@
     top: -10px;
     position: relative;
     span {
-      font-size: larger;
+      position: fixed;
+      right: 45px;
+      top: 40px;
+      font-size: xx-large;
       padding: 10px;
     }
   }
   .equipages-list {
+    width: 95%;
     position: relative;
     .panel.panel-default {
       position: fixed;

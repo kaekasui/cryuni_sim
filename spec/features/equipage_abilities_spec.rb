@@ -50,7 +50,7 @@ feature '装備アビリティ', js: true do
       end
     end
 
-    page.all('.equipageComponent')[1].find('span').click
+    page.all('.equipageComponent')[1].find('.selectable-equipage').click
     within '.ReactModal__Overlay.ReactModal__Overlay--after-open' do
       expect(page).to have_content 'なし'
       expect(page).to have_content head_equipage1.name

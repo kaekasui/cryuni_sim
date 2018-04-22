@@ -74,7 +74,7 @@ export default class ModalEquipagesList extends React.Component {
                     <td colSpan='2'>{'なし'}</td>
                   </tr>
                   {this.state.equipages.map((equipage) =>
-                    <ModalEquipage equipage={equipage} key={equipage.id} onClickEquipage={this.handleClickEquipage} onMouseEnterEquipage={this.handleMouseEnterEquipage} />
+                    <ModalEquipage equipage={equipage} key={equipage.id} mouseEnterEquipage={this.state.mouseEnterEquipage} onClickEquipage={this.handleClickEquipage} onMouseEnterEquipage={this.handleMouseEnterEquipage} />
                   )}
                 </tbody>
               </table>
