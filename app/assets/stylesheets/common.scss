@@ -16,18 +16,30 @@ span.break:before {
   }
 }
 
-td.info-icon-td {
-  width: 30px;
-}
-
 .modal-card-line:hover {
   cursor: pointer;
   background-color: $pale-yellow;
 }
 
+td.info-icon-td {
+  width: 30px;
+}
+
 img.info-icon {
   width: 30px;
   filter: brightness(60%);
+}
+
+img.set-equipage {
+  float: right;
+  width: 90px;
+  cursor: pointer;
+}
+
+img.remove-equipage {
+  float: right;
+  width: 75px;
+  cursor: pointer;
 }
 
 img.info-icon.mouse-enter {

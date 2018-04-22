@@ -19,9 +19,12 @@ export default class ModalEquipage extends React.Component {
   render() {
     let mouseEnter = this.props.mouseEnterEquipage.id == this.props.equipage.id
     return (
-      <tr className='modalEquipageComponent modal-equipage-line' key={this.props.equipage.id} onClick={this.handleClickEquipage}>
+      <tr className='modalEquipageComponent modal-equipage-line' key={this.props.equipage.id}>
         <td>{'Lv. ' + this.props.equipage.level}</td>
-        <td>{this.props.equipage.name}</td>
+        <td>
+          <span>{this.props.equipage.name}</span>
+          <img className='set-equipage' src='assets/equipages/set_equipage.png' onClick={this.handleClickEquipage} />
+        </td>
         <td className='info-icon-td' onMouseEnter={this.handleMouseEnterEquipage}><img className={'info-icon ' + (mouseEnter ? 'mouse-enter' : '')} src='assets/info_icon.png' /></td>
       </tr>
     )
