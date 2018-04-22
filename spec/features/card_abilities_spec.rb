@@ -33,6 +33,7 @@ feature 'カードアビリティ', js: true do
     end
 
     scenario '装備のカードスロット分のカード領域が表示されること' do
+      pending 'カード機能が凍結中のため'
       within '.equipageSettingComponent' do
         within '.equipage-hand' do
           expect(page).to have_css('.cardComponent', count: 2)
@@ -41,6 +42,7 @@ feature 'カードアビリティ', js: true do
     end
 
     scenario 'モーダルで選択したカードが表示されること' do
+      pending 'カード機能が凍結中のため'
       page.all('.cardComponent')[0].find('img').click
       within '.ReactModal__Overlay.ReactModal__Overlay--after-open' do
         find('.modalCardComponent').click
@@ -55,6 +57,7 @@ feature 'カードアビリティ', js: true do
     end
 
     scenario 'モーダルで選択したカードのグレードの選択肢が表示されること' do
+      pending 'カード機能が凍結中のため'
       page.all('.cardComponent')[0].find('img').click
       within '.ReactModal__Overlay.ReactModal__Overlay--after-open' do
         find('.modalCardComponent').click

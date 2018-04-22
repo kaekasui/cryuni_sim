@@ -19,11 +19,10 @@ export default class Equipage extends React.Component {
     this.handleSelectEquipage = this.handleSelectEquipage.bind(this)
     this.handleSelectEquipageGrade = this.handleSelectEquipageGrade.bind(this)
     this.onClickCloseButton = this.onClickCloseButton.bind(this)
-    this.getEquipages = this.getEquipages.bind(this)
   }
 
   handleClickEquipageSettingImage() {
-    this.getEquipages()
+    this.setState({modalIsOpen: true})
   }
 
   handleSelectEquipage(equipage) {
@@ -38,17 +37,6 @@ export default class Equipage extends React.Component {
   handleSelectEquipageGrade(gradeLevel) {
     this.setState({selectedEquipageGrade: gradeLevel})
     this.props.onSelectEquipage(this.props.part, this.state.selectedEquipage, gradeLevel)
-  }
-
-  getEquipages() {
-    fetch('api/equipages/' + this.props.part)
-      .then((res) => res.json())
-      .then((res) => {
-        this.setState({equipages: res, modalIsOpen: true})
-      })
-      .catch((error) => {
-        console.error(error)
-      })
   }
 
   onClickCloseButton() {
@@ -73,7 +61,7 @@ export default class Equipage extends React.Component {
           )}
         </div>
         <div className='cards'>
-          {this.state.selectedEquipage ? (
+          {this.state.false ? (
             <div>
               {Array.from(Array(this.state.selectedEquipage.card_slot).keys()).map((i) => (
                 <Card index={i} key={i} onSelectCard={this.handleSelectCard} />
@@ -83,7 +71,7 @@ export default class Equipage extends React.Component {
             null
           )}
         </div>
-        <ModalEquipageList equipages={this.state.equipages} handleClickCloseButton={this.onClickCloseButton} modalIsOpen={this.state.modalIsOpen} onSelectEquipage={this.handleSelectEquipage} />
+        <ModalEquipageList handleClickCloseButton={this.onClickCloseButton} modalIsOpen={this.state.modalIsOpen} onSelectEquipage={this.handleSelectEquipage} part={this.props.part} />
       </div>
     )
   }

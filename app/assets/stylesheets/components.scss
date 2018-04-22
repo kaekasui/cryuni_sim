@@ -36,18 +36,20 @@
   }
 }
 
+.tweetsComponent {
+  text-align: center;
+}
+
 .messageComponent {
-  .panel.panel-default:hover {
-    border-color: #FFE9A1;
-  }
-  .panel.panel-default {
-    margin-top: 10px;
-    margin-bottom: 0;
-    .panel-body.message:hover {
-      cursor: pointer;
-      background-color: #FFF2C8;
-      a {
-        text-decoration: none;
+  text-align: right;
+  .info-button {
+    padding-top: 10px;
+    span {
+      display: inline;
+      img {
+        margin-top: 5px;
+        cursor: pointer;
+        width: 250px;
       }
     }
   }
@@ -78,7 +80,7 @@
         left: 10px;
         top: -260px;
       }
-      .vip-level-image img {
+      .vip-rank-image img {
         position: absolute;
         width: 70px;
         bottom: -95px;
@@ -175,10 +177,10 @@
     table {
       tr.active-ability:hover {
         cursor: pointer;
-        background-color: #FFF2C8;
+        background-color: $pale-yellow;
       }
       tr.selected-ability {
-        background-color: #FFF2C8;
+        background-color: $pale-yellow;
       }
       th.attached_abilities {
         width: 220px;

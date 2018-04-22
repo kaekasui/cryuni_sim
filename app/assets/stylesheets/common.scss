@@ -2,6 +2,11 @@
   clear: both;
 }
 
+span.break:before {
+  content: "\A";
+  white-space: pre;
+}
+
 .hero-image {
   cursor: pointer;
   position: relative;
@@ -21,10 +26,10 @@
 
 .modal-equipage-line:hover {
   cursor: pointer;
-  background-color: #FFA;
+  background-color: $pale-yellow;
 }
 
 .modal-card-line:hover {
   cursor: pointer;
-  background-color: #FFA;
+  background-color: $pale-yellow;
 }
