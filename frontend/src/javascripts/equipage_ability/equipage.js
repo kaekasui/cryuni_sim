@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import EquipageImage from './equipage_image'
 import ModalEquipageList from './modal/modal_equipages_list'
 import GradeForm from './grade_form'
 import Card from './card'
+import EquipageInformation from './equipage_information'
 
 export default class Equipage extends React.Component {
   constructor(props) {
@@ -50,8 +50,7 @@ export default class Equipage extends React.Component {
         <div className='selectable-equipage' onClick={this.handleClickEquipageSettingImage}>
           {this.state.selectedEquipage ? (
             <div>
-              <div className='equipage-name'>{this.state.selectedEquipage.name}</div>
-              <EquipageImage imageName={this.state.selectedEquipage.image_name} />
+              <EquipageInformation equipage={this.state.selectedEquipage} />
             </div>
           ) : (
             <img className='blank-equipage' src={'assets/equipages/blank_' + this.props.part + '.png'} />

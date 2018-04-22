@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import EquipageImage from './../equipage_image'
+import EquipageImage from './equipage_image'
 
 export default class EquipageInformation extends React.Component {
   constructor(props) {

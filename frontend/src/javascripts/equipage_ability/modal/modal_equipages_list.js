@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Modal from 'react-modal'
 
 import ModalEquipage from './modal_equipage'
-import EquipageInformation from './equipage_information'
+import EquipageInformation from './../equipage_information'
 import Loading from './../../common/loading'
 
 export default class ModalEquipagesList extends React.Component {
