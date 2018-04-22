@@ -30,16 +30,22 @@ img.info-icon {
   filter: brightness(60%);
 }
 
-img.set-equipage {
+
+img.equipage-button {
   float: right;
-  width: 90px;
   cursor: pointer;
 }
 
+img.equipage-button:hover {
+  filter: brightness(120%);
+}
+
+img.set-equipage {
+  width: 90px;
+}
+
 img.remove-equipage {
-  float: right;
   width: 75px;
-  cursor: pointer;
 }
 
 img.info-icon.mouse-enter {
