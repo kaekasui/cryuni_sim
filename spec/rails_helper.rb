@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 ENV['RAILS_ENV'] ||= 'test'
-require File.expand_path('../../config/environment', __FILE__)
+require File.expand_path('../config/environment', __dir__)
 
 require 'spec_helper'
 require 'rspec/rails'
@@ -15,8 +15,6 @@ require 'selenium-webdriver'
 # require 'paper_trail/frameworks/rspec'
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
-
-include ActionDispatch::TestProcess
 
 Shoulda::Matchers.configure do |config|
   config.integrate do |with|
@@ -51,6 +49,8 @@ SimpleCov.start do
 end
 
 RSpec.configure do |config|
+  include ActionDispatch::TestProcess
+
   # config.expect_with :rspec do |expectations|
   #  expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   # end
