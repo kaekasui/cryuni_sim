@@ -85,8 +85,8 @@ feature '装備アビリティ', js: true do
         expect(page).to have_content head_equipage2.name
         within '.gradeFormComponent' do
           expect(page).to have_content '普通'
-          expect(page).to have_content '上等'
-          expect(page).to have_content '高級'
+          expect(page).to have_no_content '上等'
+          expect(page).to have_no_content '高級'
 
           # 普通が選択されていること
           expect(page).to have_css 'label.active#level-1'
