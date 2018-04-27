@@ -254,29 +254,49 @@
   }
 }
 
+.ReactModal__Content.ReactModal__Content--after-open.twitter-modal {
+  // react-modal base style
+  position: absolute;
+  top: 40px;
+  left: 60px;
+  right: 40px;
+  bottom: 40px;
+  border: 1px solid rgb(204, 204, 204);
+  background: rgb(255, 255, 255);
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+  padding: 20px;
+
+  // custom style
+  width: 500px;
+}
+
 .ReactModal__Content.ReactModal__Content--after-open {
-  table {
-    width: 40%;
-  }
-  button.close {
-    top: -10px;
-    position: relative;
-    span {
-      position: fixed;
-      right: 45px;
-      top: 40px;
-      font-size: xx-large;
-      padding: 10px;
-    }
-  }
-  .equipages-list {
-    width: 95%;
-    position: relative;
-    .panel.panel-default {
-      position: fixed;
-      top: 60px;
-      left: 45%;
+  .equipagesListModal {
+    table {
       width: 40%;
+    }
+    button.close {
+      top: -10px;
+      position: relative;
+      span {
+        position: fixed;
+        right: 45px;
+        top: 40px;
+        font-size: xx-large;
+        padding: 10px;
+      }
+    }
+    .equipages-list {
+      width: 95%;
+      position: relative;
+      .panel.panel-default {
+        position: fixed;
+        top: 60px;
+        left: 45%;
+        width: 40%;
+      }
     }
   }
 }
@@ -292,4 +312,7 @@
     top: 50px;
     left: 130px;
   }
+}
+
+.modalTwitterComponent {
 }
