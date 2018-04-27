@@ -5,7 +5,7 @@ class EquipageSerializer < ActiveModel::Serializer
              :min_grade, :max_grade, :card_slot, :image_name, :range_grades
 
   def range_grades
-    object.range_grades.map { |r| GradeSerializer.new(r) }
+    object.range_grades.map { |r| EquipageGradeSerializer.new(r) }
   end
 
   def part_human_name

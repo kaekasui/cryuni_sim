@@ -7,6 +7,7 @@ class Equipage < ApplicationRecord
                accessory1: 5, accessory2: 5 }
 
   def range_grades
-    Grade.where(level: [min_grade..max_grade])
+    Grade.includes(attached_equipage_abilities: :ability)
+      .where(attached_abilities: { id: attached_equipage_abilities.pluck(:id) })
   end
 end
