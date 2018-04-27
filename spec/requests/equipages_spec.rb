@@ -28,8 +28,6 @@ describe 'GET /api/equipages/:part', autodoc: true do
           part: head_equipage1.part,
           part_human_name: '頭',
           level: head_equipage1.level,
-          min_grade: head_equipage1.min_grade,
-          max_grade: head_equipage1.max_grade,
           card_slot: head_equipage1.card_slot,
           image_name: head_equipage1.image_name,
           grades_with_abilities: [
@@ -61,8 +59,6 @@ describe 'GET /api/equipages/:part', autodoc: true do
           part: head_equipage2.part,
           part_human_name: '頭',
           level: head_equipage2.level,
-          min_grade: head_equipage2.min_grade,
-          max_grade: head_equipage2.max_grade,
           card_slot: head_equipage2.card_slot,
           image_name: head_equipage2.image_name,
           grades_with_abilities: []
@@ -84,8 +80,6 @@ describe 'GET /api/equipages/:part', autodoc: true do
           part: hand_equipage.part,
           part_human_name: '手',
           level: hand_equipage.level,
-          min_grade: hand_equipage.min_grade,
-          max_grade: hand_equipage.max_grade,
           card_slot: hand_equipage.card_slot,
           image_name: hand_equipage.image_name,
           grades_with_abilities: []
