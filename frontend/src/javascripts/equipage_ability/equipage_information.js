@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import EquipageImage from './equipage_image'
+import GradeTabs from './../common/grades/grade_tabs'
 
 export default class EquipageInformation extends React.Component {
   constructor(props) {
@@ -17,6 +18,7 @@ export default class EquipageInformation extends React.Component {
           <div className='equipage-level'>{'装備レベル：'}{this.props.equipage.level}</div>
           <div className='equipage-card-slot'>{'カードスロット数：'}{this.props.equipage.card_slot}</div>
         </div>
+        <GradeTabs grades={this.props.equipage.grades_with_abilities} />
       </div>
     )
   }
