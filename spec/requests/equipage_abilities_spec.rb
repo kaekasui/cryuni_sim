@@ -36,15 +36,13 @@ describe 'GET /api/equipages/:id/equipage_abilities/:grade', autodoc: true do
           id: equipage_ability1.id,
           ability_name: '英雄移動速度',
           score: '10.0',
-          unit: '%',
-          grade_level: 2
+          unit: '%'
         },
         {
           id: equipage_ability2.id,
           ability_name: '対亜人攻撃力',
           score: '20.0',
-          unit: '%',
-          grade_level: 2
+          unit: '%'
         }
       ]
       expect(response.body).to be_json_as(json)
@@ -61,15 +59,13 @@ describe 'GET /api/equipages/:id/equipage_abilities/:grade', autodoc: true do
           id: equipage_ability3.id,
           ability_name: '英雄移動速度',
           score: '20.0',
-          unit: '%',
-          grade_level: 3
+          unit: '%'
         },
         {
           id: equipage_ability4.id,
           ability_name: '対亜人攻撃力',
           score: '30.0',
-          unit: '%',
-          grade_level: 3
+          unit: '%'
         }
       ]
       expect(response.body).to be_json_as(json)
