@@ -57,6 +57,9 @@
 
 .resultsComponent {
   padding-top: 10px;
+  .col-md-8 {
+    text-align: center;
+  }
 
   .resultImageComponent {
     display: inline-block;
@@ -92,6 +95,8 @@
   .attacksComponent {
     position: absolute;
     top: 460px;
+    width: 500px;
+    left: 3%;
     .attackComponent {
       img.ability-icon {
         position: relative;
