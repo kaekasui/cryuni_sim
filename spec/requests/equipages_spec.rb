@@ -32,7 +32,7 @@ describe 'GET /api/equipages/:part', autodoc: true do
           max_grade: head_equipage1.max_grade,
           card_slot: head_equipage1.card_slot,
           image_name: head_equipage1.image_name,
-          range_grades: [
+          grades_with_abilities: [
             {
               id: grade1.id,
               name: grade1.name,
@@ -65,7 +65,7 @@ describe 'GET /api/equipages/:part', autodoc: true do
           max_grade: head_equipage2.max_grade,
           card_slot: head_equipage2.card_slot,
           image_name: head_equipage2.image_name,
-          range_grades: []
+          grades_with_abilities: []
         }
       ]
       expect(response.body).to be_json_as(json)
@@ -88,7 +88,7 @@ describe 'GET /api/equipages/:part', autodoc: true do
           max_grade: hand_equipage.max_grade,
           card_slot: hand_equipage.card_slot,
           image_name: hand_equipage.image_name,
-          range_grades: []
+          grades_with_abilities: []
         }
       ]
       expect(response.body).to be_json_as(json)

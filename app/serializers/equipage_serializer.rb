@@ -2,10 +2,11 @@
 
 class EquipageSerializer < ActiveModel::Serializer
   attributes :id, :name, :part, :part_human_name, :level,
-             :min_grade, :max_grade, :card_slot, :image_name, :range_grades
+             :min_grade, :max_grade, :card_slot, :image_name,
+             :grades_with_abilities
 
-  def range_grades
-    object.range_grades.map { |r| EquipageGradeSerializer.new(r) }
+  def grades_with_abilities
+    object.grades_with_abilities.map { |r| EquipageGradeSerializer.new(r) }
   end
 
   def part_human_name
