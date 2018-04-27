@@ -47,7 +47,10 @@ export default class Equipage extends React.Component {
   render() {
     return (
       <div className='equipageComponent'>
-        <div className='selectable-equipage' onClick={this.handleClickEquipageSettingImage}>
+        <span onClick={this.handleClickEquipageSettingImage}>
+          {'装備変更'}
+        </span>
+        <div className='selectable-equipage'>
           {this.state.selectedEquipage ? (
             <div>
               <EquipageInformation equipage={this.state.selectedEquipage} />

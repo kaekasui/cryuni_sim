@@ -13,7 +13,7 @@ export default class GradeTabs extends React.Component {
     this.handleSelectGrade = this.handleSelectGrade.bind(this)
   }
 
-  handleSelectGrade(index, _last) {
+  handleSelectGrade(index) {
     this.setState({selectedIndex: index})
   }
 
@@ -23,11 +23,11 @@ export default class GradeTabs extends React.Component {
         <Tabs onSelect={this.handleSelectGrade} selectedIndex={this.state.selectedIndex}>
           <TabList>
             {this.props.grades.map((grade) => (
-              <Tab>{grade.name}</Tab>
+              <Tab key={grade.id}><a>{grade.name}</a></Tab>
             ))}
           </TabList>
           {this.props.grades.map((grade) => (
-            <TabPanel>
+            <TabPanel key={grade.id}>
               <AttachedAbilitiesTable abilities={grade.attached_equipage_abilities} />
             </TabPanel>
           ))}

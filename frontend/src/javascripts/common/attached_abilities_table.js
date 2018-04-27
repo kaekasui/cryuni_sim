@@ -12,10 +12,10 @@ export default class AttachedAbilitiesTable extends React.Component {
         <table>
           <tbody>
             {this.props.abilities.map((ability) =>
-              <tr>
+              (<tr key={ability.id}>
                 <td>{ability.ability_name}</td>
                 <td>{ability.score} {ability.unit}</td>
-              </tr>
+              </tr>)
             )}
           </tbody>
         </table>

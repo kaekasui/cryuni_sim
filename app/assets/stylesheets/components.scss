@@ -238,7 +238,6 @@
       .selectable-equipage {
         width: 100%;
         display: inline-block;
-        cursor: pointer;
         img {
           width: 80px;
         }
@@ -314,5 +313,39 @@
   }
 }
 
-.modalTwitterComponent {
+.gradeTabsComponent {
+  .react-tabs__tab-list {
+    margin-bottom: 15px;
+    list-style: none;
+    padding-left: 10px;
+    .react-tabs__tab {
+      float: left;
+      display: block;
+      position: relative;
+      a {
+        margin-right: 2px;
+        border: 1px solid #ddd;
+        border-radius: 4px 4px 0 0;
+        padding: 10px;
+        display: block;
+        position: relative;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+    .react-tabs__tab.react-tabs__tab--selected {
+      outline: none;
+      a {
+        border: 1px solid #ddd;
+        border-bottom-color: transparent;
+        cursor: default;
+        color: #333;
+      }
+    }
+  }
+}
+
+.attachedAbilitiesTableComponent {
+  clear: both;
+  padding: 15px 10px;
 }

@@ -17,7 +17,7 @@ export default class ModalTwitter extends React.Component {
   render() {
     return (
       <div className='modalTwitterComponent'>
-        <Modal shouldCloseOnOverlayClick={true} ariaHideApp={false} isOpen={this.props.modalIsOpen} onRequestClose={this.handleClickCloseButton} className={'twitter-modal'}>
+        <Modal ariaHideApp={false} className={'twitter-modal'} isOpen={this.props.modalIsOpen} onRequestClose={this.handleClickCloseButton} shouldCloseOnOverlayClick>
           <div className='twitterModal'>
             <Tweets />
           </div>
