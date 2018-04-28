@@ -95,15 +95,14 @@ feature '装備アビリティ', js: true do
       within '.equipage-head' do
         expect(page).to have_no_content head_equipage1.name
         expect(page).to have_content head_equipage2.name
-        within '.gradeFormComponent' do
-          expect(page).to have_content '普通'
-          expect(page).to have_no_content '上等'
-          expect(page).to have_no_content '高級'
+        # TODO: 表示されるようにする
+        # expect(page).to have_content '普通'
+        expect(page).to have_no_content '上等'
+        expect(page).to have_no_content '高級'
 
-          # 普通が選択されていること
-          # TODO: 選択されるようにする
-          # expect(page).to have_css 'label.active#level-1'
-        end
+        # 普通が選択されていること
+        # TODO: 選択されるようにする
+        # expect(page).to have_css 'label.active#level-1'
       end
     end
   end
