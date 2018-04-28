@@ -57,6 +57,9 @@
 
 .resultsComponent {
   padding-top: 10px;
+  .col-md-8 {
+    text-align: center;
+  }
 
   .resultImageComponent {
     display: inline-block;
@@ -92,6 +95,8 @@
   .attacksComponent {
     position: absolute;
     top: 460px;
+    width: 500px;
+    left: 3%;
     .attackComponent {
       img.ability-icon {
         position: relative;
@@ -211,13 +216,28 @@
   }
 }
 
+.equipageImageComponent {
+  padding-left: 10px;
+  img {
+    width: 80px;
+  }
+  span.equipage-image {
+    position: relative;
+    img.equipage {
+      position: absolute;
+      padding: 12px;
+      left: 0px;
+    }
+  }
+}
+
 .equipageSettingComponent {
   .equipage {
     padding-top: 10px;
     .equipageComponent {
       .selectable-equipage {
+        width: 100%;
         display: inline-block;
-        cursor: pointer;
         img {
           width: 80px;
         }
@@ -233,11 +253,99 @@
   }
 }
 
-.equipageInformationComponent {
-  position: fixed;
+.ReactModal__Content.ReactModal__Content--after-open.twitter-modal {
+  // react-modal base style
+  position: absolute;
   top: 40px;
-  left: 45%;
-  .panel.panel-default {
-    width: 400px;
+  left: 60px;
+  right: 40px;
+  bottom: 40px;
+  border: 1px solid rgb(204, 204, 204);
+  background: rgb(255, 255, 255);
+  overflow: auto;
+  border-radius: 4px;
+  outline: none;
+  padding: 20px;
+
+  // custom style
+  width: 500px;
+}
+
+.ReactModal__Content.ReactModal__Content--after-open {
+  .equipagesListModal {
+    table {
+      width: 40%;
+    }
+    button.close {
+      top: -10px;
+      position: relative;
+      span {
+        position: fixed;
+        right: 45px;
+        top: 40px;
+        font-size: xx-large;
+        padding: 10px;
+      }
+    }
+    .equipages-list {
+      width: 95%;
+      position: relative;
+      .panel.panel-default {
+        position: fixed;
+        top: 60px;
+        left: 45%;
+        width: 40%;
+      }
+    }
   }
+}
+
+.equipageInformationComponent {
+  position: relative;
+  .equipage-name {
+    font-weight: bold;
+    padding: 5px 10px;
+  }
+  .equipage-base-info {
+    position: absolute;
+    top: 50px;
+    left: 130px;
+  }
+}
+
+.gradeTabsComponent {
+  .react-tabs__tab-list {
+    margin-bottom: 15px;
+    list-style: none;
+    padding-left: 10px;
+    .react-tabs__tab {
+      float: left;
+      display: block;
+      position: relative;
+      a {
+        margin-right: 2px;
+        border: 1px solid #ddd;
+        border-radius: 4px 4px 0 0;
+        padding: 10px;
+        display: block;
+        position: relative;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    }
+    .react-tabs__tab.react-tabs__tab--selected {
+      outline: none;
+      a {
+        border: 1px solid #ddd;
+        border-bottom-color: transparent;
+        cursor: default;
+        color: #333;
+      }
+    }
+  }
+}
+
+.attachedAbilitiesTableComponent {
+  clear: both;
+  padding: 15px 10px;
 }

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import ModalEquipageList from './modal/modal_equipages_list'
 import GradeForm from './grade_form'
 import Card from './card'
+import EquipageInformation from './equipage_information'
 
 export default class Equipage extends React.Component {
   constructor(props) {
@@ -46,16 +47,21 @@ export default class Equipage extends React.Component {
   render() {
     return (
       <div className='equipageComponent'>
-        <div className='selectable-equipage' onClick={this.handleClickEquipageSettingImage}>
+        <span onClick={this.handleClickEquipageSettingImage}>
+          <button>{'装備変更'}</button>
+        </span>
+        <div className='selectable-equipage'>
           {this.state.selectedEquipage ? (
-            <span>{this.state.selectedEquipage.name}</span>
+            <div>
+              <EquipageInformation equipage={this.state.selectedEquipage} />
+            </div>
           ) : (
-            <img src={'assets/equipages/blank_' + this.props.part + '.png'} />
+            <img className='blank-equipage' src={'assets/equipages/blank_' + this.props.part + '.png'} />
           )}
         </div>
         <div className='grades'>
           {this.state.selectedEquipage ? (
-            <GradeForm grades={this.state.selectedEquipage.range_grades} onSelectGrade={this.handleSelectEquipageGrade} selectedGradeLevel={this.state.selectedEquipageGrade} />
+            <GradeForm grades={this.state.selectedEquipage.grades_with_abilities} onSelectGrade={this.handleSelectEquipageGrade} selectedGradeLevel={this.state.selectedEquipageGrade} />
           ) : (
             null
           )}

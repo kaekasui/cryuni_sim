@@ -17,11 +17,10 @@ export default class ModalTwitter extends React.Component {
   render() {
     return (
       <div className='modalTwitterComponent'>
-        <Modal ariaHideApp={false} isOpen={this.props.modalIsOpen} onRequestClose={this.handleClickCloseButton}>
-          <button aria-label='Close' className='close' onClick={this.handleClickCloseButton} type='button'>
-            <span dangerouslySetInnerHTML={{__html: '&times'}} />
-          </button>
-          <Tweets />
+        <Modal ariaHideApp={false} className={'twitter-modal'} isOpen={this.props.modalIsOpen} onRequestClose={this.handleClickCloseButton} shouldCloseOnOverlayClick>
+          <div className='twitterModal'>
+            <Tweets />
+          </div>
         </Modal>
       </div>
     )

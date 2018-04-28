@@ -6,7 +6,6 @@ export default class ModalEquipage extends React.Component {
     super(props)
     this.handleClickEquipage = this.handleClickEquipage.bind(this)
     this.handleMouseEnterEquipage = this.handleMouseEnterEquipage.bind(this)
-    this.handleMouseLeaveEquipage = this.handleMouseLeaveEquipage.bind(this)
   }
 
   handleClickEquipage() {
@@ -17,15 +16,16 @@ export default class ModalEquipage extends React.Component {
     this.props.onMouseEnterEquipage(this.props.equipage)
   }
 
-  handleMouseLeaveEquipage() {
-    this.props.onMouseLeaveEquipage()
-  }
-
   render() {
+    let mouseEnter = this.props.mouseEnterEquipage.id == this.props.equipage.id
     return (
-      <tr className='modalEquipageComponent modal-equipage-line' key={this.props.equipage.id} onClick={this.handleClickEquipage} onMouseEnter={this.handleMouseEnterEquipage} onMouseLeave={this.handleMouseLeaveEquipage}>
+      <tr className='modalEquipageComponent modal-equipage-line' key={this.props.equipage.id}>
         <td>{'Lv. ' + this.props.equipage.level}</td>
-        <td>{this.props.equipage.name}</td>
+        <td>
+          <span>{this.props.equipage.name}</span>
+          <img className='equipage-button set-equipage' onClick={this.handleClickEquipage} src='assets/equipages/set_equipage.png' />
+        </td>
+        <td className='info-icon-td' onMouseEnter={this.handleMouseEnterEquipage}><img className={'info-icon ' + (mouseEnter ? 'mouse-enter' : '')} src='assets/info_icon.png' /></td>
       </tr>
     )
   }
@@ -35,5 +35,5 @@ ModalEquipage.propTypes = {
   equipage: PropTypes.object.isRequired,
   onClickEquipage: PropTypes.func.isRequired,
   onMouseEnterEquipage: PropTypes.func.isRequired,
-  onMouseLeaveEquipage: PropTypes.func.isRequired
+  mouseEnterEquipage: PropTypes.object
 }
