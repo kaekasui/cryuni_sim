@@ -19,7 +19,11 @@ feature 'カードアビリティ', js: true do
 
   context 'モーダルで装備を選択した場合' do
     before do
-      page.all('.equipageComponent')[0].find('img').click
+      within '.equipage.equipage-hand' do
+        click_on '装備変更'
+      end
+      # TODO: 画像にする
+      # page.all('.equipageComponent')[0].find('img').click
       within '.ReactModal__Overlay.ReactModal__Overlay--after-open' do
         find('.equipage-button.set-equipage', match: :first).click
       end
