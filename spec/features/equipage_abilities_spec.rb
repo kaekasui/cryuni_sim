@@ -33,7 +33,11 @@ feature '装備アビリティ', js: true do
   end
 
   scenario 'モーダルで選択した装備が表示されること' do
-    page.all('.equipageComponent')[1].find('img').click
+    within '.equipage.equipage-head' do
+      click_on '装備変更'
+    end
+    # TODO: 画像にする
+    # page.all('.equipageComponent')[1].find('img').click
     within '.ReactModal__Overlay.ReactModal__Overlay--after-open' do
       expect(page).to have_content 'なし'
       expect(page).to have_content head_equipage1.name
@@ -50,7 +54,11 @@ feature '装備アビリティ', js: true do
       end
     end
 
-    page.all('.equipageComponent')[1].find('.selectable-equipage').click
+    within '.equipage.equipage-head' do
+      click_on '装備変更'
+    end
+    # TODO: 画像にする
+    # page.all('.equipageComponent')[1].find('.selectable-equipage').click
     within '.ReactModal__Overlay.ReactModal__Overlay--after-open' do
       expect(page).to have_content 'なし'
       expect(page).to have_content head_equipage1.name
@@ -70,7 +78,11 @@ feature '装備アビリティ', js: true do
   end
 
   scenario 'モーダルで選択した装備のグレードの選択肢が表示されること' do
-    page.all('.equipageComponent')[1].find('img').click
+    within '.equipage-head' do
+      click_on '装備変更'
+    end
+    # TODO: 画像にする
+    # page.all('.equipageComponent')[1].find('img').click
     within '.ReactModal__Overlay.ReactModal__Overlay--after-open' do
       expect(page).to have_content 'なし'
       expect(page).to have_content head_equipage1.name
