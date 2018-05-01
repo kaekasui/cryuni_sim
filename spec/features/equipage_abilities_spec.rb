@@ -27,17 +27,22 @@ feature '装備アビリティ', js: true do
            ability: ability2, grade: grade1, equipage: head_equipage2,
            score: 20.0)
   end
+  let!(:attached_ability4) do
+    create(:attached_equipage_ability,
+           ability: ability2, grade: grade2, equipage: head_equipage2,
+           score: 40.0)
+  end
 
   background do
     visit root_path
-  end
-
-  scenario 'モーダルで選択した装備が表示されること' do
     within '.equipage.equipage-head' do
       click_on '装備変更'
     end
     # TODO: 画像にする
     # page.all('.equipageComponent')[1].find('img').click
+  end
+
+  scenario 'モーダルで選択した装備が表示されること' do
     within '.ReactModal__Overlay.ReactModal__Overlay--after-open' do
       expect(page).to have_content 'なし'
       expect(page).to have_content head_equipage1.name
@@ -78,11 +83,6 @@ feature '装備アビリティ', js: true do
   end
 
   scenario 'モーダルで選択した装備のグレードの選択肢が表示されること' do
-    within '.equipage-head' do
-      click_on '装備変更'
-    end
-    # TODO: 画像にする
-    # page.all('.equipageComponent')[1].find('img').click
     within '.ReactModal__Overlay.ReactModal__Overlay--after-open' do
       expect(page).to have_content 'なし'
       expect(page).to have_content head_equipage1.name
@@ -95,14 +95,40 @@ feature '装備アビリティ', js: true do
       within '.equipage-head' do
         expect(page).to have_no_content head_equipage1.name
         expect(page).to have_content head_equipage2.name
-        # TODO: 表示されるようにする
-        # expect(page).to have_content '普通'
-        expect(page).to have_no_content '上等'
+        expect(page).to have_content '普通'
+        expect(page).to have_content '上等'
         expect(page).to have_no_content '高級'
 
         # 普通が選択されていること
         # TODO: 選択されるようにする
         # expect(page).to have_css 'label.active#level-1'
+      end
+    end
+  end
+
+  scenario 'モーダルで装備の詳細を確認できること' do
+    within '.ReactModal__Overlay.ReactModal__Overlay--after-open' do
+      page.all('.modalEquipageComponent.modal-equipage-line img.info-icon')[1].hover
+
+      expect(page).to have_content head_equipage2.name
+      expect(page).to have_content "装備レベル：#{head_equipage2.level}"
+      expect(page).to have_content "カードスロット数：#{head_equipage2.card_slot}"
+
+      # 普通が選択されていること
+      within '.react-tabs__tab.react-tabs__tab--selected' do
+        expect(page).to have_content '普通'
+        expect(page).to have_no_content '上等'
+
+      end
+      within '.attachedAbilitiesTableComponent' do
+        expect(page).to have_content '英雄移動速度 20.0 %'
+        expect(page).to have_content '対魔獣攻撃力 20.0 %'
+      end
+      page.all('.react-tabs__tab')[1].click # 上等
+      within '.attachedAbilitiesTableComponent' do
+        expect(page).to have_no_content '英雄移動速度 20.0 %'
+        expect(page).to have_no_content '対魔獣攻撃力 20.0 %'
+        expect(page).to have_content '対魔獣攻撃力 40.0 %'
       end
     end
   end
