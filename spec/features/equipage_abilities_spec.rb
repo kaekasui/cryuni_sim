@@ -108,7 +108,8 @@ feature '装備アビリティ', js: true do
 
   scenario 'モーダルで装備の詳細を確認できること' do
     within '.ReactModal__Overlay.ReactModal__Overlay--after-open' do
-      page.all('.modalEquipageComponent.modal-equipage-line img.info-icon')[1].hover
+      element = '.modalEquipageComponent.modal-equipage-line img.info-icon'
+      page.all(element)[1].hover
 
       expect(page).to have_content head_equipage2.name
       expect(page).to have_content "装備レベル：#{head_equipage2.level}"
@@ -118,7 +119,6 @@ feature '装備アビリティ', js: true do
       within '.react-tabs__tab.react-tabs__tab--selected' do
         expect(page).to have_content '普通'
         expect(page).to have_no_content '上等'
-
       end
       within '.attachedAbilitiesTableComponent' do
         expect(page).to have_content '英雄移動速度 20.0 %'
