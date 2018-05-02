@@ -82,7 +82,7 @@ feature '装備アビリティ', js: true do
     end
   end
 
-  scenario 'モーダルで選択した装備のグレードの選択肢が表示されること' do
+  scenario 'モーダルで選択した装備の詳細とグレードの選択肢と各能力を確認できること' do
     within '.ReactModal__Overlay.ReactModal__Overlay--after-open' do
       expect(page).to have_content 'なし'
       expect(page).to have_content head_equipage1.name
@@ -95,6 +95,9 @@ feature '装備アビリティ', js: true do
       within '.equipage-head' do
         expect(page).to have_no_content head_equipage1.name
         expect(page).to have_content head_equipage2.name
+        expect(page).to have_content "装備レベル：#{head_equipage2.level}"
+        expect(page).to have_content "カードスロット数：#{head_equipage2.card_slot}"
+
         expect(page).to have_content '普通'
         expect(page).to have_content '上等'
         expect(page).to have_no_content '高級'
@@ -102,11 +105,22 @@ feature '装備アビリティ', js: true do
         # 普通が選択されていること
         # TODO: 選択されるようにする
         # expect(page).to have_css 'label.active#level-1'
+
+        within '.attachedAbilitiesTableComponent' do
+          expect(page).to have_content '英雄移動速度 20.0 %'
+          expect(page).to have_content '対魔獣攻撃力 20.0 %'
+        end
+        page.all('.react-tabs__tab')[1].click # 上等
+        within '.attachedAbilitiesTableComponent' do
+          expect(page).to have_no_content '英雄移動速度 20.0 %'
+          expect(page).to have_no_content '対魔獣攻撃力 20.0 %'
+          expect(page).to have_content '対魔獣攻撃力 40.0 %'
+        end
       end
     end
   end
 
-  scenario 'モーダルで装備の詳細を確認できること' do
+  scenario 'モーダルで装備の詳細とグレードの選択肢と各能力を確認できること' do
     within '.ReactModal__Overlay.ReactModal__Overlay--after-open' do
       element = '.modalEquipageComponent.modal-equipage-line img.info-icon'
       page.all(element)[1].hover
@@ -119,6 +133,7 @@ feature '装備アビリティ', js: true do
       within '.react-tabs__tab.react-tabs__tab--selected' do
         expect(page).to have_content '普通'
         expect(page).to have_no_content '上等'
+        expect(page).to have_no_content '高級'
       end
       within '.attachedAbilitiesTableComponent' do
         expect(page).to have_content '英雄移動速度 20.0 %'
