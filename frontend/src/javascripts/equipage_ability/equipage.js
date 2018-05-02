@@ -17,7 +17,7 @@ export default class Equipage extends React.Component {
     this.handleClickEquipageSettingImage = this.handleClickEquipageSettingImage.bind(this)
     this.handleSelectCard = this.handleSelectCard.bind(this)
     this.handleSelectEquipage = this.handleSelectEquipage.bind(this)
-    this.handleSelectEquipageGrade = this.handleSelectEquipageGrade.bind(this)
+    this.onSelectEquipageGrade = this.onSelectEquipageGrade.bind(this)
     this.onClickCloseButton = this.onClickCloseButton.bind(this)
   }
 
@@ -34,9 +34,8 @@ export default class Equipage extends React.Component {
     this.props.onSelectCard(this.props.part, i, abilities)
   }
 
-  handleSelectEquipageGrade(gradeLevel) {
-    this.setState({selectedEquipageGrade: gradeLevel})
-    this.props.onSelectEquipage(this.props.part, this.state.selectedEquipage, gradeLevel)
+  onSelectEquipageGrade(gradeWithAbilities) {
+    console.log(gradeWithAbilities)
   }
 
   onClickCloseButton() {
@@ -52,7 +51,7 @@ export default class Equipage extends React.Component {
         <div className='selectable-equipage'>
           {this.state.selectedEquipage ? (
             <div>
-              <EquipageInformation equipage={this.state.selectedEquipage} />
+              <EquipageInformation equipage={this.state.selectedEquipage} handleSelectGrade={this.onSelectEquipageGrade} />
             </div>
           ) : (
             <img className='blank-equipage' src={'assets/equipages/blank_' + this.props.part + '.png'} />

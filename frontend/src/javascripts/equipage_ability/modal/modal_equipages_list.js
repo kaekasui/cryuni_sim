@@ -19,6 +19,7 @@ export default class ModalEquipagesList extends React.Component {
     this.handleMouseEnterEquipage = this.handleMouseEnterEquipage.bind(this)
     this.handleMouseLeaveEquipage = this.handleMouseLeaveEquipage.bind(this)
     this.handleClickEmptyEquipage = this.handleClickEmptyEquipage.bind(this)
+    this.onSelectEquipageGrade = this.onSelectEquipageGrade.bind(this)
     this.getEquipages = this.getEquipages.bind(this)
   }
 
@@ -57,6 +58,10 @@ export default class ModalEquipagesList extends React.Component {
     this.setState({mouseEnterEquipage: {}})
   }
 
+  onSelectEquipageGrade(gradeWithAbilities) {
+    console.log(gradeWithAbilities)
+  }
+
   render() {
     return (
       <div className='modalEquipagesListComponent'>
@@ -85,7 +90,7 @@ export default class ModalEquipagesList extends React.Component {
                 {Object.keys(this.state.mouseEnterEquipage).length > 0 ? (
                   <div className='panel panel-default'>
                     <div className='panel-body'>
-                      <EquipageInformation equipage={this.state.mouseEnterEquipage} />
+                      <EquipageInformation equipage={this.state.mouseEnterEquipage} handleSelectGrade={this.onSelectEquipageGrade} />
                     </div>
                   </div>
                 ) : (
