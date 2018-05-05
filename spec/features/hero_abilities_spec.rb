@@ -144,6 +144,7 @@ feature 'ヒーローアビリティ', js: true do
         .to have_content 'assets/hero_icons/enkidu.jpg'
       find("img[alt='エンキドゥ']").click
 
+      sleep 1 # NOTE: 表示されるまで待つ
       # 羽が表示されていることを確認
       expect(page.all('.heroComponent')[0].all('img')[1]['src'])
         .to have_content 'assets/fether.png'
