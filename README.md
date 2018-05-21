@@ -1,10 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
 ## 開発環境
 
 - https://cryuni-test.herokuapp.com/
@@ -12,6 +7,13 @@ Things you may want to cover:
 ## 本番環境
 
 - https://cryuni.info/
+
+## DEFAULT README :TODO
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
 
 * Ruby version
 
