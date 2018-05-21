@@ -5,6 +5,14 @@ application up and running.
 
 Things you may want to cover:
 
+## 開発環境
+
+- https://cryuni-test.herokuapp.com/
+
+## 本番環境
+
+- https://cryuni.info/
+
 * Ruby version
 
 * System dependencies
