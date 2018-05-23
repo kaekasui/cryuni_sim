@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import ModalEquipageList from './modal/modal_equipages_list'
-import GradeForm from './grade_form'
+import ModalEquipagesList from './modal/modal_equipages_list'
 import Card from './card'
 import EquipageInformation from './equipage_information'
 
@@ -18,7 +17,7 @@ export default class Equipage extends React.Component {
     this.handleClickEquipageSettingImage = this.handleClickEquipageSettingImage.bind(this)
     this.handleSelectCard = this.handleSelectCard.bind(this)
     this.handleSelectEquipage = this.handleSelectEquipage.bind(this)
-    this.handleSelectEquipageGrade = this.handleSelectEquipageGrade.bind(this)
+    this.onSelectEquipageGrade = this.onSelectEquipageGrade.bind(this)
     this.onClickCloseButton = this.onClickCloseButton.bind(this)
   }
 
@@ -35,9 +34,8 @@ export default class Equipage extends React.Component {
     this.props.onSelectCard(this.props.part, i, abilities)
   }
 
-  handleSelectEquipageGrade(gradeLevel) {
-    this.setState({selectedEquipageGrade: gradeLevel})
-    this.props.onSelectEquipage(this.props.part, this.state.selectedEquipage, gradeLevel)
+  onSelectEquipageGrade(gradeWithAbilities) {
+    console.log(gradeWithAbilities)
   }
 
   onClickCloseButton() {
@@ -53,17 +51,10 @@ export default class Equipage extends React.Component {
         <div className='selectable-equipage'>
           {this.state.selectedEquipage ? (
             <div>
-              <EquipageInformation equipage={this.state.selectedEquipage} />
+              <EquipageInformation equipage={this.state.selectedEquipage} handleSelectGrade={this.onSelectEquipageGrade} />
             </div>
           ) : (
             <img className='blank-equipage' src={'assets/equipages/blank_' + this.props.part + '.png'} />
-          )}
-        </div>
-        <div className='grades'>
-          {this.state.selectedEquipage ? (
-            <GradeForm grades={this.state.selectedEquipage.grades_with_abilities} onSelectGrade={this.handleSelectEquipageGrade} selectedGradeLevel={this.state.selectedEquipageGrade} />
-          ) : (
-            null
           )}
         </div>
         <div className='cards'>
@@ -77,7 +68,7 @@ export default class Equipage extends React.Component {
             null
           )}
         </div>
-        <ModalEquipageList handleClickCloseButton={this.onClickCloseButton} modalIsOpen={this.state.modalIsOpen} onSelectEquipage={this.handleSelectEquipage} part={this.props.part} />
+        <ModalEquipagesList handleClickCloseButton={this.onClickCloseButton} modalIsOpen={this.state.modalIsOpen} onSelectEquipage={this.handleSelectEquipage} part={this.props.part} />
       </div>
     )
   }

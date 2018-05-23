@@ -15,6 +15,8 @@ export default class GradeTabs extends React.Component {
 
   handleSelectGrade(index) {
     this.setState({selectedIndex: index})
+    let grade = this.props.grades[index]
+    this.props.onSelectGrade(grade)
   }
 
   render() {
@@ -38,5 +40,7 @@ export default class GradeTabs extends React.Component {
 }
 
 GradeTabs.propTypes = {
-  grades: PropTypes.object.isRequired
+  gradeTabsIndex: PropTypes.number,
+  grades: PropTypes.object.isRequired,
+  onSelectGrade: PropTypes.func.isRequired
 }
