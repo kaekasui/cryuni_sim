@@ -1,5 +1,15 @@
 # README
 
+## 開発環境
+
+- https://cryuni-test.herokuapp.com/
+
+## 本番環境
+
+- http://cryuni.info/
+
+## DEFAULT README :TODO
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
