@@ -6,7 +6,7 @@
 
 ## 本番環境
 
-- https://cryuni.info/
+- http://cryuni.info/
 
 ## DEFAULT README :TODO
 
