@@ -9,6 +9,12 @@ describe 'GET /api/equipages/:part', autodoc: true do
   let!(:grade1) { create(:grade, level: 1) }
   let!(:grade2) { create(:grade, level: 2) }
   let!(:grade3) { create(:grade, level: 3) }
+  let!(:attached_equipage_ability1) do
+    create(:attached_equipage_ability, equipage: head_equipage1, grade: grade1)
+  end
+  let!(:attached_equipage_ability2) do
+    create(:attached_equipage_ability, equipage: head_equipage1, grade: grade1)
+  end
 
   context '頭装備の場合' do
     it '200とデータが返ってくること' do
@@ -22,28 +28,28 @@ describe 'GET /api/equipages/:part', autodoc: true do
           part: head_equipage1.part,
           part_human_name: '頭',
           level: head_equipage1.level,
-          min_grade: head_equipage1.min_grade,
-          max_grade: head_equipage1.max_grade,
           card_slot: head_equipage1.card_slot,
           image_name: head_equipage1.image_name,
-          range_grades: [
+          grades_with_abilities: [
             {
               id: grade1.id,
               name: grade1.name,
               level: grade1.level,
-              image_name: grade1.image_name
-            },
-            {
-              id: grade2.id,
-              name: grade2.name,
-              level: grade2.level,
-              image_name: grade2.image_name
-            },
-            {
-              id: grade3.id,
-              name: grade3.name,
-              level: grade3.level,
-              image_name: grade3.image_name
+              image_name: grade1.image_name,
+              attached_equipage_abilities: [
+                {
+                  id: attached_equipage_ability1.id,
+                  score: attached_equipage_ability1.score.to_s,
+                  unit: attached_equipage_ability1.unit,
+                  ability_name: attached_equipage_ability1.ability.name
+                },
+                {
+                  id: attached_equipage_ability2.id,
+                  score: attached_equipage_ability2.score.to_s,
+                  unit: attached_equipage_ability2.unit,
+                  ability_name: attached_equipage_ability2.ability.name
+                }
+              ]
             }
           ]
         },
@@ -53,30 +59,9 @@ describe 'GET /api/equipages/:part', autodoc: true do
           part: head_equipage2.part,
           part_human_name: '頭',
           level: head_equipage2.level,
-          min_grade: head_equipage2.min_grade,
-          max_grade: head_equipage2.max_grade,
           card_slot: head_equipage2.card_slot,
           image_name: head_equipage2.image_name,
-          range_grades: [
-            {
-              id: grade1.id,
-              name: grade1.name,
-              level: grade1.level,
-              image_name: grade1.image_name
-            },
-            {
-              id: grade2.id,
-              name: grade2.name,
-              level: grade2.level,
-              image_name: grade2.image_name
-            },
-            {
-              id: grade3.id,
-              name: grade3.name,
-              level: grade3.level,
-              image_name: grade3.image_name
-            }
-          ]
+          grades_with_abilities: []
         }
       ]
       expect(response.body).to be_json_as(json)
@@ -95,30 +80,9 @@ describe 'GET /api/equipages/:part', autodoc: true do
           part: hand_equipage.part,
           part_human_name: '手',
           level: hand_equipage.level,
-          min_grade: hand_equipage.min_grade,
-          max_grade: hand_equipage.max_grade,
           card_slot: hand_equipage.card_slot,
           image_name: hand_equipage.image_name,
-          range_grades: [
-            {
-              id: grade1.id,
-              name: grade1.name,
-              level: grade1.level,
-              image_name: grade1.image_name
-            },
-            {
-              id: grade2.id,
-              name: grade2.name,
-              level: grade2.level,
-              image_name: grade2.image_name
-            },
-            {
-              id: grade3.id,
-              name: grade3.name,
-              level: grade3.level,
-              image_name: grade3.image_name
-            }
-          ]
+          grades_with_abilities: []
         }
       ]
       expect(response.body).to be_json_as(json)

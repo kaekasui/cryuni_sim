@@ -4,7 +4,7 @@ class Api::EquipageAbilitiesController < ApplicationController
   before_action :set_equipage, :set_grade, :set_equipage_abilities, on: [:show]
 
   def show
-    render json: @equipage_abilities.includes(:ability, :grade).order(:id)
+    render json: @equipage_abilities.includes(:ability).order(:id)
   end
 
   private

@@ -16,20 +16,38 @@ span.break:before {
   }
 }
 
-.ReactModal__Content.ReactModal__Content--after-open {
-  width: 40%;
-  button.close {
-    top: -10px;
-    position: relative;
-  }
-}
-
-.modal-equipage-line:hover {
-  cursor: pointer;
-  background-color: $pale-yellow;
-}
-
 .modal-card-line:hover {
   cursor: pointer;
   background-color: $pale-yellow;
+}
+
+td.info-icon-td {
+  width: 30px;
+}
+
+img.info-icon {
+  width: 30px;
+  filter: brightness(60%);
+  cursor: pointer;
+}
+
+img.equipage-button {
+  float: right;
+  cursor: pointer;
+}
+
+img.equipage-button:hover {
+  filter: brightness(120%);
+}
+
+img.set-equipage {
+  width: 90px;
+}
+
+img.remove-equipage {
+  width: 75px;
+}
+
+img.info-icon.mouse-enter {
+  filter: brightness(100%);
 }
