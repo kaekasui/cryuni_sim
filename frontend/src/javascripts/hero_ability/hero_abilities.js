@@ -10,6 +10,10 @@ export default class HeroAbilities extends React.Component {
     this.handleClickHeroAbility = this.handleClickHeroAbility.bind(this)
   }
 
+  shouldComponentUpdate(nextProps) {
+    return this.props.heroAbilities != nextProps.heroAbilities
+  }
+
   handleClickHeroAbility(ability) {
     this.props.handleSelectHeroAbility({attached_hero_abilities: ability.attached_hero_abilities}, ability.id)
   }
